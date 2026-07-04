@@ -1,16 +1,25 @@
-# Agent.md — Sid Automation Lab 遷移協作指南
+# Agent.md — Sid Automation Lab 協作指南
 
-> 接手這份專案的 AI Agent 必讀。內容由本次遷移 PM 整理。
+> 接手這份專案的 AI Agent 必讀。內容由 PM 維護。
+
+## ⚡ 一句話定位
+
+> 這是站主（Sid）的「自動化 / 工具作品發布與下載入口」的原始碼 repo。
+>
+> 站本身同時部署於 GitHub Pages、Vercel 等多個免費平台，目的是**分散曝光與提升可達性**。本 repo 不當純測試場、也不當檔案倉庫。
 
 ---
 
 ## 🎯 專案目標
 
-把 Weebly 匯出的靜態站完整搬遷到 Vercel：
-- 視覺與原作者一致
-- 行為與功能不退步
-- 0 個破壞性外部依賴
-- Vercel 上線即用（無 build step）
+**這是一個個人作品工具的曝光平台 repo，不是純測試場，也不是檔案倉庫。**
+
+- 站主最終目標：把分散開發的自動化、遊戲輔助、影像辨識研究與工具集中在一個**有 SEO 的固定入口**，藉由 GitHub Pages / Vercel 等多平台鏡像**提升作品的可達性與曝光率**
+- 維護具體目標：把 Weebly 匯出的靜態站完整搬到 GitHub Pages 等免費平台
+  - 視覺與原作者一致
+  - 行為與功能不退步
+  - 0 個破壞性外部依賴
+  - 各平台上線即用（無 build step）
 
 ---
 
@@ -171,3 +180,4 @@ git add .; git commit -m "..."; git push
 - v1.0：完整 Weebly → Vercel 遷移，含內化、本地化、SEO 賦能、修缺檔、幻燈片本地化（2026-07-04）
 - v1.1：新增 `pwsh` 使用建議（中文編碼更穩定），補充中文亂碼相關 Troubleshooting（2026-07-04）
 - v1.2：修復 `sidpayfor.html` 巢狀 `<html>` 結構債（原本內嵌了一份完整獨立 HTML 文件，造成雙重 head/body/html 標籤）；WeChat 改列為「02 / 聯繫作者領取授權」的第二聯繫管道（給無法用 FB 的使用者）；移除「真的有在運作的網站啊」GIF 段落（素材已由使用者確認捨棄）；`sidexiletoolbox.html` 補回 3 張示範截圖（2026-07-05）
+- v1.3：重定位為「個人作品曝光平台」。清掉全站 Gmail 信箱；聯絡表單改為外連 Google Form（按鈕式開新分頁）；頂端 nav「聯絡作者」改成直連 Google Form 並補回子項 `<a>` 的 `href`；README 改寫為「曝光率平台」敘述；GitHub repo About 更新 description / website / topics（2026-07-05）

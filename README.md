@@ -1,178 +1,130 @@
-# Sid Automation Lab — Static Site
+# Sid Automation Lab
 
-Weebly 導出後重構為純靜態站，部署於 [Vercel](https://vercel.com)。
-已內化所有依賴（Weebly CDN、字型、計數器外掛），無第三方 build 步驟。
+> 個人自動化、遊戲輔助、影像辨識工具的發布與下載入口站。
+>
+> 🌍 Live: **https://sid-1996.github.io/sid-automation-lab/**
 
 ---
 
-## 📁 目錄結構
+## 這是什麼
+
+這裡是 **Sid** 開發的自動化與工具作品的曝光平台 — 收錄 Path of Exile 流亡黯道工具組、遊戲半自動腳本、影像辨識研究、AHK / Python / OCR 專案等下載與說明。把分散的作品集中在一個有 SEO 的固定入口，方便有緣人從搜尋引擎與社群連結進入。
+
+> 📌 **本 repo 是網站的原始檔**，不是純測試場，也不是檔案倉庫。
+> 網站本身同時部署於多個免費平台上（GitHub Pages、Vercel...），目的在於**分散曝光與提升可達性**。
+
+---
+
+## 🚀 已部署平台
+
+| 平台 | 網址 | 用途 |
+|------|------|------|
+| GitHub Pages | <https://sid-1996.github.io/sid-automation-lab/> | 主入口、SEO 收錄 |
+| Vercel | _陸續加入中_ | 預定第二入口（CDN 加速、自訂網域） |
+
+---
+
+## 🧩 主要收錄專案
+
+- 📦 **Path of Exile 流亡黯道工具組（Sid 工具箱）** — 半自動戰鬥、找尋快遞、AHK 巨集
+- 🎯 **後座力輔助腳本 (Sid Recoil Script)** — 多款射擊遊戲滑鼠後座力補償
+- 🔍 **圖像識別 / 模擬輸入研究** — OCR 研究筆記與工具
+- 🤖 **Automation / OCR / AHK / Python 研究** — 各類雜項自動化腳本
+- 🗒️ **開發宗旨** — 為什麼做這些、理念
+
+完整工具與文章列表，請看站內導航。
+
+---
+
+## 📣 聯絡作者
+
+從站內點選「**聯絡作者 →**」（新分頁開 Google Form），可留下訊息、合作邀約、或回報問題。
+
+---
+
+## 🛠️ 給開發者 / 重度讀者
+
+雖然本 repo 的編輯權限只給站主本人，但若你想 fork 架出自己的「作品集曝光站」也行，整站結構如下。
+
+### 目錄結構
 
 ```
 Sid Automation Lab/
-├─ *.html                 ← 16 個靜態頁面（15 Weebly + 1 search.html）
+├─ *.html                ← 16 個靜態頁面
 ├─ favicon.svg
-├─ robots.txt             ← 搜尋引擎指示
-├─ sitemap.xml            ← 17 條 URL，lastmod 由 build-sitemap.mjs 自動填
-├─ ads.txt                ← Google AdSense 發布商驗證
-├─ search-index.json      ← fuzzy 搜尋索引（16 個頁面）
-├─ vercel.json            ← Vercel 部署設定（cleanUrls, headers, cache）
-├─ .gitignore
+├─ robots.txt            ← 搜尋引擎指示
+├─ sitemap.xml           ← 自動生成
+├─ ads.txt               ← Google AdSense 驗證
+├─ search-index.json     ← fuzzy 搜尋索引
+├─ vercel.json           ← Vercel 部署設定
+├─ serve.bat             ← Windows 本地一鍵 server
 │
-├─ apps/                  ← Flash SWF（保留但不主動播放，現代瀏覽器不支援）
-│  └─ audioPlayer2.swf
+├─ uploads/
+│  ├─ content/           ← 內容圖（含 3 張輪播圖）
+│  └─ background/        ← 41 張 section 背景圖
 │
-├─ files/                 ← 站內靜態資源
-│  ├─ main_style.css      ← 主題 stylesheet
-│  ├─ search.js           ← 站內 fuzzy 搜尋（內含 fuse.js lazy loader）
-│  ├─ slideshow-local.js  ← 取代 Weebly 原 wSlideshow，自包含輪播
-│  ├─ file_icons/
-│  │  └─ gz.png           ← Weebly 內建 ZIP icon，內化防止外連失效
-│  ├─ cdn_local/          ← 從 Weebly CDN 下載回來的資源（39 檔）
-│  │  ├─ css/sites.css
-│  │  ├─ css/old/fancybox.css
-│  │  ├─ css/social-icons.css  字型路徑已 rewrite 到 ../fonts/
-│  │  ├─ css/old/slideshow/slideshow.css
-│  │  ├─ js/jquery-1.8.3.min.js
-│  │  ├─ js/site/main.js
-│  │  ├─ js/site/main-customer-accounts-site.js
-│  │  ├─ js/lang/zh_TW/stl.js
-│  │  ├─ js/old/slideshow-jq.js  ← 保留但 sidrecoilscript.html 已改用 slideshow-local.js
-│  │  ├─ fonts/Cabin/{regular,bold,italic,bolditalic}.{eot,woff2,woff,ttf}
-│  │  ├─ fonts/Montserrat/{regular,bold}.{eot,woff2,woff,ttf}
-│  │  └─ fonts/wSocial/wsocial.{eot,woff,ttf,svg}
-│  └─ theme/
-│     └─ files/             ← Weebly 原 themes 路徑
-│        ├─ plugins.js     ← 主題功能 plugins
-│        ├─ custom.js
-│        ├─ mobile.js
-│        ├─ manifest.json
-│        └─ images/        ← 表單 sprite 圖示
+├─ files/
+│  ├─ main_style.css
+│  ├─ search.js          ← fuse.js fuzzy 搜尋
+│  ├─ slideshow-local.js ← 自包含輪播
+│  ├─ theme/files/       ← jQuery主題 plugins
+│  └─ cdn_local/         ← 內化的 Weebly CDN 資源
+│      ├─ css/ + js/ + fonts/
 │
-├─ uploads/               ← 原內容,已扁平化
-│  ├─ content/             ← 16 個內容圖 / 原幻燈片 3 張
-│  │  └─ 2026-06-17-140*.png  ← 幻燈片用 3 張
-│  └─ background/          ← 41 張 wsite-section 背景圖(原 background-images/)
-│
-│  └─ 下載檔已改用 Mega 外部 mirror,不存於 repo(見 sidrecoilscript.html line 778,784)
-│
-└─ scripts/               ← Node 維運工具
-   ├─ build-index.mjs      ← 從 *.html 重建搜尋索引
-   ├─ build-sitemap.mjs    ← 重建 sitemap.xml（可設 SITE_BASE env var）
-   ├─ check-missing.mjs    ← 上線前跑：列出所有 missing 靜態資源
-   ├─ download-cdn.mjs     ← 把 Weebly CDN 資源下載到 files/cdn_local/
-   ├─ fix-theme-paths.mjs  ← 修 files/theme → files/theme/files 路徑
-   ├─ inject-favicon.mjs   ← 注入 favicon 連結到所有 HTML
-   ├─ inject-search.mjs    ← 注入 search.js 與 fuse.js loader
-   ├─ remove-powr.mjs      ← 移除 Weebly powr-hit-counter 區塊
-   ├─ rewrite-html-cdn.mjs ← 改 HTML 內 CDN 引用為本地路徑
-   └─ rewrite-links.mjs    ← 改對外站內連結 (lelive.weebly.com) 為本地
+└─ scripts/              ← Node 維運工具
+   ├─ build-index.mjs    ← 重建搜尋索引
+   ├─ build-sitemap.mjs  ← 重建 sitemap（支援 $env:SITE_BASE）
+   ├─ check-missing.mjs  ← 列出缺失的站內資源
+   ├─ download-cdn.mjs   ← 內化外部 CDN
+   ├─ inject-favicon.mjs
+   ├─ inject-search.mjs
+   └─ ...
 ```
 
----
-
-## 🚀 本地啟動
-
-需求：Node 18+（僅用於維運 scripts，不是部署需求）
+### 本地預覽
 
 ```powershell
-# 本機起 HTTP server
-cd "C:\Code play first\Sid Automation Lab"
-python -m http.server 8000
+# Windows
+.\serve.bat                # 預設 8080，自動開瀏覽器
 
-# 或用 Node（無需安裝）:
-npx http-server -p 8000 -c-1
+# 或 Python / Node
+python -m http.server 8080
+npx serve -l 8080
 ```
 
-瀏覽器開 `http://localhost:8000/` 看首頁。
+開 `http://localhost:8080/`。
 
----
-
-## 🔧 維運指令
+### 維運指令
 
 | 任務 | 指令 |
 |------|------|
-| 上線前檢查 404 | `node scripts/check-missing.mjs` |
-| 重新生成搜尋索引 | `node scripts/build-index.mjs` |
-| 重新生成 sitemap（自訂網域）| `$env:SITE_BASE="https://你的網域"; node scripts/build-sitemap.mjs` |
-| 內化任何漏網 CDN | `node scripts/download-cdn.mjs && node scripts/rewrite-html-cdn.mjs` |
-
-完整遷移歷程與排查，見：
-- `MIGRATION_PROMPT.md`  — 給 Agent 的指令包
-- `MIGRATION_RISKS.md`   — 風險矩陣 + 修復優先順序
-- `DEPLOY_GUIDE.md`      — 部署操作手冊
+| 檢查缺資源 | `node scripts/check-missing.mjs` |
+| 重建搜尋索引 | `node scripts/build-index.mjs` |
+| 重建 sitemap（自訂網域） | `$env:SITE_BASE="https://yourdomain.com"; node scripts/build-sitemap.mjs` |
 
 ---
 
-## 📦 部署到 Vercel
+## 📦 給站主的發布流程
 
-### 第一次
-
-1. 在 GitHub 建立空白 repo
-2. 把整個專案目錄上傳：
-   ```powershell
-   git init
-   git add .
-   git commit -m "Initial commit: Weebly static export, Vercel-ready"
-   git branch -M main
-   git remote add origin https://github.com/<user>/<repo>.git
-   git push -u origin main
-   ```
-3. https://vercel.com/new
-4. Import Git Repository → 選 repo
-5. **Build & Output Settings**：
-   - Framework Preset: **Other**
-   - Build Command: 留空
-   - Output Directory: 留空
-6. Deploy
-
-### 之後更新
-
-```powershell
-git add .
-git commit -m "update: ..."
-git push
-# Vercel 自動 deploy
-```
-
-### 自訂網域
-
-Vercel 後台 → Project → Settings → Domains → 加網域，照指示設定 DNS。
-記得把 `sitemap.xml` 重新生成並填入真實網域：
-
-```powershell
-$env:SITE_BASE="https://yourdomain.com"
-node scripts/build-sitemap.mjs
-# 再手動編輯 robots.txt 把 Sitemap URL 換掉
-```
+1. 編輯 / 新增 HTML 頁面、`uploads/` 素材
+2. `node scripts/check-missing.mjs` 確認站內連結無 404
+3. `node scripts/build-index.mjs` + `node scripts/build-sitemap.mjs` 重建
+4. `git add -A && git commit -m "..." && git push`
+5. GitHub Pages 自動 rebuild（1-2 分鐘）
+6. Vercel 鏡像同步（未來）
 
 ---
 
-## ⚠️ 已知限制
+## 📜 授權
 
-| 項目 | 狀態 | 處理建議 |
-|------|------|---------|
-| Flash SWF（`apps/audioPlayer2.swf`） | 現代瀏覽器不再支援 | 純交付就好，不需修 |
-| Google Analytics `UA-131254328-2` | Universal Analytics 已停用，上線後沒數據 | 可改用 GA4 或 GoatCounter |
-| `main.js` 內 webpack runtime 仍含 `cdn2.editmysite.com` 字串 | 已由 `STATIC_BASE=''` / `ASSETS_BASE=''` 在 HTML 開頭覆蓋，runtime 不觸發 lazy chunk 載入 | 可接受，少數 page 特效 fallback |
-| jQuery 1.8.3 | 主題依賴，無法升級 | 保留 |
-| Google AdSense 廣告位 | 需驗證發布商帳號 | ads.txt 已備齊 |
-| 桌面圖示（favicon） | SVG 241 bytes | 風格簡潔但與原本不同 |
+站內素材 / 工具版權依各工具說明頁標示為準。
+未標示者默認僅供個人下載使用，請勿整站重散佈。
 
 ---
 
-## 🧪 驗收清單（部署後跑）
+## ✨ 來源
 
-- [ ] 17 個 HTML 全部 200
-- [ ] 沒有 `http://` mixed content
-- [ ] 沒有 404 圖片、Favicon、JS、CSS
-- [ ] 主題 CSS / 字型 / 選單可正確渲染
-- [ ] 站內搜尋在 `/search.html?q=Path` 顯示結果
-- [ ] `sidrecoilscript.html` 內可見 3 張輪播
-- [ ] 至少 1 個 ZIP 可下載
-- [ ] Lighthouse Performance ≥ 70（改善目標 85+）
-- [ ] Lighthouse SEO ≥ 90
-- [ ] robots.txt / sitemap.xml 可被 `yourdomain.com/robots.txt` 訪問
+本站原本由 Weebly 提供，後由站主 2026 年初導出並改寫成純靜態檔案，
+內化所有依賴資源並遷移至 GitHub Pages，未來再加入 Vercel 雙平台鏡像。
 
----
-
-© 2026 SID · 獨立自動化開發者
+© 2026 Sid · 獨立自動化開發者
