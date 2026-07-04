@@ -1,0 +1,1808 @@
+﻿<!DOCTYPE html>
+<html lang="zh_TW">
+	<head>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>&#12298;&#27969;&#20129;&#40687;&#36947;&#12299;Sid&#24037;&#20855;&#31665; - Sid Automation Lab</title>
+<meta name="description" content="這是一個專為《Path of Exile》（流亡黯道）遊戲設計的AutoHotkey (AHK) 腳本工具箱，提供多種自動化功能，旨在提升遊戲體驗和效率。" />
+<meta name="keywords" content="流亡黯道,Path of Exile,poe,輔助工具,遊戲腳本,輔助,腳本,遊戲工具" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1181746742151021"
+     crossorigin="anonymous"></script>
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="files/cdn_local/css/sites.css?buildtime=1234" />
+<link rel="stylesheet" type="text/css" href="files/cdn_local/css/old/fancybox.css?buildtime=1234" />
+<link rel="stylesheet" type="text/css" href="files/cdn_local/css/social-icons.css?buildtime=1234" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1783076445" title="wsite-theme-css" />
+<link href='files/cdn_local/fonts/Cabin/font.css?2' rel='stylesheet' type='text/css' />
+<link href='files/cdn_local/fonts/Montserrat/font.css?2' rel='stylesheet' type='text/css' />
+
+<style type='text/css'>
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {color:#a9e4f8 !important;font-weight: bold !important;text-transform:  none !important;}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {font-size:50px !important;}
+.wsite-menu-default a {font-size:18px !important;}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+}</style>
+
+		<script src='files/templateArtifacts.js?1782412826'></script>
+<script>
+var STATIC_BASE = '';
+var ASSETS_BASE = '';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src='files/cdn_local/js/jquery-1.8.3.min.js'></script>
+
+<script type="text/javascript" src="files/cdn_local/js/lang/zh_TW/stl.js?buildTime=1234&"></script>
+<script src="files/cdn_local/js/site/main.js?buildtime=1234"></script><script type="text/javascript">
+		function initCustomerAccountsModels() {
+					(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
+_W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":"_W.CustomerAccounts.BackboneModelData","collection_namespace":"_W.CustomerAccounts.BackboneCollectionData","bootstrap_namespace":"_W.CustomerAccounts.BackboneBootstrap","models":{"CustomerAccounts":{"_class":"CustomerAccounts.Model.CustomerAccounts","defaults":null,"validation":null,"types":null,"idAttribute":null,"keydefs":null}},"collections":{"CustomerAccounts":{"_class":"CustomerAccounts.Collection.CustomerAccounts"}},"bootstrap":[]});
+})();
+		}
+		if(document.createEvent && document.addEventListener) {
+			var initEvt = document.createEvent('Event');
+			initEvt.initEvent('customerAccountsModelsInitialized', true, false);
+			document.dispatchEvent(initEvt);
+		} else if(document.documentElement.initCustomerAccountsModels === 0){
+			document.documentElement.initCustomerAccountsModels++
+		}
+		</script>
+		<script type="text/javascript"> _W = _W || {}; _W.securePrefix='UNSET'; </script><script>_W = _W || {};
+			_W.customerLocale = "en_US";
+			_W.storeName = null;
+			_W.isCheckoutReskin = false;
+			_W.storeCountry = "TW";
+			_W.storeCurrency = "TWD";
+			_W.storeEuPrivacyPolicyUrl = "";
+			com_currentSite = "693506005579234598";
+			com_userID = "77032051";</script><script type="text/javascript">_W.configDomain = "";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="files/cdn_local/js/lang/zh_TW/stl.js?buildTime=1234&"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	var IS_ARCHIVE = 1;
+	
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"849057931736952557","title":"&#39318;&#38913;","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"869600931407061729","title":"&#38283;&#30332;&#23447;&#26088;","url":"38283303322344726088.html","target":"","nav_menu":false,"nonclickable":false},{"id":"710073287667105530","title":"&#33258;&#21205;&#21270;&#38917;&#30446;","url":"3325821205212703891730446.html","target":"","nav_menu":false,"nonclickable":true},{"id":"201013272719899972","title":"&#24460;&#24231;&#21147;&#36628;&#21161;","url":"sidrecoilscript.html","target":"","nav_menu":false,"nonclickable":false},{"id":"340326026408176637","title":"&#20854;&#20182;&#24037;&#20855;(&#25512;&#34214;)","url":"208542018224037208552551234214.html","target":"","nav_menu":false,"nonclickable":true},{"id":"482342209794371076","title":"&#32879;&#32097;&#20316;&#32773; &rarr;","url":"32879320972031632773-rarr.html","target":"","nav_menu":false,"nonclickable":true}],
+			"160897203484175195",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{}
+		)
+	}
+//-->
+</script>
+		
+		
+	</head>
+	<body class="header-page title-page  wsite-page-sidexiletoolbox wsite-theme-light"><div id="wrapper">
+
+  <div id="header">
+    <div id="masthead">
+      <div id="masthead-wrap">
+        <div class="sitename"><span class="wsite-logo">
+
+	<a href="">
+	
+	<span id="wsite-title">Sid Automation Lab</span>
+	
+	</a>
+
+</span></div>
+        <div id="sitesearch"><span class="wsite-search">
+	<form id="wsite-header-search-form" action="/search.html" method="get">
+		<input type="text" name="q" class="wsite-search-input" autocomplete="off" placeholder="搜尋"/><span class="wsite-search-button"><span class="wsite-search-button-inner"></span></span>
+	</form>
+</span></div>
+      </div>
+    </div>
+
+    <div id="navigation">
+     	<div id="search"><a href="/search.html"></a></div>
+      <a id="mobile" class="hamburger" href="#"><span class="mobile-bar"></span><span class="mobile-bar"></span><span class="mobile-bar"></span></a>
+      <div class="sitename"><span class="wsite-logo">
+
+	<a href="">
+	
+	<span id="wsite-title">Sid Automation Lab</span>
+	
+	</a>
+
+</span></div>
+      <div id="navigation-wrap">
+   	 	<div id="nav"><ul class="wsite-menu-default">
+		<li id="pg849057931736952557" class="wsite-menu-item-wrap">
+			<a
+						href="index.html"
+				class="wsite-menu-item"
+				>
+				首頁
+			</a>
+			
+		</li>
+		<li id="pg869600931407061729" class="wsite-menu-item-wrap">
+			<a
+						href="38283303322344726088.html"
+				class="wsite-menu-item"
+				>
+				開發宗旨
+			</a>
+			
+		</li>
+		<li id="pg710073287667105530" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				自動化項目
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-434620566332248448"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Path of Exile
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-302760758911505782"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="sidexilegametool.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;2&#12299;Sid&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-160897203484175195"
+	class="wsite-menu-subitem-wrap wsite-nav-current"
+	>
+	<a
+				href="sidexiletoolbox.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;&#12299;&#33290;&#29256;&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-516840215800236176"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			AetherGazer
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-578682664692961791"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="aethergazersemiauto.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#28145;&#31354;&#20043;&#30524;&#12299;&#21322;&#33258;&#21205;&#33139;&#26412;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-675930293506317489"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			BrownDust2
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-672224051180161278"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="122982683733394226452246721229938899369382116125163.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#26837;&#33394;&#22645;&#22467;2&#12299;&#38899;&#36938;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg201013272719899972" class="wsite-menu-item-wrap">
+			<a
+						href="sidrecoilscript.html"
+				class="wsite-menu-item"
+				>
+				後座力輔助
+			</a>
+			
+		</li>
+		<li id="pg340326026408176637" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				其他工具(推薦)
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-225764304908627294"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/ok-oldking/ok-wuthering-waves"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#40180;&#28526;&#12299;ok-ww &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-881866344459355224"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-nte"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#30064;&#29872;&#12299;ok-nte &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-103459266287210960"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-duet-night-abyss"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#20108;&#37325;&#34746;&#26059;&#12299;&#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg482342209794371076" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				聯絡作者 →
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-203128144506688710"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://www.facebook.com/talksometingshit/"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			FB&#31881;&#32114;&#23560;&#38913;: @talksometingshit
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-916314138493761365"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Gmail&#20449;&#31665;: sid1000028@gmail.com
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+</ul>
+</div>
+   	 	<div id="navmobile"><ul class="wsite-menu-default">
+		<li id="pg849057931736952557" class="wsite-menu-item-wrap">
+			<a
+						href="index.html"
+				class="wsite-menu-item"
+				>
+				首頁
+			</a>
+			
+		</li>
+		<li id="pg869600931407061729" class="wsite-menu-item-wrap">
+			<a
+						href="38283303322344726088.html"
+				class="wsite-menu-item"
+				>
+				開發宗旨
+			</a>
+			
+		</li>
+		<li id="pg710073287667105530" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				自動化項目
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-434620566332248448"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Path of Exile
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-302760758911505782"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="sidexilegametool.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;2&#12299;Sid&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-160897203484175195"
+	class="wsite-menu-subitem-wrap wsite-nav-current"
+	>
+	<a
+				href="sidexiletoolbox.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;&#12299;&#33290;&#29256;&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-516840215800236176"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			AetherGazer
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-578682664692961791"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="aethergazersemiauto.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#28145;&#31354;&#20043;&#30524;&#12299;&#21322;&#33258;&#21205;&#33139;&#26412;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-675930293506317489"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			BrownDust2
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-672224051180161278"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="122982683733394226452246721229938899369382116125163.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#26837;&#33394;&#22645;&#22467;2&#12299;&#38899;&#36938;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg201013272719899972" class="wsite-menu-item-wrap">
+			<a
+						href="sidrecoilscript.html"
+				class="wsite-menu-item"
+				>
+				後座力輔助
+			</a>
+			
+		</li>
+		<li id="pg340326026408176637" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				其他工具(推薦)
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-225764304908627294"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/ok-oldking/ok-wuthering-waves"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#40180;&#28526;&#12299;ok-ww &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-881866344459355224"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-nte"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#30064;&#29872;&#12299;ok-nte &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-103459266287210960"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-duet-night-abyss"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#20108;&#37325;&#34746;&#26059;&#12299;&#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg482342209794371076" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				聯絡作者 →
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-203128144506688710"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://www.facebook.com/talksometingshit/"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			FB&#31881;&#32114;&#23560;&#38913;: @talksometingshit
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-916314138493761365"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Gmail&#20449;&#31665;: sid1000028@gmail.com
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+</ul>
+</div>
+     	<div id="social"><div style="text-align:left;"><div style="height:0px;overflow:hidden"></div>
+<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-facebook' href='https://www.facebook.com/talksometingshit/' target='_blank' alt='Facebook' aria-label='Facebook'><span class='wsite-social-item-inner'></span></a><a class='wsite-social-item wsite-social-mail' href='mailto:sid1000028@gmail.com' target='_blank' alt='Mail' aria-label='Mail'><span class='wsite-social-item-inner'></span></a><a class='last-child wsite-social-item wsite-social-youtube' href='https://www.dailymotion.com/user/SoloSid' target='_blank' alt='Youtube' aria-label='Youtube'><span class='wsite-social-item-inner'></span></a></span>
+<div style="height:0px;overflow:hidden"></div></div></div>
+      </div>
+  	</div>
+  </div>
+
+  <div id="main">
+    <div id="banner-wrap">
+      <div class="wsite-elements wsite-not-footer wsite-header-elements">
+	<div class="wsite-section-wrap">
+	<div  class="wsite-section wsite-header-section wsite-section-bg-image" style="height: 264px;background-image: url(&quot;/uploads/7/7/0/3/77032051/background-images/15050128.jpg&quot;) ;background-repeat: no-repeat ;background-position: 50.00% 22.36% ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
+		<div class="wsite-section-content">
+			
+        <div class="container">
+				<div class="wsite-section-elements">
+					<div><div id="729501316353991279" align="inherit" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="sid-exile-container" style="max-width: 1000px; margin: 0 auto; padding: 20px; font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; color: #d1d1d1; line-height: 1.6;">
+  <style>
+    /* --- 通用與 PC 端樣式 --- */
+    .toolbox-main { background: rgba(12, 14, 18, 0.98); border-radius: 20px; border: 1px solid #4a3e2b; padding: 45px; box-shadow: 0 30px 70px rgba(0,0,0,0.9); position: relative; }
+    
+    .toolbox-main::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #e9c08e, transparent); }
+
+    .header-area { text-align: center; margin-bottom: 40px; }
+    .header-area h1 { color: #e9c08e; font-size: 2.4rem; letter-spacing: 4px; margin: 0; font-weight: 900; text-shadow: 0 0 20px rgba(233, 192, 142, 0.2); }
+    .header-area .version-tag { color: #888; font-size: 0.9rem; margin-top: 10px; display: block; letter-spacing: 2px; }
+
+    .dl-card { 
+      background: linear-gradient(to right, rgba(233, 192, 142, 0.05), rgba(233, 192, 142, 0.01)); 
+      border: 1px solid rgba(233, 192, 142, 0.15); 
+      border-radius: 12px; 
+      padding: 25px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .dl-btn { 
+      background: linear-gradient(135deg, #e9c08e 0%, #b88a4d 100%); 
+      color: #1a150e !important; 
+      padding: 15px 40px; 
+      border-radius: 6px; 
+      text-decoration: none; 
+      font-weight: 900; 
+      font-size: 1.1rem;
+      transition: 0.3s;
+      border: 1px solid #8e6d3d;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+    .dl-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(233, 192, 142, 0.3); }
+
+    .group-title { color: #e9c08e; font-size: 1.2rem; border-left: 3px solid #e9c08e; padding-left: 15px; margin: 30px 0 20px; font-weight: 600; }
+    
+    .feature-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+    .feature-box { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .feature-box b { color: #eee; font-size: 1rem; display: block; margin-bottom: 8px; }
+    .feature-box span { color: #999; font-size: 0.88rem; display: block; }
+
+    .safety-zone { margin-top: 40px; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 25px; border: 1px solid rgba(255, 77, 77, 0.1); }
+    .safety-zone h5 { color: #ff6666; margin: 0 0 15px 0; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+    .safety-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; font-size: 0.85rem; color: #888; }
+    .safety-steps b { color: #bbb; }
+
+    /* --- 手機端適配優化 (max-width: 768px) --- */
+    @media (max-width: 768px) {
+      .toolbox-main { 
+        padding: 30px 15px; /* 縮減手機端內距 */
+        border-radius: 12px; 
+      }
+      
+      .header-area h1 { font-size: 1.7rem; letter-spacing: 2px; }
+      
+      .dl-card { 
+        padding: 20px; 
+        text-align: center; /* 手機端下載區塊改為居中 */
+        justify-content: center;
+      }
+      
+      .dl-btn { 
+        width: 100%; /* 下載按鈕佔滿寬度 */
+        padding: 14px 20px;
+        font-size: 1rem;
+      }
+
+      .feature-matrix { 
+        grid-template-columns: 1fr; /* 強制單欄排列 */
+        gap: 12px; 
+      }
+
+      .safety-steps { 
+        grid-template-columns: 1fr; /* 安全指引垂直堆疊 */
+        gap: 15px; 
+      }
+
+      .group-title { font-size: 1.1rem; margin-top: 25px; }
+    }
+  </style>
+
+  <div class="toolbox-main">
+    <div class="header-area">
+      <h1>SID EXILE TOOLBOX</h1>
+      <span class="version-tag">已開源 · 經典舊版全功能整合區</span>
+    </div>
+
+    <div class="dl-card">
+      <div style="width: 100%;">
+        <div style="font-size: 1.2rem; font-weight: bold; color: #fff;">正式版下載</div>
+        <div style="color: #666; font-size: 0.85rem; margin-top: 5px;">內含 GUI 設置面板，支援自定義熱鍵</div>
+      </div>
+      <a href="https://github.com/Sid-1996/Sid-Exile-Toolbox/releases" target="_blank" class="dl-btn">前往 GITHUB 下載</a>
+    </div>
+
+    <div class="group-title">戰鬥與生存優化</div>
+    <div class="feature-matrix">
+      <div class="feature-box">
+        <b>高級自動喝水</b>
+        <span>智能監控血量、魔力及場景變化，支援多模式非同步觸發邏輯。</span>
+      </div>
+      <div class="feature-box">
+        <b>技能連段與地雷引爆</b>
+        <span>自定義技能施放序列 (Combo)，並自動執行地雷引爆優化。</span>
+      </div>
+      <div class="feature-box">
+        <b>循環技能輔助</b>
+        <span>針對需要長時間維持的技能提供自動循環觸發，減少操作壓力。</span>
+      </div>
+    </div>
+
+    <div class="group-title">倉庫、背包與資源效率</div>
+    <div class="feature-matrix">
+      <div class="feature-box">
+        <b>自動管理系統</b>
+        <span>快搜倉庫頁、快速掃描背包、一鍵取物並清空冗餘物品。</span>
+      </div>
+      <div class="feature-box">
+        <b>滑鼠連點與兌換</b>
+        <span>高速模擬點擊 (Ctrl+左鍵)，專為命運卡兌換與大量物資移動設計。</span>
+      </div>
+      <div class="feature-box">
+        <b>快捷工具鏈</b>
+        <span>整合查價工具、座標定位系統，快速完成各項繁瑣操作。</span>
+      </div>
+    </div>
+
+    <div class="group-title">系統、社交與快捷鍵</div>
+    <div class="feature-matrix">
+      <div class="feature-box">
+        <b>自動化交易與組隊</b>
+        <span>快速交易提醒、一鍵組隊邀請，並支援角色配置快速切換。</span>
+      </div>
+      <div class="feature-box">
+        <b>一鍵返回藏身處</b>
+        <span>預設 F5 快捷鍵，瞬間執行 /hideout 指令返回安全區。</span>
+      </div>
+      <div class="feature-box">
+        <b>全域 GUI 設置面板</b>
+        <span>提供視覺化操作介面，隨時微調熱鍵、偵測靈敏度及各項參數。</span>
+      </div>
+    </div>
+
+    <div class="safety-zone">
+      <h5>⚠️ 檔案安全執行指引</h5>
+      <div class="safety-steps">
+        <div>
+          <b>下載階段：</b>
+          Chrome/Edge 若阻擋，請點選「...」並選擇「保留」。
+        </div>
+        <div>
+          <b>執行階段：</b>
+          點選「更多資訊」並選擇「仍要執行」即可啟動。
+        </div>
+        <div>
+          <b>權限建議：</b>
+          請以「系統管理員身分」執行以確保模擬指令生效。
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+      <span style="color: #444; font-size: 0.8rem;">本工具基於 AutoHotkey (AHK) 開發 | 原始碼於 GitHub 公開透明</span>
+    </div>
+  </div>
+</div></div>
+
+
+
+</div>
+				</div>
+			</div>
+      
+		</div>
+		<div class=""></div>
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div id="content-wrapper">
+      <div id="wsite-content" class="wsite-elements wsite-not-footer">
+	<div class="wsite-section-wrap">
+	<div class="wsite-section wsite-body-section wsite-section-bg-image wsite-background-39" style="vertical-align: top;height: auto;background-image: url(&quot;/uploads/7/7/0/3/77032051/background-images/2082040671.jpg&quot;) ;background-repeat: no-repeat ;background-position: 50.00% 50.00% ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
+		<div class="wsite-section-content">
+    		<div class="container">
+			<div class="wsite-section-elements">
+				<div><div id="775379174359516223" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="video-section-wrapper" style="width: 100%; box-sizing: border-box;">
+  
+  <div class="video-monitor-box" style="max-width: 1000px; margin: 20px auto; background: #0a0c10; border: 1px solid #4a3e2b; border-radius: 16px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;">
+    
+    <style>
+      .monitor-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        border-bottom: 1px solid rgba(233, 192, 142, 0.15);
+        padding-bottom: 15px;
+      }
+      .monitor-tag {
+        color: #e9c08e;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+      }
+      /* 16:9 比例容器 */
+      .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .instruction-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .instruction-card {
+        flex: 1;
+        min-width: 280px;
+        background: rgba(233, 192, 142, 0.03);
+        padding: 20px;
+        border-radius: 10px;
+        border-top: 2px solid #4a3e2b;
+      }
+      .instruction-card b {
+        display: block;
+        color: #e9c08e;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .instruction-card p {
+        color: #9aa9bc;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* --- 手機端適配優化 --- */
+      @media (max-width: 768px) {
+        .video-monitor-box {
+          padding: 20px 15px;
+          margin: 10px;
+          border-radius: 12px;
+        }
+        .monitor-tag {
+          font-size: 0.95rem;
+        }
+        .instruction-grid {
+          flex-direction: column; /* 強制垂直排列 */
+          gap: 15px;
+        }
+        .instruction-card {
+          min-width: unset; /* 取消最小寬度限制 */
+          padding: 15px;
+        }
+        .instruction-card b {
+          font-size: 0.95rem;
+        }
+        .instruction-card p {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+
+    <div class="monitor-top">
+      <div class="monitor-tag">教學與提醒：功能演示</div>
+      <div style="color: #00f2ff; font-family: monospace; font-size: 11px; letter-spacing: 1px;">SYSTEM_ACTIVE: [DEMO_01]</div>
+    </div>
+
+    <div class="iframe-container">
+      <iframe 
+        src="https://www.youtube.com/embed/dTk3BO54_8Y" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="instruction-grid">
+      <div class="instruction-card">
+        <b>偵測喝水功能</b>
+        <p>實時監控血條、魔力及場景變化。透過非侵入式影像辨識，模擬精準的補給時機。</p>
+      </div>
+      <div class="instruction-card">
+        <b>自動返角機制</b>
+        <p>當角色處於極端危險或特定觸發條件時，系統將自動執行回城指令，確保生存率。</p>
+      </div>
+      <div class="instruction-card">
+        <b>環境設定建議</b>
+        <p>建議將遊戲畫面設定為「視窗化」或「無邊框模式」，以利影像擷取模組穩定運作。</p>
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+
+
+</div>
+
+<div><div id="270261386693685106" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="video-section-wrapper" style="width: 100%; box-sizing: border-box;">
+  
+  <div class="video-monitor-box" style="max-width: 1000px; margin: 20px auto; background: #0a0c10; border: 1px solid #4a3e2b; border-radius: 16px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;">
+    
+    <style>
+      @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1; }
+      }
+      
+      .monitor-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        border-bottom: 1px solid rgba(233, 192, 142, 0.15);
+        padding-bottom: 15px;
+      }
+      .monitor-label {
+        color: #e9c08e;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .monitor-label::before {
+        content: "[F3]";
+        color: #00f2ff;
+        font-family: monospace;
+      }
+      
+      .video-ratio-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 比例 */
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .video-ratio-container iframe {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%; border: 0;
+      }
+
+      .feature-info-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .feature-info-card {
+        flex: 1;
+        min-width: 280px;
+        background: rgba(233, 192, 142, 0.03);
+        padding: 20px;
+        border-radius: 10px;
+        border-top: 2px solid #4a3e2b;
+        transition: transform 0.3s ease;
+      }
+      .feature-info-card:hover {
+        transform: translateY(-5px);
+        background: rgba(233, 192, 142, 0.06);
+      }
+      .feature-info-card b {
+        display: block;
+        color: #e9c08e;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .feature-info-card p {
+        color: #9aa9bc;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* --- 手機端 RWD 優化 --- */
+      @media (max-width: 768px) {
+        .video-monitor-box {
+          padding: 20px 15px;
+          margin: 10px;
+        }
+        .monitor-top-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .monitor-label {
+          font-size: 1rem;
+        }
+        .feature-info-grid {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .feature-info-card {
+          min-width: unset;
+          padding: 15px;
+        }
+        .feature-info-card:hover {
+          transform: none; /* 手機端取消位移以防點擊誤觸 */
+        }
+      }
+    </style>
+
+    <div class="monitor-top-bar">
+      <div class="monitor-label">智慧物資管理：自動化清包演示</div>
+      <div style="color: #00f2ff; font-family: monospace; font-size: 11px; letter-spacing: 1px; animation: blink 2s infinite;">● MODULE_LOGISTICS: ONLINE</div>
+    </div>
+
+    <div class="video-ratio-container">
+      <iframe 
+        src="https://www.youtube.com/embed/MzIH2rn72NE" 
+        title="[F3]自動清包功能展示"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="feature-info-grid">
+      <div class="feature-info-card">
+        <b>高效物資過濾</b>
+        <p>透過高速像素識別技術，自動篩選背包內的非必要物資，實現毫秒級的一鍵清空作業。</p>
+      </div>
+      <div class="feature-info-card">
+        <b>流程一致性優化</b>
+        <p>系統模擬精確的點擊路徑，確保在大規模資源整理時，維持高度的操作穩定性與正確率。</p>
+      </div>
+      <div class="feature-info-card">
+        <b>防呆保護機制</b>
+        <p>內建全域暫停熱鍵，在整理過程中可隨時介入，確保核心資產的絕對安全。</p>
+      </div>
+    </div>
+
+    <div style="text-align:right; font-size: 0.75rem; color:#444; margin-top:20px; font-family: monospace;">
+      DATA_ID: SID_LOG_F3_AUTO_RECOVERY
+    </div>
+
+  </div>
+</div></div>
+
+
+
+</div>
+
+<span class='imgPusher' style='float:left;height:0px'></span><span style='display: table;width:auto;position:relative;float:left;max-width:100%;;clear:left;margin-top:0px;*margin-top:0px'><a></a><span style="display: table-caption; caption-side: bottom; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;" class="wsite-caption"></span></span>
+<div class="paragraph" style="display:block;">&#23565;&#35441;&#26694;&#30340;&#25235;&#21462;&#65292;&#38750;&#24120;&#37325;&#35201;&#12290;</div>
+<hr style="width:100%;clear:both;visibility:hidden;"></hr>
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/7/7/0/3/77032051/1163223583_2.png" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<span class='imgPusher' style='float:left;height:0px'></span><span style='display: table;width:auto;position:relative;float:left;max-width:100%;;clear:left;margin-top:0px;*margin-top:0px'><a><img src="uploads/7/7/0/3/77032051/1127343908_2.png" style="margin-top: 10px; margin-bottom: 10px; margin-left: 0px; margin-right: 10px; border-width:0; max-width:100%" alt="Picture" class="galleryImageBorder wsite-image" /></a><span style="display: table-caption; caption-side: bottom; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;" class="wsite-caption"></span></span>
+<div class="paragraph" style="display:block;">&#32972;&#21253;F7&#35373;&#23450;&#30456;&#38364;</div>
+<hr style="width:100%;clear:both;visibility:hidden;"></hr>
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:0px;margin-left:0px;margin-right:0px;text-align:left">
+<a>
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/7/7/0/3/77032051/1202643573_2.jpg" alt="圖片" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div><div id="249990981405142172" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="video-section-wrapper" style="width: 100%; box-sizing: border-box;">
+  
+  <div class="video-monitor-box" style="max-width: 1000px; margin: 20px auto; background: #0a0c10; border: 1px solid #4a3e2b; border-radius: 16px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;">
+    
+    <style>
+      .monitor-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        border-bottom: 1px solid rgba(233, 192, 142, 0.15);
+        padding-bottom: 15px;
+      }
+      .monitor-label {
+        color: #e9c08e;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .monitor-label::before {
+        content: "[F6]";
+        color: #00f2ff;
+        font-family: monospace;
+        flex-shrink: 0; /* 防止 F6 被擠壓 */
+      }
+      
+      .video-ratio-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 */
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .video-ratio-container iframe {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%; border: 0;
+      }
+
+      .feature-info-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .feature-info-card {
+        flex: 1;
+        min-width: 280px;
+        background: rgba(233, 192, 142, 0.03);
+        padding: 20px;
+        border-radius: 10px;
+        border-top: 2px solid #4a3e2b;
+      }
+      .feature-info-card b {
+        display: block;
+        color: #e9c08e;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .feature-info-card p {
+        color: #9aa9bc;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* --- 手機端適配優化 --- */
+      @media (max-width: 768px) {
+        .video-monitor-box {
+          padding: 20px 15px;
+          margin: 10px;
+        }
+        .monitor-top-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .monitor-label {
+          font-size: 1rem;
+          line-height: 1.4;
+        }
+        .feature-info-grid {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .feature-info-card {
+          min-width: unset;
+          padding: 15px;
+        }
+        .feature-info-card b {
+          font-size: 0.95rem;
+        }
+        .feature-info-card p {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+
+    <div class="monitor-top-bar">
+      <div class="monitor-label">功能演示：一鍵自動取物系統</div>
+      <div style="color: #00f2ff; font-family: monospace; font-size: 11px; letter-spacing: 1px;">● MODULE_LOGISTICS: AUTO_COLLECT_F6</div>
+    </div>
+
+    <div class="video-ratio-container">
+      <iframe 
+        src="https://www.youtube.com/embed/yV8FdhSmz2Y" 
+        title="[F6]一鍵取物功能展示"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="feature-info-grid">
+      <div class="feature-info-card">
+        <b>[F6] 毫秒級取物效率</b>
+        <p>演示如何透過 F6 快捷鍵，自動將倉庫分頁中的物品快速移動至背包，徹底告別手動連點的繁瑣操作。</p>
+      </div>
+      <div class="feature-info-card">
+        <b>倉庫管理優化</b>
+        <p>配合自定義的座標抓取，系統能精確定位物資位置，實現流暢且穩定的批量轉移流程。</p>
+      </div>
+      <div class="feature-info-card">
+        <b>使用前置建議</b>
+        <p>建議在執行前先確認背包剩餘空間，並確保已完成基本的 UI 座標校準以達到最佳作業速度。</p>
+      </div>
+    </div>
+
+    <div style="text-align:right; font-size: 0.75rem; color:#444; margin-top:20px; font-family: monospace;">
+      LOG_STATUS: F6_COLLECT_VERIFIED
+    </div>
+
+  </div>
+</div></div>
+
+
+
+</div>
+
+<div><div id="112767152128164311" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="video-section-wrapper" style="width: 100%; box-sizing: border-box;">
+  
+  <div class="video-monitor-box" style="max-width: 1000px; margin: 20px auto; background: #0a0c10; border: 1px solid #4a3e2b; border-radius: 16px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;">
+    
+    <style>
+      .monitor-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        border-bottom: 1px solid rgba(233, 192, 142, 0.15);
+        padding-bottom: 15px;
+      }
+      .monitor-label {
+        color: #e9c08e;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .monitor-label::before {
+        content: "[SYSTEM]";
+        color: #00f2ff;
+        font-family: monospace;
+        flex-shrink: 0;
+      }
+      .video-ratio-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .video-ratio-container iframe {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%; border: 0;
+      }
+      .feature-info-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .feature-info-card {
+        flex: 1;
+        min-width: 280px;
+        background: rgba(233, 192, 142, 0.03);
+        padding: 20px;
+        border-radius: 10px;
+        border-top: 2px solid #4a3e2b;
+      }
+      .feature-info-card b {
+        display: block;
+        color: #e9c08e;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .feature-info-card p {
+        color: #9aa9bc;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* --- 手機端適配優化 --- */
+      @media (max-width: 768px) {
+        .video-monitor-box {
+          padding: 20px 15px;
+          margin: 10px;
+        }
+        .monitor-top-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .monitor-label {
+          font-size: 1rem;
+          line-height: 1.4;
+        }
+        .feature-info-grid {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .feature-info-card {
+          min-width: unset;
+          padding: 15px;
+        }
+        .feature-info-card p {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+
+    <div class="monitor-top-bar">
+      <div class="monitor-label">高效管理：倉庫自動翻頁與快搜設置</div>
+      <div style="color: #00f2ff; font-family: monospace; font-size: 11px; letter-spacing: 1px;">● STORAGE_AUTO_FLIP: ENABLED</div>
+    </div>
+
+    <div class="video-ratio-container">
+      <iframe 
+        src="https://www.youtube.com/embed/yV8FdhSmz2Y" 
+        title="倉庫自動翻頁與快搜功能展示"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="feature-info-grid">
+      <div class="feature-info-card">
+        <b>自動翻頁優化</b>
+        <p>演示如何配置自動翻頁工具，讓系統自動掃描並切換至目標倉庫頁面，省去手動翻找的繁雜過程。</p>
+      </div>
+      <div class="feature-info-card">
+        <b>快速搜尋定位</b>
+        <p>整合快搜功能，透過關鍵字或預設分頁快速定位特定資產，大幅提升物資流轉與交易準備效率。</p>
+      </div>
+      <div class="feature-info-card">
+        <b>個人化倉儲配置</b>
+        <p>支持自定義分頁標籤與顏色管理，確保在大規模倉儲環境下依然能保持清晰的組織邏輯。</p>
+      </div>
+    </div>
+
+    <div style="text-align:right; font-size: 0.75rem; color:#444; margin-top:20px; font-family: monospace;">
+      DATA_ID: SID_STORAGE_NAV_SETTING
+    </div>
+
+  </div>
+</div></div>
+
+
+
+</div>
+
+<div><div id="686668234358196780" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="support-wrapper">
+
+    <div class="support-title">
+        ☕ Support the Project
+    </div>
+
+    <div class="support-subtitle">
+        如果這些 Automation / OCR 研究專案對你有幫助，
+        歡迎支持後續開發與維護。
+    </div>
+
+    <div class="sponsor-container">
+
+        <!-- ECPay -->
+        <a class="sponsor-btn" href="https://p.ecpay.com.tw/E0E3A" target="_blank">
+            <span class="btn-icon">□</span>
+            ECPay Support
+        </a>
+
+        <!-- PayPal Small -->
+        <a class="sponsor-btn" href="https://www.paypal.com/ncp/payment/GJS4D5VTSVWG4" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" alt="PayPal">
+            Small Support
+        </a>
+
+        <!-- PayPal Large -->
+        <a class="sponsor-btn" href="https://www.paypal.com/ncp/payment/S5PTHJJVBC5VS" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" alt="PayPal">
+            Project Support
+        </a>
+
+    </div>
+
+    <div class="qr-container">
+        <img src="https://payment.ecpay.com.tw/Upload/QRCode/201901/QRCode_21c4c069-547f-4115-9f8d-2c050273f028.png" alt="QR Code">
+        <p>Scan QR Code</p>
+    </div>
+
+</div>
+
+<style>
+
+    body{
+        background:#0f172a;
+    }
+
+    .support-wrapper{
+        text-align:center;
+        padding:2rem 1rem;
+        margin:2rem auto;
+        max-width:900px;
+    }
+
+    .support-title{
+        font-size:2rem;
+        font-weight:700;
+        color:#e2e8f0;
+        margin-bottom:0.8rem;
+        letter-spacing:1px;
+    }
+
+    .support-subtitle{
+        color:#94a3b8;
+        font-size:1rem;
+        line-height:1.7;
+        margin-bottom:2rem;
+    }
+
+    .sponsor-container{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:1rem;
+    }
+
+    .sponsor-btn{
+
+        position:relative;
+        overflow:hidden;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:0.7rem;
+
+        padding:1rem 1.8rem;
+
+        min-width:230px;
+
+        border-radius:14px;
+
+        background:
+            linear-gradient(135deg,#1e293b,#0f172a);
+
+        color:#e2e8f0;
+
+        text-decoration:none;
+
+        font-weight:600;
+
+        border:1px solid #334155;
+
+        transition:all 0.3s ease;
+
+        box-shadow:
+            0 4px 12px rgba(0,0,0,0.35);
+
+        animation:floaty 3s ease-in-out infinite;
+    }
+
+    .sponsor-btn::before{
+
+        content:"";
+
+        position:absolute;
+
+        top:0;
+        left:-120%;
+
+        width:70%;
+        height:100%;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.15),
+                transparent
+            );
+
+        transition:0.7s;
+    }
+
+    .sponsor-btn:hover::before{
+        left:140%;
+    }
+
+    .sponsor-btn:hover{
+
+        transform:
+            translateY(-4px)
+            scale(1.02);
+
+        background:
+            linear-gradient(135deg,#2563eb,#1d4ed8);
+
+        border-color:#60a5fa;
+
+        box-shadow:
+            0 8px 24px rgba(37,99,235,0.35),
+            0 0 18px rgba(96,165,250,0.2);
+    }
+
+    .sponsor-btn:active{
+        transform:scale(0.97);
+    }
+
+    .sponsor-btn img{
+        height:18px;
+        width:auto;
+    }
+
+    .btn-icon{
+        transition:transform 0.3s ease;
+    }
+
+    .sponsor-btn:hover .btn-icon{
+        transform:
+            rotate(12deg)
+            scale(1.15);
+    }
+
+    .qr-container{
+
+        margin:2.5rem auto 0 auto;
+
+        padding:1rem;
+
+        max-width:220px;
+
+        border-radius:18px;
+
+        background:#111827;
+
+        border:1px solid #334155;
+
+        animation:qrPulse 3s ease-in-out infinite;
+
+        box-shadow:
+            0 4px 18px rgba(0,0,0,0.35);
+    }
+
+    .qr-container:hover{
+        transform:translateY(-3px);
+
+        box-shadow:
+            0 8px 28px rgba(37,99,235,0.25);
+    }
+
+    .qr-container img{
+        width:100%;
+        border-radius:12px;
+    }
+
+    .qr-container p{
+        margin-top:0.8rem;
+        color:#94a3b8;
+        font-size:0.9rem;
+        letter-spacing:0.5px;
+    }
+
+    @keyframes qrPulse{
+
+        0%,100%{
+            transform:scale(1);
+        }
+
+        50%{
+            transform:scale(1.03);
+        }
+    }
+
+    @keyframes floaty{
+
+        0%,100%{
+            transform:translateY(0px);
+        }
+
+        50%{
+            transform:translateY(-2px);
+        }
+    }
+
+</style></div>
+
+
+
+</div>
+
+<div><div id="907672965567864752" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="footer-outer-wrapper" style="width: 100%; box-sizing: border-box; padding: 60px 0 100px 0;">
+  <div class="footer-container" style="max-width: 1100px; margin: 0 auto; padding: 40px 24px; border-top: 2px solid rgba(15, 242, 224, 0.3); font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: transparent;">
+    
+    <style>
+      .footer-flex-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+      .footer-col {
+        flex: 1;
+        min-width: 280px;
+      }
+      .footer-col h5 {
+        color: #0ff2e0;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        margin: 0 0 15px 0;
+        font-weight: 600;
+      }
+      .footer-col p {
+        color: #9aa9bc;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .status-tag {
+        display: inline-block;
+        padding: 2px 10px;
+        background: rgba(15, 242, 224, 0.1);
+        color: #0ff2e0;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        margin-top: 10px;
+        border: 1px solid rgba(15, 242, 224, 0.2);
+      }
+      .copyright-bar {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      @media (max-width: 768px) {
+        .footer-col { border-left: none !important; padding-left: 0 !important; }
+      }
+    </style>
+
+    <div class="footer-flex-grid">
+      <div class="footer-col">
+        <h5>技術核心：影像辨識</h5>
+        <p>基於螢幕畫面模擬技術，完全不讀取記憶體、不攔截遊戲封包。這不是傳統外掛，而是協助你更輕鬆遊戲的數位助手。</p>
+        <div class="status-tag">非侵入式架構</div>
+      </div>
+
+      <div class="footer-col" style="border-left: 1px solid rgba(255, 255, 255, 0.05); padding-left: 25px;">
+        <h5>開發者堅持</h5>
+        <p>我拒絕自動瞄準與全自動掛機。我只鎖定冷卻時間、協助壓槍與自動補給。<strong>把無意義的勞動交給程式，把樂趣留給你。</strong></p>
+        <div class="status-tag">零修改遊戲檔案</div>
+      </div>
+
+      <div class="footer-col" style="border-left: 1px solid rgba(255, 255, 255, 0.05); padding-left: 25px;">
+        <h5>開放與透明</h5>
+        <p>所有工具原始碼均公開於 GitHub，接受全球玩家與技術愛好者審查。確保無後門、無病毒，安全穩定。</p>
+        <div class="status-tag">原始碼完全開源</div>
+      </div>
+    </div>
+
+    <div class="copyright-bar">
+      <div style="color: #fff; font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">
+        Sid <span style="color: #0ff2e0;">·</span> 自動化工具開發者
+      </div>
+      <div style="color: #6272a4; font-size: 0.85rem;">
+        © 2026 Sid | 基於影像模擬技術 | 非外掛 · 非注入 · 非代打
+      </div>
+    </div>
+  </div>
+</div></div>
+
+
+
+</div>
+			</div>
+		</div>
+      </div>
+
+	</div>
+</div>
+
+</div>
+
+  	</div>
+
+  	
+
+  </div>
+
+</div>
+<script type="text/javascript" src="files/theme/files/plugins.js"></script>
+<script type="text/javascript" src="files/theme/files/custom.js"></script>
+<script type="text/javascript" src="files/theme/files/mobile.js"></script>
+    <div id="customer-accounts-app"></div>
+    <script src="files/cdn_local/js/site/main-customer-accounts-site.js?buildtime=1234"></script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131254328-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131254328-2');
+</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" defer></script>
+<script src="files/search.js" defer></script>
+</body>
+</html>

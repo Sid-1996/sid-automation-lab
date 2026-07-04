@@ -1,0 +1,1212 @@
+﻿<!DOCTYPE html>
+<html lang="zh_TW">
+	<head>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>&#12298;&#27969;&#20129;&#40687;&#36947;2&#12299;&#24037;&#20855;&#31665; - Sid Automation Lab</title>
+<meta name="description" content="工具箱是一款專為Path of Exile玩家設計的自動化工具，提供實時血魔監控、一鍵清包、技能連段等多項實用功能，幫助玩家提升遊戲效率和舒適度。" />
+<meta name="keywords" content="流亡黯道,Path of Exile,poe,輔助工具,遊戲腳本,輔助,腳本,遊戲工具" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1181746742151021"
+     crossorigin="anonymous"></script>
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="files/cdn_local/css/sites.css?buildtime=1234" />
+<link rel="stylesheet" type="text/css" href="files/cdn_local/css/old/fancybox.css?buildtime=1234" />
+<link rel="stylesheet" type="text/css" href="files/cdn_local/css/social-icons.css?buildtime=1234" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1783076445" title="wsite-theme-css" />
+<link href='files/cdn_local/fonts/Cabin/font.css?2' rel='stylesheet' type='text/css' />
+<link href='files/cdn_local/fonts/Montserrat/font.css?2' rel='stylesheet' type='text/css' />
+
+<style type='text/css'>
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {color:#a9e4f8 !important;font-weight: bold !important;text-transform:  none !important;}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {font-size:50px !important;}
+.wsite-menu-default a {font-size:18px !important;}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+}</style>
+<style>
+.wsite-background {background-image: url("/uploads/7/7/0/3/77032051/background-images/1857329487.jpg") !important;background-repeat: no-repeat !important;background-position: 50% 50% !important;background-size: cover !important;background-color: transparent !important;background: inherit;}
+body.wsite-background {background-attachment: fixed !important;}.wsite-background.wsite-custom-background{ background-size: cover !important}
+</style>
+		<script src='files/templateArtifacts.js?1782412826'></script>
+<script>
+var STATIC_BASE = '';
+var ASSETS_BASE = '';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src='files/cdn_local/js/jquery-1.8.3.min.js'></script>
+
+<script type="text/javascript" src="files/cdn_local/js/lang/zh_TW/stl.js?buildTime=1234&"></script>
+<script src="files/cdn_local/js/site/main.js?buildtime=1234"></script><script type="text/javascript">
+		function initCustomerAccountsModels() {
+					(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
+_W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":"_W.CustomerAccounts.BackboneModelData","collection_namespace":"_W.CustomerAccounts.BackboneCollectionData","bootstrap_namespace":"_W.CustomerAccounts.BackboneBootstrap","models":{"CustomerAccounts":{"_class":"CustomerAccounts.Model.CustomerAccounts","defaults":null,"validation":null,"types":null,"idAttribute":null,"keydefs":null}},"collections":{"CustomerAccounts":{"_class":"CustomerAccounts.Collection.CustomerAccounts"}},"bootstrap":[]});
+})();
+		}
+		if(document.createEvent && document.addEventListener) {
+			var initEvt = document.createEvent('Event');
+			initEvt.initEvent('customerAccountsModelsInitialized', true, false);
+			document.dispatchEvent(initEvt);
+		} else if(document.documentElement.initCustomerAccountsModels === 0){
+			document.documentElement.initCustomerAccountsModels++
+		}
+		</script>
+		<script type="text/javascript"> _W = _W || {}; _W.securePrefix='UNSET'; </script><script>_W = _W || {};
+			_W.customerLocale = "en_US";
+			_W.storeName = null;
+			_W.isCheckoutReskin = false;
+			_W.storeCountry = "TW";
+			_W.storeCurrency = "TWD";
+			_W.storeEuPrivacyPolicyUrl = "";
+			com_currentSite = "693506005579234598";
+			com_userID = "77032051";</script><script type="text/javascript">_W.configDomain = "";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="files/cdn_local/js/lang/zh_TW/stl.js?buildTime=1234&"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	var IS_ARCHIVE = 1;
+	
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"849057931736952557","title":"&#39318;&#38913;","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"869600931407061729","title":"&#38283;&#30332;&#23447;&#26088;","url":"38283303322344726088.html","target":"","nav_menu":false,"nonclickable":false},{"id":"710073287667105530","title":"&#33258;&#21205;&#21270;&#38917;&#30446;","url":"3325821205212703891730446.html","target":"","nav_menu":false,"nonclickable":true},{"id":"201013272719899972","title":"&#24460;&#24231;&#21147;&#36628;&#21161;","url":"sidrecoilscript.html","target":"","nav_menu":false,"nonclickable":false},{"id":"340326026408176637","title":"&#20854;&#20182;&#24037;&#20855;(&#25512;&#34214;)","url":"208542018224037208552551234214.html","target":"","nav_menu":false,"nonclickable":true},{"id":"482342209794371076","title":"&#32879;&#32097;&#20316;&#32773; &rarr;","url":"32879320972031632773-rarr.html","target":"","nav_menu":false,"nonclickable":true}],
+			"302760758911505782",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{}
+		)
+	}
+//-->
+</script>
+		
+		
+	</head>
+	<body class="header-page title-page  wsite-page-sidexilegametool wsite-theme-light"><div id="wrapper">
+
+  <div id="header">
+    <div id="masthead">
+      <div id="masthead-wrap">
+        <div class="sitename"><span class="wsite-logo">
+
+	<a href="">
+	
+	<span id="wsite-title">Sid Automation Lab</span>
+	
+	</a>
+
+</span></div>
+        <div id="sitesearch"><span class="wsite-search">
+	<form id="wsite-header-search-form" action="/search.html" method="get">
+		<input type="text" name="q" class="wsite-search-input" autocomplete="off" placeholder="搜尋"/><span class="wsite-search-button"><span class="wsite-search-button-inner"></span></span>
+	</form>
+</span></div>
+      </div>
+    </div>
+
+    <div id="navigation">
+     	<div id="search"><a href="/search.html"></a></div>
+      <a id="mobile" class="hamburger" href="#"><span class="mobile-bar"></span><span class="mobile-bar"></span><span class="mobile-bar"></span></a>
+      <div class="sitename"><span class="wsite-logo">
+
+	<a href="">
+	
+	<span id="wsite-title">Sid Automation Lab</span>
+	
+	</a>
+
+</span></div>
+      <div id="navigation-wrap">
+   	 	<div id="nav"><ul class="wsite-menu-default">
+		<li id="pg849057931736952557" class="wsite-menu-item-wrap">
+			<a
+						href="index.html"
+				class="wsite-menu-item"
+				>
+				首頁
+			</a>
+			
+		</li>
+		<li id="pg869600931407061729" class="wsite-menu-item-wrap">
+			<a
+						href="38283303322344726088.html"
+				class="wsite-menu-item"
+				>
+				開發宗旨
+			</a>
+			
+		</li>
+		<li id="pg710073287667105530" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				自動化項目
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-434620566332248448"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Path of Exile
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-302760758911505782"
+	class="wsite-menu-subitem-wrap wsite-nav-current"
+	>
+	<a
+				href="sidexilegametool.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;2&#12299;Sid&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-160897203484175195"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="sidexiletoolbox.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;&#12299;&#33290;&#29256;&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-516840215800236176"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			AetherGazer
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-578682664692961791"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="aethergazersemiauto.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#28145;&#31354;&#20043;&#30524;&#12299;&#21322;&#33258;&#21205;&#33139;&#26412;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-675930293506317489"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			BrownDust2
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-672224051180161278"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="122982683733394226452246721229938899369382116125163.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#26837;&#33394;&#22645;&#22467;2&#12299;&#38899;&#36938;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg201013272719899972" class="wsite-menu-item-wrap">
+			<a
+						href="sidrecoilscript.html"
+				class="wsite-menu-item"
+				>
+				後座力輔助
+			</a>
+			
+		</li>
+		<li id="pg340326026408176637" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				其他工具(推薦)
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-225764304908627294"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/ok-oldking/ok-wuthering-waves"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#40180;&#28526;&#12299;ok-ww &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-881866344459355224"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-nte"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#30064;&#29872;&#12299;ok-nte &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-103459266287210960"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-duet-night-abyss"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#20108;&#37325;&#34746;&#26059;&#12299;&#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg482342209794371076" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				聯絡作者 →
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-203128144506688710"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://www.facebook.com/talksometingshit/"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			FB&#31881;&#32114;&#23560;&#38913;: @talksometingshit
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-916314138493761365"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Gmail&#20449;&#31665;: sid1000028@gmail.com
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+</ul>
+</div>
+   	 	<div id="navmobile"><ul class="wsite-menu-default">
+		<li id="pg849057931736952557" class="wsite-menu-item-wrap">
+			<a
+						href="index.html"
+				class="wsite-menu-item"
+				>
+				首頁
+			</a>
+			
+		</li>
+		<li id="pg869600931407061729" class="wsite-menu-item-wrap">
+			<a
+						href="38283303322344726088.html"
+				class="wsite-menu-item"
+				>
+				開發宗旨
+			</a>
+			
+		</li>
+		<li id="pg710073287667105530" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				自動化項目
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-434620566332248448"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Path of Exile
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-302760758911505782"
+	class="wsite-menu-subitem-wrap wsite-nav-current"
+	>
+	<a
+				href="sidexilegametool.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;2&#12299;Sid&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-160897203484175195"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="sidexiletoolbox.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#27969;&#20129;&#40687;&#36947;&#12299;&#33290;&#29256;&#24037;&#20855;&#31665;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-516840215800236176"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			AetherGazer
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-578682664692961791"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="aethergazersemiauto.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#28145;&#31354;&#20043;&#30524;&#12299;&#21322;&#33258;&#21205;&#33139;&#26412;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+<li id="wsite-nav-675930293506317489"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			BrownDust2
+		</span><span class="wsite-menu-arrow">&gt;</span>
+	</a>
+	<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-672224051180161278"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="122982683733394226452246721229938899369382116125163.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#26837;&#33394;&#22645;&#22467;2&#12299;&#38899;&#36938;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg201013272719899972" class="wsite-menu-item-wrap">
+			<a
+						href="sidrecoilscript.html"
+				class="wsite-menu-item"
+				>
+				後座力輔助
+			</a>
+			
+		</li>
+		<li id="pg340326026408176637" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				其他工具(推薦)
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-225764304908627294"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/ok-oldking/ok-wuthering-waves"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#40180;&#28526;&#12299;ok-ww &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-881866344459355224"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-nte"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#30064;&#29872;&#12299;ok-nte &#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-103459266287210960"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://github.com/BnanZ0/ok-duet-night-abyss"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			&#12298;&#20108;&#37325;&#34746;&#26059;&#12299;&#33258;&#21205;&#21270;&#21161;&#25163;
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg482342209794371076" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				聯絡作者 →
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-203128144506688710"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="https://www.facebook.com/talksometingshit/"
+			target="_blank"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			FB&#31881;&#32114;&#23560;&#38913;: @talksometingshit
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-916314138493761365"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Gmail&#20449;&#31665;: sid1000028@gmail.com
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+</ul>
+</div>
+     	<div id="social"><div style="text-align:left;"><div style="height:0px;overflow:hidden"></div>
+<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-facebook' href='https://www.facebook.com/talksometingshit/' target='_blank' alt='Facebook' aria-label='Facebook'><span class='wsite-social-item-inner'></span></a><a class='wsite-social-item wsite-social-mail' href='mailto:sid1000028@gmail.com' target='_blank' alt='Mail' aria-label='Mail'><span class='wsite-social-item-inner'></span></a><a class='last-child wsite-social-item wsite-social-youtube' href='https://www.dailymotion.com/user/SoloSid' target='_blank' alt='Youtube' aria-label='Youtube'><span class='wsite-social-item-inner'></span></a></span>
+<div style="height:0px;overflow:hidden"></div></div></div>
+      </div>
+  	</div>
+  </div>
+
+  <div id="main">
+    <div id="banner-wrap">
+      <div class="wsite-elements wsite-not-footer wsite-header-elements">
+	<div class="wsite-section-wrap">
+	<div  class="wsite-section wsite-header-section wsite-section-bg-image" style="height: 264px;background-image: url(&quot;/uploads/7/7/0/3/77032051/background-images/263949455.jpg&quot;) ;background-repeat: no-repeat ;background-position: NaN% NaN% ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
+		<div class="wsite-section-content">
+			
+        <div class="container">
+				<div class="wsite-section-elements">
+					
+		</div>
+      </div>
+
+	</div>
+
+    <div id="content-wrapper">
+      <div id="wsite-content" class="wsite-elements wsite-not-footer">
+        <div class="wsite-section-wrap">
+          <div class="wsite-section wsite-body-section wsite-background-39" style="vertical-align: top; height: auto; background-image: url("/uploads/7/7/0/3/77032051/background-images/1857329487.jpg"); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; background-color: transparent;">
+            <div class="wsite-section-content">
+              <div class="container">
+                <div class="wsite-section-elements">
+                  <div class="poe-container" style="max-width: 1000px; margin: 0 auto; padding: 20px; font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; color: #d1d1d1;">
+  <style>
+    /* --- 通用與 PC 端樣式 --- */
+    .poe-box { background: rgba(10, 12, 16, 0.95); border-radius: 24px; border: 1px solid #4a3e2b; padding: 35px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+    .header-title { text-align: center; margin-bottom: 30px; }
+    .header-title h1 { color: #e9c08e; font-size: 2rem; letter-spacing: 2px; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+    .download-section {
+      background: rgba(233, 192, 142, 0.03);
+      border-radius: 16px;
+      padding: 25px 30px;
+      border: 1px solid rgba(233, 192, 142, 0.15);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .download-btn {
+      background: linear-gradient(135deg, #e9c08e 0%, #b88a4d 100%);
+      color: #1a150e !important;
+      padding: 14px 35px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.3);
+      border: 1px solid #8e6d3d;
+    }
+
+    .download-btn:hover {
+      background: linear-gradient(135deg, #fff 0%, #e9c08e 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 192, 142, 0.3);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+    .feature-item {
+      background: rgba(255,255,255,0.02);
+      padding: 25px;
+      border-radius: 16px;
+      border-top: 2px solid #4a3e2b;
+      transition: 0.3s;
+    }
+    .feature-item:hover { background: rgba(255,255,255,0.04); }
+    .feature-item h4 {
+      color: #e9c08e;
+      margin: 0 0 20px 0;
+      font-size: 1.2rem;
+      display: block;
+      border-bottom: 1px solid rgba(233, 192, 142, 0.1);
+      padding-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .feature-list { list-style: none; padding: 0; margin: 0; }
+    .feature-list li {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      color: #aaa;
+      display: flex;
+      align-items: flex-start;
+    }
+    .feature-list li b { color: #ddd; min-width: 80px; display: inline-block; }
+    .feature-list li::before { content: "»"; color: #e9c08e; margin-right: 10px; font-weight: bold; }
+
+    .safety-guide { background: rgba(255, 77, 77, 0.03); border: 1px solid rgba(255, 77, 77, 0.15); border-radius: 16px; padding: 25px; }
+    .safety-item { font-size: 0.9rem; color: #999; line-height: 1.7; }
+    .safety-item b { color: #ff6666; display: block; margin-bottom: 8px; font-size: 1rem; }
+
+    /* --- 手機端適配優化 (max-width: 768px) --- */
+    @media (max-width: 768px) {
+      .poe-box { padding: 25px 15px; border-radius: 16px; }
+
+      .header-title h1 { font-size: 1.6rem; }
+
+      .download-section {
+        padding: 20px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .download-btn {
+        width: 100%;
+        padding: 12px 20px;
+        white-space: normal;
+        font-size: 1rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .feature-item { padding: 20px; }
+
+      .feature-list li b { min-width: 70px; font-size: 0.9rem; }
+      .feature-list li { font-size: 0.85rem; }
+
+      .safety-guide { padding: 15px; }
+      .safety-item b { font-size: 0.95rem; }
+    }
+  </style>
+
+  <div class="poe-box">
+    <div class="header-title">
+      <h1>流亡黯道 2 工具箱</h1>
+      <p style="color:#666; letter-spacing: 1px;">獨立執行檔 · 零侵入影像辨識 · 穩定運作</p>
+    </div>
+
+    <div class="download-section">
+      <div style="width: 100%; text-align: center;">
+        <div style="color: #eee; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px;">Path of Exile 2 - Sid GameTools</div>
+        <div style="font-size: 0.85rem; color: #666; margin-top: 6px;">完全免費開源 | 免安裝 Python 環境</div>
+      </div>
+      <a href="https://github.com/Sid-1996/PathofExile-Sid-GameTools_HealthMonitor/releases" target="_blank" class="download-btn">前往 GitHub 下載</a>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h4>戰鬥與生存</h4>
+        <ul class="feature-list">
+          <li><b>血魔監控：</b>即時影像偵測並自動治療。</li>
+          <li><b>快速取物：</b>F6 一鍵取出倉庫常用通貨。</li>
+          <li><b>技能連段：</b>支援多套邏輯，自動銜接。</li>
+        </ul>
+      </div>
+
+      <div class="feature-item">
+        <h4>效率與清包</h4>
+        <ul class="feature-list">
+          <li><b>自動清包：</b>智能掃描並一鍵清空背包。</li>
+          <li><b>高速連點：</b>Ctrl+左鍵，保護手指不疲勞。</li>
+          <li><b>快速回城：</b>F5 鍵瞬間返回藏身處。</li>
+        </ul>
+      </div>
+
+      <div class="feature-item">
+        <h4>系統與視覺</h4>
+        <ul class="feature-list">
+          <li><b>偵測預覽：</b>視覺化範圍，精準校正位置。</li>
+          <li><b>全域暫停：</b>F9 鍵切換，聊天不干擾指令。</li>
+          <li><b>配置儲存：</b>自動持久化，即開即用。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="safety-guide">
+      <div class="safety-item">
+        <b>關於防毒誤報說明：</b>
+        模擬點擊腳本常被系統判定為「不明來源」，請放心使用。下載時若被封鎖，請點擊「保留」；執行時若出現 Defender 提示，請點擊「其他資訊」並選擇「仍要執行」。
+      </div>
+      <div style="text-align:right; font-size: 0.8rem; color:#555; margin-top:10px;">※ 建議使用管理員權限執行以確保功能正常</div>
+    </div>
+  </div>
+</div>
+
+<div class="video-monitor-container" style="max-width: 900px; margin: 40px auto; padding: 15px; background: rgba(20, 25, 30, 0.6); border-radius: 20px; border: 1px solid rgba(233, 192, 142, 0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+
+  <!-- 頂部裝飾條：模擬監視器質感 -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 10px;">
+    <div style="display: flex; gap: 6px;">
+      <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff4d4d; box-shadow: 0 0 8px #ff4d4d;"></div>
+      <div style="width: 8px; height: 8px; border-radius: 50%; background: #4a3e2b;"></div>
+    </div>
+    <div style="color: #e9c08e; font-size: 0.75rem; letter-spacing: 2px; font-family: monospace; opacity: 0.8;">
+      LIVE_DEMO_REC // SID_SYSTEM_V2.6
+    </div>
+  </div>
+
+  <!-- 影片主體 -->
+  <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+    <iframe
+      src="https://geo.dailymotion.com/player.html?video=xa9cau2"
+      style="width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden; border:none;"
+      allowfullscreen
+      title="Dailymotion Video Player"
+      allow="web-share">
+    </iframe>
+  </div>
+
+  <!-- 底部說明文字 -->
+  <div style="margin-top: 15px; text-align: center; color: #888; font-size: 0.85rem; font-style: italic;">
+    <i class="fas fa-play-circle" style="color: #e9c08e; margin-right: 5px;"></i> 實戰展示：影像辨識補血、清包與技能自動化循環
+  </div>
+</div>
+
+<div class="support-wrapper">
+
+    <div class="support-title">
+        ☕ Support the Project
+    </div>
+
+    <div class="support-subtitle">
+        如果這些 Automation / OCR 研究專案對你有幫助，
+        歡迎支持後續開發與維護。
+    </div>
+
+    <div class="sponsor-container">
+
+        <!-- ECPay -->
+        <a class="sponsor-btn" href="https://p.ecpay.com.tw/E0E3A" target="_blank">
+            <span class="btn-icon">□</span>
+            ECPay Support
+        </a>
+
+        <!-- PayPal Small -->
+        <a class="sponsor-btn" href="https://www.paypal.com/ncp/payment/GJS4D5VTSVWG4" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" alt="PayPal">
+            Small Support
+        </a>
+
+        <!-- PayPal Large -->
+        <a class="sponsor-btn" href="https://www.paypal.com/ncp/payment/S5PTHJJVBC5VS" target="_blank">
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" alt="PayPal">
+            Project Support
+        </a>
+
+    </div>
+
+    <div class="qr-container">
+        <img src="https://payment.ecpay.com.tw/Upload/QRCode/201901/QRCode_21c4c069-547f-4115-9f8d-2c050273f028.png" alt="QR Code">
+        <p>Scan QR Code</p>
+    </div>
+
+</div>
+
+<style>
+
+    body{
+        background:#0f172a;
+    }
+
+    .support-wrapper{
+        text-align:center;
+        padding:2rem 1rem;
+        margin:2rem auto;
+        max-width:900px;
+    }
+
+    .support-title{
+        font-size:2rem;
+        font-weight:700;
+        color:#e2e8f0;
+        margin-bottom:0.8rem;
+        letter-spacing:1px;
+    }
+
+    .support-subtitle{
+        color:#94a3b8;
+        font-size:1rem;
+        line-height:1.7;
+        margin-bottom:2rem;
+    }
+
+    .sponsor-container{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:1rem;
+    }
+
+    .sponsor-btn{
+
+        position:relative;
+        overflow:hidden;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:0.7rem;
+
+        padding:1rem 1.8rem;
+
+        min-width:230px;
+
+        border-radius:14px;
+
+        background:
+            linear-gradient(135deg,#1e293b,#0f172a);
+
+        color:#e2e8f0;
+
+        text-decoration:none;
+
+        font-weight:600;
+
+        border:1px solid #334155;
+
+        transition:all 0.3s ease;
+
+        box-shadow:
+            0 4px 12px rgba(0,0,0,0.35);
+
+        animation:floaty 3s ease-in-out infinite;
+    }
+
+    .sponsor-btn::before{
+
+        content:"";
+
+        position:absolute;
+
+        top:0;
+        left:-120%;
+
+        width:70%;
+        height:100%;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.15),
+                transparent
+            );
+
+        transition:0.7s;
+    }
+
+    .sponsor-btn:hover::before{
+        left:140%;
+    }
+
+    .sponsor-btn:hover{
+
+        transform:
+            translateY(-4px)
+            scale(1.02);
+
+        background:
+            linear-gradient(135deg,#2563eb,#1d4ed8);
+
+        border-color:#60a5fa;
+
+        box-shadow:
+            0 8px 24px rgba(37,99,235,0.35),
+            0 0 18px rgba(96,165,250,0.2);
+    }
+
+    .sponsor-btn:active{
+        transform:scale(0.97);
+    }
+
+    .sponsor-btn img{
+        height:18px;
+        width:auto;
+    }
+
+    .btn-icon{
+        transition:transform 0.3s ease;
+    }
+
+    .sponsor-btn:hover .btn-icon{
+        transform:
+            rotate(12deg)
+            scale(1.15);
+    }
+
+    .qr-container{
+
+        margin:2.5rem auto 0 auto;
+
+        padding:1rem;
+
+        max-width:220px;
+
+        border-radius:18px;
+
+        background:#111827;
+
+        border:1px solid #334155;
+
+        animation:qrPulse 3s ease-in-out infinite;
+
+        box-shadow:
+            0 4px 18px rgba(0,0,0,0.35);
+    }
+
+    .qr-container:hover{
+        transform:translateY(-3px);
+
+        box-shadow:
+            0 8px 28px rgba(37,99,235,0.25);
+    }
+
+    .qr-container img{
+        width:100%;
+        border-radius:12px;
+    }
+
+    .qr-container p{
+        margin-top:0.8rem;
+        color:#94a3b8;
+        font-size:0.9rem;
+        letter-spacing:0.5px;
+    }
+
+    @keyframes qrPulse{
+
+        0%,100%{
+            transform:scale(1);
+        }
+
+        50%{
+            transform:scale(1.03);
+        }
+    }
+
+    @keyframes floaty{
+
+        0%,100%{
+            transform:translateY(0px);
+        }
+
+        50%{
+            transform:translateY(-2px);
+        }
+    }
+
+</style>
+
+<div class="footer-outer-wrapper" style="width: 100%; box-sizing: border-box; padding: 60px 0 100px 0;">
+  <div class="footer-container" style="max-width: 1100px; margin: 0 auto; padding: 40px 24px; border-top: 2px solid rgba(15, 242, 224, 0.3); font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: transparent;">
+
+    <style>
+      .footer-flex-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+      .footer-col {
+        flex: 1;
+        min-width: 280px;
+      }
+      .footer-col h5 {
+        color: #0ff2e0;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        margin: 0 0 15px 0;
+        font-weight: 600;
+      }
+      .footer-col p {
+        color: #9aa9bc;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .status-tag {
+        display: inline-block;
+        padding: 2px 10px;
+        background: rgba(15, 242, 224, 0.1);
+        color: #0ff2e0;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        margin-top: 10px;
+        border: 1px solid rgba(15, 242, 224, 0.2);
+      }
+      .copyright-bar {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      @media (max-width: 768px) {
+        .footer-col { border-left: none !important; padding-left: 0 !important; }
+      }
+    </style>
+
+    <div class="footer-flex-grid">
+      <div class="footer-col">
+        <h5>技術核心：影像辨識</h5>
+        <p>基於螢幕畫面模擬技術，完全不讀取記憶體、不攔截遊戲封包。這不是傳統外掛，而是協助你更輕鬆遊戲的數位助手。</p>
+        <div class="status-tag">非侵入式架構</div>
+      </div>
+
+      <div class="footer-col" style="border-left: 1px solid rgba(255, 255, 255, 0.05); padding-left: 25px;">
+        <h5>開發者堅持</h5>
+        <p>我拒絕自動瞄準與全自動掛機。我只鎖定冷卻時間、協助壓槍與自動補給。<strong>把無意義的勞動交給程式，把樂趣留給你。</strong></p>
+        <div class="status-tag">零修改遊戲檔案</div>
+      </div>
+
+      <div class="footer-col" style="border-left: 1px solid rgba(255, 255, 255, 0.05); padding-left: 25px;">
+        <h5>開放與透明</h5>
+        <p>所有工具原始碼均公開於 GitHub，接受全球玩家與技術愛好者審查。確保無後門、無病毒，安全穩定。</p>
+        <div class="status-tag">原始碼完全開源</div>
+      </div>
+    </div>
+
+    <div class="copyright-bar">
+      <div style="color: #fff; font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">
+        Sid <span style="color: #0ff2e0;">·</span> 自動化工具開發者
+      </div>
+      <div style="color: #6272a4; font-size: 0.85rem;">
+        © 2026 Sid | 基於影像模擬技術 | 非外掛 · 非注入 · 非代打
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<script
+<script type="text/javascript" src="files/theme/files/plugins.js"></script>
+<script type="text/javascript" src="files/theme/files/custom.js"></script>
+<script type="text/javascript" src="files/theme/files/mobile.js"></script>
+    <div id="customer-accounts-app"></div>
+    <script src="files/cdn_local/js/site/main-customer-accounts-site.js?buildtime=1234"></script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131254328-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131254328-2');
+</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" defer></script>
+<script src="files/search.js" defer></script>
+</body>
+</html>
