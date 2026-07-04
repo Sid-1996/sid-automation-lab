@@ -49,7 +49,7 @@ async function build() {
     const snippet = firstWords(decodeEntities(body), 60);
     if (!title) continue;
     out.push({
-      url: '/' + ent.name,
+      url: ent.name === 'index.html' ? '' : ent.name,
       title: decodeEntities(title).replace(/\s*\|\s*.*$/, '').trim(),
       keywords: decodeEntities(kw),
       snippet: decodeEntities(snippet).slice(0, 220)

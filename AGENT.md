@@ -67,14 +67,9 @@ node scripts\build-sitemap.mjs
 - 同時跑 `node scripts\check-missing.mjs` 確認無 404
 
 ### 任務 C：替換下載檔（ZIP/EXE）
-
-直接覆蓋 `uploads/7/7/0/3/77032051/safpsg_recoilcontrol_trial.zip`。
-注意 `.gitattributes` 內需設定 binary：
-
-```gitattributes
-uploads/**/*.zip binary
-uploads/**/*.exe binary
-```
+下載檔案已改為 Mega mirror,不再儲存在專案內:
+- 測試版: `https://mega.nz/file/ZZFSgBBR#IvZh...`
+- 硬體序號查詢工具: `https://mega.nz/file/QQtkFbZa#Qx-nfd...`(在 `sidrecoilscript.html` line 778, 784)
 
 ### 任務 D：擴增內化 CDN 資源（例如新外部 font）
 
@@ -88,7 +83,7 @@ uploads/**/*.exe binary
 1. F12 Console → 是否有 `search.js` 或 `slideshow-local.js` 載入失敗
 2. F12 Network → 看 `200`/`404` 對應
 3. 看 `sidrecoilscript.html` line 832 的 init() 是否被呼叫（搜 wSlideshow.render 設中斷點）
-4. 圖片 URL → 取 console.log `imgs` array 對 `/uploads/7/7/0/3/77032051/2026-06-17-*` 是否成功
+4. 圖片 URL → 取 console.log `imgs` array 對 `uploads/content/2026-06-17-*` 是否成功
 
 ---
 

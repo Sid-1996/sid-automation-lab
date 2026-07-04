@@ -82,7 +82,7 @@
       e.preventDefault();
       const input = form.querySelector('input[name="q"]');
       const q = (input && input.value || '').trim();
-      window.location.href = '/search.html?q=' + encodeURIComponent(q);
+      window.location.href = 'search.html?q=' + encodeURIComponent(q);
     });
     const input = form.querySelector('input[name="q"]');
     if (!input) return;
@@ -130,7 +130,7 @@
     form && form.addEventListener('submit', function (e) {
       e.preventDefault();
       const v = (form.querySelector('input[name="q"]') || {}).value || '';
-      window.location.href = '/search.html?q=' + encodeURIComponent(v.trim());
+      window.location.href = 'search.html?q=' + encodeURIComponent(v.trim());
     });
   }
 

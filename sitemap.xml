@@ -73,12 +73,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://your-domain.example/siddownload.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://your-domain.example/sidexilegametool.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>

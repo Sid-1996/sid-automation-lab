@@ -20,7 +20,7 @@
         // strip quotes / extra escaping
         u = u.replace(/^['\"]|['\"]$/g, '');
         return {
-          url: '/uploads/' + u,
+          url: 'uploads/' + u,
           alt: ''
         };
       });

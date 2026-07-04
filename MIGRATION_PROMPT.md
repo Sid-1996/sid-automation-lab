@@ -70,7 +70,7 @@
 ### T-02 圖片 404
 ```
 症狀：背景圖、產品縮圖不顯示
-主因：/uploads/7/7/0/3/77032051/... 路徑基底變動
+主因：uploads 路徑已扁平化為 `uploads/content/` 與 `uploads/background/`
 修復：
     1. 確認 uploads/ 整棵資料夾已上傳
     2. 若部署在子路徑，加 base href：
