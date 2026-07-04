@@ -33,8 +33,8 @@
    - Google Analytics `UA-131254328-2` 仍指向已死的 Universal Analytics（不影響渲染）
    - `googletagmanager` 廣告可能因 `ERR_BLOCKED_BY_CLIENT` 擋（廣告攔截器預期）
    - `powr` 已清乾淨，但被刪除的 `<div>` 包裝可能留 **過剩 `</div>`** — 瀏覽器容忍
-   - `sidexiletoolbox.html` 缺 3 張 demo 圖（已刪 `<img>`），段落文字仍保留
-   - `sidpayfor.html` WeChat QR 卡片區塊內只剩空 `<a></a>` 殼
+   - ~~`sidexiletoolbox.html` 缺 3 張 demo 圖~~ → 已於 2026-07-05 補回（`1847905122_2.png` / `1029564595_2.jpg` / `1003025771_2.jpg`，檔案本來就在 uploads/，純接線）
+   - ~~`sidpayfor.html` WeChat QR 卡片區塊內只剩空 `<a></a>` 殼~~ → 已於 2026-07-05 修復；順帶發現並修掉「巢狀 `<html>`」結構債（詳見下方版本紀錄 v1.2）
 
 ---
 
@@ -175,3 +175,4 @@ git add .; git commit -m "..."; git push
 
 - v1.0：完整 Weebly → Vercel 遷移，含內化、本地化、SEO 賦能、修缺檔、幻燈片本地化（2026-07-04）
 - v1.1：新增 `pwsh` 使用建議（中文編碼更穩定），補充中文亂碼相關 Troubleshooting（2026-07-04）
+- v1.2：修復 `sidpayfor.html` 巢狀 `<html>` 結構債（原本內嵌了一份完整獨立 HTML 文件，造成雙重 head/body/html 標籤）；WeChat 改列為「02 / 聯繫作者領取授權」的第二聯繫管道（給無法用 FB 的使用者）；移除「真的有在運作的網站啊」GIF 段落（素材已由使用者確認捨棄）；`sidexiletoolbox.html` 補回 3 張示範截圖（2026-07-05）
