@@ -2,21 +2,20 @@
 <html lang="zh-Hant">
 	<head>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>&#28145;&#31354;&#20043;&#30524;Sid&#21322;&#33258;&#21205;&#33139;&#26412; - Sid Automation Lab</title>
-<meta name="description" content="這是一款針對 《深空之眼 (Aether Gazer)》 所設計的 半自動戰鬥輔助腳本，由 Sid 製作。
-設計目標是降低戰鬥時間的人工作業，同時保留即時手動介入的彈性。" />
-<meta name="keywords" content="Aether Gazer 腳本, Aether Gazer 自動化, Aether Gazer 巨集, Aether Gazer 自動掛機, Aether Gazer 半自動, Aether Gazer 外掛, AHK v2 腳本, 自動點擊, 遊戲自動化, 巨集工具, 掛機, 自動釋放技能, 自動化, 遊戲輔助工具" />
+		<title>No-Code OCR 觸發點擊工具 - Sid Automation Lab</title>
+<meta name="description" content="No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。適用遊戲自動化與重複作業。" />
+<meta name="keywords" content="OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, AutoHotkey v2, AHK v2, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, TCP Socket, ONNX, Python 自動化" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
-<link rel="canonical" href="https://sid-1996.github.io/sid-automation-lab/aethergazersemiauto.html" />
-<meta property="og:title" content="&#28145;&#31354;&#20043;&#30524;Sid&#21322;&#33258;&#21205;&#33139;&#26412; - Sid Automation Lab" />
-<meta property="og:description" content="Sid Automation Lab - 專注圖像辨識與模擬輸入技術的開源自動化工具開發者" />
-<meta property="og:url" content="https://sid-1996.github.io/sid-automation-lab/aethergazersemiauto.html" />
+<link rel="canonical" href="https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html" />
+<meta property="og:title" content="No-Code OCR 觸發點擊工具 - Sid Automation Lab" />
+<meta property="og:description" content="No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。" />
+<meta property="og:url" content="https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://sid-1996.github.io/sid-automation-lab/files/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="&#28145;&#31354;&#20043;&#30524;Sid&#21322;&#33258;&#21205;&#33139;&#26412; - Sid Automation Lab" />
-<meta name="twitter:description" content="Sid Automation Lab - 專注圖像辨識與模擬輸入技術的開源自動化工具開發者" />
+<meta name="twitter:title" content="No-Code OCR 觸發點擊工具 - Sid Automation Lab" />
+<meta name="twitter:description" content="No-Code 即時 OCR 觸發點擊工具 — Python (PyQt6+RapidOCR) + AutoHotkey v2 雙引擎。" />
 <meta name="twitter:image" content="https://sid-1996.github.io/sid-automation-lab/files/og-image.png" />
 
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1181746742151021"
@@ -29,53 +28,11 @@
 <link href='files/cdn_local/fonts/Montserrat/font.css?2' rel='stylesheet' type='text/css' />
 
 <style type='text/css'>
-.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
-#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
-.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
-.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
-#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
-.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
 #wsite-title {color:#a9e4f8 !important;font-weight: bold !important;text-transform:  none !important;}
-.wsite-menu-default a {}
-.wsite-menu a {}
-.wsite-image div, .wsite-caption {}
-.galleryCaptionInnerText {}
-.fancybox-title {}
-.wslide-caption-text {}
-.wsite-phone {}
-.wsite-headline,.wsite-header-section .wsite-content-title {}
-.wsite-headline-paragraph,.wsite-header-section .paragraph {}
-.wsite-button-inner {}
-.wsite-not-footer blockquote {}
-.wsite-footer blockquote {}
-.blog-header h2 a {}
-#wsite-content h2.wsite-product-title {}
-.wsite-product .wsite-product-price a {}
-@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
-#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
-.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
-.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
-#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
-.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
-#wsite-title {font-size:50px !important;}
-.wsite-menu-default a {font-size:18px !important;}
-.wsite-menu a {}
-.wsite-image div, .wsite-caption {}
-.galleryCaptionInnerText {}
-.fancybox-title {}
-.wslide-caption-text {}
-.wsite-phone {}
-.wsite-headline,.wsite-header-section .wsite-content-title {}
-.wsite-headline-paragraph,.wsite-header-section .paragraph {}
-.wsite-button-inner {}
-.wsite-not-footer blockquote {}
-.wsite-footer blockquote {}
-.blog-header h2 a {}
-#wsite-content h2.wsite-product-title {}
-.wsite-product .wsite-product-price a {}
-}</style>
+@media screen and (min-width: 767px) {#wsite-title {font-size:50px !important;}.wsite-menu-default a {font-size:18px !important;}}
+</style>
 
-		
+
 <script>
 var STATIC_BASE = '';
 var ASSETS_BASE = '';
@@ -86,7 +43,7 @@ var STYLE_PREFIX = 'wsite';
 <script type="text/javascript" src="files/cdn_local/js/lang/zh_TW/stl.js?buildTime=1234&"></script>
 <script src="files/cdn_local/js/site/main.js?buildtime=1234"></script><script type="text/javascript">
 		function initCustomerAccountsModels() {
-					(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
+			(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
 _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":"_W.CustomerAccounts.BackboneModelData","collection_namespace":"_W.CustomerAccounts.BackboneCollectionData","bootstrap_namespace":"_W.CustomerAccounts.BackboneBootstrap","models":{"CustomerAccounts":{"_class":"CustomerAccounts.Model.CustomerAccounts","defaults":null,"validation":null,"types":null,"idAttribute":null,"keydefs":null}},"collections":{"CustomerAccounts":{"_class":"CustomerAccounts.Collection.CustomerAccounts"}},"bootstrap":[]});
 })();
 		}
@@ -109,29 +66,71 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 			com_userID = "77032051";</script><script type="text/javascript">_W.configDomain = "";</script><script>_W.relinquish && _W.relinquish()</script>
 <script type="text/javascript" src="files/cdn_local/js/lang/zh_TW/stl.js?buildTime=1234&"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
 	var IS_ARCHIVE = 1;
-	
 	function initFlyouts(){
 		initPublishedFlyoutMenus(
-			[{"id":"849057931736952557","title":"&#39318;&#38913;","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"869600931407061729","title":"&#38283;&#30332;&#23447;&#26088;","url":"about.html","target":"","nav_menu":false,"nonclickable":false},{"id":"710073287667105530","title":"&#33258;&#21205;&#21270;&#38917;&#30446;","url":"automation-projects.html","target":"","nav_menu":false,"nonclickable":true},{"id":"201013272719899972","title":"&#24460;&#24231;&#21147;&#36628;&#21161;","url":"sidrecoilscript.html","target":"","nav_menu":false,"nonclickable":false},{"id":"340326026408176637","title":"&#20854;&#20182;&#24037;&#20855;(&#25512;&#34214;)","url":"other-tools.html","target":"","nav_menu":false,"nonclickable":true},{"id":"482342209794371076","title":"&#32879;&#32097;&#20316;&#32773; &rarr;","url":"https://docs.google.com/forms/d/e/1FAIpQLSdk7p6XQXcX0z5ls7DMlEIzy0aj43MrnUOYviH9Taum4J68Bg/viewform","target":"_blank","nav_menu":false,"nonclickable":false}],
-			"578682664692961791",
-			'',
-			'active',
-			false,
-			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
-			{}
-		)
+			[{"id":"849057931736952557","title":"&#39318;&#38913;","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"869600931407061729","title":"&#38283;&#30332;&#23447;&#26088;","url":"about.html","target":"","nav_menu":false,"nonclickable":false},{"id":"710073287667105530","title":"&#33258;&#21205;&#21270;&#38917;&#30446;","url":"automation-projects.html","target":"","nav_menu":false,"nonclickable":true},{"id":"201013272719899972","title":"&#24460;&#24231;&#21177;&#21177;","url":"sidrecoilscript.html","target":"","nav_menu":false,"nonclickable":false},{"id":"340326026408176637","title":"&#20854;&#20182;&#24037;&#20855;(&#25512;&#34214;)","url":"other-tools.html","target":"","nav_menu":false,"nonclickable":true},{"id":"482342209794371076","title":"&#32879;&#32097;&#20316;&#32773; &rarr;","url":"https://docs.google.com/forms/d/e/1FAIpQLSdk7p6XQXcX0z5ls7DMlEIzy0aj43MrnUOYviH9Taum4J68Bg/viewform","target":"_blank","nav_menu":false,"nonclickable":false}],
+		"578682664692961791",
+		'',
+		'active',
+		false,
+		{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">
+	<a
+		{{^nonclickable}}
+			{{^nav_menu}}
+				href=\"{{url}}\"
+			{{\/nav_menu}}
+		{{\/nonclickable}}
+		{{#target}}
+			target=\"{{target}}\"
+		{{\/target}}
+		{{#membership_required}}
+			data-membership-required=\"{{.}}\"
+		{{\/membership_required}}
+		class=\"wsite-menu-item\"
+		>
+		{{{title_html}}}
+	<\/a>
+	{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}
+<\/li>
+","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">
+	<ul class=\"wsite-menu\">
+		{{#children}}{{> navigation\/flyout\/item}}{{\/children}}
+	<\/ul>
+<\/div>
+","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}
+	class=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"
+	>
+	<a
+		{{^nonclickable}}
+			{{^nav_menu}}
+				href=\"{{url}}\"
+			{{\/nav_menu}}
+		{{\/nonclickable}}
+		{{#target}}
+			target=\"{{target}}\"
+		{{\/target}}
+		class=\"wsite-menu-subitem\"
+		>
+		<span class=\"wsite-menu-title\">
+			{{{title_html}}}
+		<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">><\/span>{{\/has_children}}
+	<\/a>
+	{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}
+<\/li>
+"},
+		{}
+	)
 	}
 //-->
 </script>
-		
-		
-	<script type="application/ld+json">
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "深空之眼 Sid 半自動腳本",
-  "description": "針對深空之眼 (Aether Gazer) 設計的半自動戰鬥輔助腳本，由 Sid 製作。",
-  "url": "https://sid-1996.github.io/sid-automation-lab/aethergazersemiauto.html",
+  "name": "No-Code OCR 觸發點擊工具",
+  "description": "No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。適用遊戲自動化與重複作業。",
+  "url": "https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Windows",
   "offers": {
@@ -142,7 +141,7 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 }
 </script>
 </head>
-	<body class="header-page title-page  wsite-page-aethergazersemiauto wsite-theme-light"><div id="wrapper">
+	<body class="header-page title-page  wsite-page-ocrtriggerclicker wsite-theme-light"><div id="wrapper">
 
   <div id="header">
     <div id="masthead">
@@ -677,7 +676,7 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 			
         <div class="container">
 				<div class="wsite-section-elements">
-					<div><div id="392714050828129753" align="inherit" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="project-section-wrapper" style="width: 100%; box-sizing: border-box;">
+					<div><div id="OCR_TOOL_CONTENT" align="inherit" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="project-section-wrapper" style="width: 100%; box-sizing: border-box;">
     
     <div class="project-main-container" style="max-width: 1000px; margin: 20px auto; background: #05070a; border-radius: 20px; border: 1px solid #1a1d24; font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
         
@@ -687,7 +686,7 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
                 background: linear-gradient(180deg, rgba(0, 242, 255, 0.05) 0%, transparent 100%);
                 border-bottom: 1px solid rgba(0, 242, 255, 0.1);
             }
-            .feature-grid {
+            .feature-grid { 
                 display: grid; 
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
                 gap: 20px;
@@ -734,6 +733,24 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
                 transform: scale(1.05);
                 box-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
             }
+            .github-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                background: transparent;
+                color: #00f2ff !important;
+                padding: 15px 30px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                border: 1px solid #00f2ff;
+                transition: all 0.2s;
+            }
+            .github-btn:hover {
+                background: rgba(0, 242, 255, 0.1);
+                transform: scale(1.05);
+            }
             .github-link {
                 color: #888;
                 text-decoration: none;
@@ -743,38 +760,34 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
             .github-link:hover { color: #00f2ff; }
             .highlight-blue { color: #00f2ff; font-weight: bold; }
 
-            /* --- 手機端 RWD 優化 --- */
+            .screenshot-wrap {
+                margin: 40px;
+                border-radius: 15px;
+                border: 1px solid rgba(0,242,255,0.15);
+                overflow: hidden;
+                text-align: center;
+                background: rgba(0,0,0,0.3);
+            }
+            .screenshot-wrap img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
             @media (max-width: 768px) {
-                .project-header {
-                    padding: 30px 20px;
-                    text-align: center;
-                }
-                .project-header h1 {
-                    font-size: 24px !important;
-                }
+                .project-header { padding: 30px 20px; text-align: center; }
+                .project-header h1 { font-size: 24px !important; }
                 .project-header div[style*="justify-content: space-between"] {
                     flex-direction: column !important;
                     align-items: center !important;
                     text-align: center;
                 }
-                .project-header div[style*="text-align: right"] {
-                    text-align: center !important;
-                }
-                .feature-grid {
-                    grid-template-columns: 1fr; /* 強制單欄 */
-                    padding: 0 20px 30px;
-                }
-                .feature-box {
-                    padding: 20px;
-                }
-                .download-btn {
-                    width: 100%;
-                    box-sizing: border-box;
-                    padding: 15px 20px;
-                }
-                div[style*="padding: 40px"] {
-                    padding: 20px !important;
-                }
+                .project-header div[style*="text-align: right"] { text-align: center !important; }
+                .feature-grid { grid-template-columns: 1fr; padding: 0 20px 30px; }
+                .feature-box { padding: 20px; }
+                .download-btn, .github-btn { width: 100%; box-sizing: border-box; padding: 15px 20px; }
+                div[style*="padding: 40px"] { padding: 20px !important; }
+                .screenshot-wrap { margin: 20px; }
             }
         </style>
 
@@ -782,190 +795,142 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px;">
                 <div>
                     <h1 style="color: #fff; margin: 0; font-size: 32px; letter-spacing: 2px;">
-                        AETHER <span style="color: #00f2ff;">GAZER</span> SEMI-AUTO
+                        NO-CODE <span style="color: #00f2ff;">OCR</span> TRIGGER CLICKER
                     </h1>
-                    <p style="color: #666; margin-top: 10px; font-size: 16px;">深空之眼 Sid 半自動戰鬥輔助系統</p>
+                    <p style="color: #666; margin-top: 10px; font-size: 16px;">即時偵測螢幕文字 · 自動執行點擊</p>
                 </div>
                 <div style="text-align: right;">
-                    <a href="https://github.com/Sid-1996/AetherGazer-SemiAuto-AHK" target="_blank" class="github-link">
-                        □ View Project on GitHub
+                    <a href="https://github.com/Sid-1996/ocr-trigger-clicker" target="_blank" class="github-link">
+                        View Project on GitHub
                     </a>
                 </div>
             </div>
         </div>
 
-        <div style="padding: 40px;">
-            <div style="border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                    <iframe src="https://geo.dailymotion.com/player.html?video=xa9cyg0" style="width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden; border:none;" allowfullscreentitle="Dailymotion Video Player" allow="web-share"></iframe>
-                </div>
-            </div>
+        <div class="screenshot-wrap">
+            <img src="uploads/content/ocr-trigger-clicker.png" alt="OCR Trigger Clicker 操作畫面" />
         </div>
 
         <div class="feature-grid">
             <div class="feature-box">
                 <span class="status-tag">CORE SYSTEM</span>
-                <h3 style="color: #fff; margin: 0 0 15px;">自動戰鬥核心</h3>
+                <h3 style="color: #fff; margin: 0 0 15px;">OCR 觸發引擎</h3>
                 <ul style="padding: 0; list-style: none; color: #9aa9bc; font-size: 14px; line-height: 1.8;">
-                    <li>• 自動判定技能 CD 與可用狀態</li>
-                    <li>• <span class="highlight-blue">像素級圖片偵測</span> 判斷機制</li>
-                    <li>• WASD 移動優先權，不干擾手操</li>
+                    <li>▸ <span class="highlight-blue">RapidOCR + ONNX</span> 繁中辨識</li>
+                    <li>▸ 三種比對模式：contains / exact / fuzzy</li>
+                    <li>▸ <span class="highlight-blue">視窗比例座標</span> 0~1 跨解析度</li>
+                    <li>▸ 步驟系統：detect / click / key / wait / jump</li>
                 </ul>
             </div>
 
             <div class="feature-box">
-                <span class="status-tag">CHARACTERS</span>
-                <h3 style="color: #fff; margin: 0 0 15px;">角色特化模式</h3>
-                <p style="color: #9aa9bc; font-size: 14px; line-height: 1.6;">
-                    內建多款主流角色專屬偵測，針對特定技能圖示強化判斷：<br>
-                    <span class="highlight-blue">魂羽 / 緋染 / 巧构 / 庚辰</span>
-                </p>
-                <div style="margin-top: 10px; color: #555; font-size: 12px;">※ 其他角色功能開發中</div>
+                <span class="status-tag">GUI</span>
+                <h3 style="color: #fff; margin: 0 0 15px;">No-Code 圖形化介面</h3>
+                <ul style="padding: 0; list-style: none; color: #9aa9bc; font-size: 14px; line-height: 1.8;">
+                    <li>▸ 群組 / 規則 / 步驟 拖曳排序</li>
+                    <li>▸ <span class="highlight-blue">ROI 框選</span> 全螢幕十字游標</li>
+                    <li>▸ 點擊座標視覺化選取器</li>
+                    <li>▸ 步驟測試按鈕 dry-run 即時預覽</li>
+                </ul>
             </div>
 
             <div class="feature-box">
-                <span class="status-tag">OVERLAY</span>
-                <h3 style="color: #fff; margin: 0 0 15px;">狀態疊圖系統</h3>
-                <p style="color: #9aa9bc; font-size: 14px; line-height: 1.6;">
-                    即時顯示 <span class="highlight-blue">腳本狀態 / 戰鬥動作</span>。優化按鍵發送機制，直接傳送指令至視窗，大幅降低輸入衝突。
-                </p>
+                <span class="status-tag">SAFETY & MONITOR</span>
+                <h3 style="color: #fff; margin: 0 0 15px;">安全機制與監控</h3>
+                <ul style="padding: 0; list-style: none; color: #9aa9bc; font-size: 14px; line-height: 1.8;">
+                    <li>▸ <span class="highlight-blue">前景保護</span> 工具前景自動暫停</li>
+                    <li>▸ 速率限制 最高 5 次/秒</li>
+                    <li>▸ 緊急停止 + 常駐監控頻道</li>
+                    <li>▸ 效能監控：FPS / CPU / RAM / OCR 延遲</li>
+                </ul>
             </div>
         </div>
 
         <div style="padding: 40px; background: rgba(0, 242, 255, 0.02); text-align: center; border-top: 1px solid rgba(0, 242, 255, 0.1);">
-            <h2 style="color: #fff; margin-bottom: 25px; font-size: 20px; letter-spacing: 2px;">READY TO DEPLOY?</h2>
-            <a href="https://github.com/Sid-1996/AetherGazer-SemiAuto-AHK/releases" target="_blank" class="download-btn">
-                □ 立即下載正式版本 (Releases)
-            </a>
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 20px; letter-spacing: 2px;">DOWNLOAD BETA</h2>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/Sid-1996/ocr-trigger-clicker/releases" target="_blank" class="download-btn">
+                    立即下載 (Releases)
+                </a>
+                <a href="https://github.com/Sid-1996/ocr-trigger-clicker" target="_blank" class="github-btn">
+                    GitHub
+                </a>
+            </div>
             <div style="margin-top: 20px; color: #444; font-size: 12px;">
-                由 Sid 製作 • 僅針對《深空之眼》優化
+                Sid 製作 · Beta 階段持續開發中 · AGPL-3.0 授權
             </div>
         </div>
 
     </div>
 </div></div>
 
-
-
-</div>
-
-<div><div id="738838346161366982" align="inherit" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="deployment-wrapper" style="width: 100%; box-sizing: border-box;">
+<div><div id="OCR_ARCH_CONTENT" align="inherit" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="deployment-wrapper" style="width: 100%; box-sizing: border-box;">
     
     <div class="deployment-container" style="max-width: 950px; margin: 20px auto; background: #05070a; border: 1px solid rgba(0, 242, 255, 0.2); border-radius: 20px; font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; overflow: hidden; box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);">
 
         <style>
-            .deploy-header {
-                padding: 40px 50px; 
-                background: linear-gradient(180deg, rgba(0, 242, 255, 0.1) 0%, transparent 100%); 
-                border-bottom: 1px solid rgba(0, 242, 255, 0.1);
-            }
-            .params-grid {
-                padding: 40px 50px 20px; 
-                display: flex; 
-                flex-wrap: wrap; 
-                gap: 20px;
-            }
-            .param-box {
-                flex: 1; 
-                min-width: 200px; 
-                background: rgba(255,255,255,0.02); 
-                border: 1px solid rgba(255,255,255,0.05); 
-                border-radius: 10px; 
-                padding: 20px;
-            }
-            .param-box.highlight {
-                background: rgba(0, 242, 255, 0.05); 
-                border: 1px solid #00f2ff;
-            }
-            .important-notice-box {
-                padding: 20px 50px 60px;
-            }
-            .notice-content {
-                background: rgba(0, 242, 255, 0.03); 
-                border: 1px dashed rgba(0, 242, 255, 0.3); 
-                border-radius: 15px; 
-                padding: 30px;
-            }
-
-            /* --- 手機端 RWD 優化 --- */
+            .deploy-header { padding: 40px 50px; background: linear-gradient(180deg, rgba(0, 242, 255, 0.1) 0%, transparent 100%); border-bottom: 1px solid rgba(0, 242, 255, 0.1); }
+            .arch-flow { padding: 40px 50px 20px; display: flex; align-items: stretch; gap: 12px; flex-wrap: wrap; justify-content: center; }
+            .arch-step { flex: 1; min-width: 180px; max-width: 260px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; text-align: center; position: relative; }
+            .arch-step.accent { border-color: #00f2ff; background: rgba(0,242,255,0.04); }
+            .arch-step-num { display: inline-block; width: 28px; height: 28px; line-height: 28px; border-radius: 50%; background: rgba(0,242,255,0.15); color: #00f2ff; font-size: 13px; font-weight: bold; margin-bottom: 12px; }
+            .arch-step h4 { color: #fff; margin: 0 0 8px; font-size: 15px; }
+            .arch-step p { color: #9aa9bc; font-size: 12px; line-height: 1.5; margin: 0; }
+            .arch-arrow { display: flex; align-items: center; color: #00f2ff; font-size: 22px; align-self: center; }
+            .coords-box { padding: 0 50px 40px; }
+            .coords-content { background: rgba(0, 242, 255, 0.03); border: 1px dashed rgba(0, 242, 255, 0.3); border-radius: 15px; padding: 30px; }
             @media (max-width: 768px) {
-                .deploy-header {
-                    padding: 30px 20px;
-                }
-                .deploy-header h2 {
-                    font-size: 22px !important;
-                }
-                .params-grid {
-                    padding: 20px 20px 10px;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr; /* 手機端兩兩一排 */
-                    gap: 12px;
-                }
-                .param-box {
-                    min-width: unset;
-                    padding: 15px;
-                }
-                .param-box div:last-child {
-                    font-size: 15px !important;
-                }
-                .important-notice-box {
-                    padding: 10px 20px 40px;
-                }
-                .notice-content {
-                    padding: 20px;
-                }
-                .notice-content div[style*="display: flex"] {
-                    flex-direction: column; /* 警告標示與文字改為上下排列 */
-                    gap: 12px !important;
-                }
-            }
-
-            /* 極小螢幕優化 (例如 iPhone SE) */
-            @media (max-width: 480px) {
-                .params-grid {
-                    grid-template-columns: 1fr; /* 單線排列 */
-                }
+                .deploy-header { padding: 30px 20px; }
+                .arch-flow { padding: 20px; flex-direction: column; }
+                .arch-step { max-width: none; }
+                .arch-arrow { transform: rotate(90deg); padding: 4px 0; }
+                .coords-box { padding: 0 20px 30px; }
+                .coords-content { padding: 20px; }
             }
         </style>
 
         <div class="deploy-header">
             <h2 style="color: #fff; margin: 0; font-size: 28px; letter-spacing: 3px; display: flex; align-items: center; gap: 15px;">
-                <span style="color: #ff4d4d;">⚠️</span> SYSTEM <span style="color: #00f2ff;">DEPLOYMENT</span>
+                SYSTEM <span style="color: #00f2ff;">ARCHITECTURE</span>
             </h2>
-            <p style="color: #666; margin-top: 10px; font-size: 15px;">環境校準：系統參數必須完全符合以確保偵測精準度</p>
+            <p style="color: #666; margin-top: 10px; font-size: 15px;">TCP Socket 跨行程通訊 · Python ↔ AutoHotkey v2 雙引擎協作</p>
         </div>
 
-        <div class="params-grid">
-            <div class="param-box">
-                <div style="color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 8px;">桌面螢幕解析度</div>
-                <div style="color: #fff; font-size: 18px; font-weight: bold; font-family: monospace;">1920 × 1080</div>
+        <div class="arch-flow">
+            <div class="arch-step">
+                <div class="arch-step-num">1</div>
+                <h4>PyQt6 GUI</h4>
+                <p>群組管理 / 規則編輯<br>ROI 框選 / 點擊選取</p>
             </div>
-
-            <div class="param-box highlight">
-                <div style="color: #00f2ff; font-size: 11px; text-transform: uppercase; margin-bottom: 8px;">遊戲視窗解析度</div>
-                <div style="color: #fff; font-size: 18px; font-weight: bold; font-family: monospace;">1600 × 900</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-step accent">
+                <div class="arch-step-num">2</div>
+                <h4>主循環 + OCR</h4>
+                <p>截圖 → RapidOCR 辨識<br>比對 → 觸發判斷</p>
             </div>
-
-            <div class="param-box">
-                <div style="color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 8px;">Windows DPI 縮放</div>
-                <div style="color: #fff; font-size: 18px; font-weight: bold; font-family: monospace;">100%</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-step">
+                <div class="arch-step-num">3</div>
+                <h4>TCP Socket</h4>
+                <p>port 12345<br>跨行程指令傳遞</p>
             </div>
-
-            <div class="param-box">
-                <div style="color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 8px;">遊戲視窗標題</div>
-                <div style="color: #fff; font-size: 18px; font-weight: bold; font-family: monospace;">"&nbsp;AetherGazer"</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-step">
+                <div class="arch-step-num">4</div>
+                <h4>AHK v2 Client</h4>
+                <p>滑鼠移動 / 點擊<br>鍵盤按鍵模擬</p>
             </div>
         </div>
 
-        <div class="important-notice-box">
-            <div class="notice-content">
+        <div class="coords-box">
+            <div class="coords-content">
                 <div style="display: flex; align-items: flex-start; gap: 20px;">
-                    <div style="background: #00f2ff; color: #000; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 13px; white-space: nowrap;">重要</div>
+                    <div style="background: #00f2ff; color: #000; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 13px; white-space: nowrap;">座標系統</div>
                     <div style="flex: 1;">
-                        <h4 style="color: #fff; margin: 0 0 10px 0; font-size: 18px;">必須從遊戲設定開啟「鍵位提示」</h4>
+                        <h4 style="color: #fff; margin: 0 0 10px 0; font-size: 18px;">視窗比例座標（0~1 比值）</h4>
                         <p style="color: #9aa9bc; font-size: 14px; line-height: 1.8; margin: 0;">
-                            腳本以鍵位提示中的 <span style="color: #00f2ff; font-weight: bold; border-bottom: 1px solid #00f2ff;">ESC 按鈕</span> 作為戰鬥狀態判斷依據。<br>
-                            <span style="color: #ff4d4d; font-weight: bold;">⚠️ 警告：</span>若未開啟「鍵位提示」，腳本將無法識別戰鬥狀態。
+                            所有 ROI 與點擊座標統一儲存為<span style="color: #00f2ff; font-weight: bold; border-bottom: 1px solid #00f2ff;">視窗比例（0~1）</span>，與解析度無關。<br>
+                            1080p / 4K / 縮放 150% 完全相容 — <span style="color: #00f2ff; font-weight: bold;">降低約 80% 腳本維護成本</span>。
                         </p>
                     </div>
                 </div>
@@ -974,10 +939,11 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 
         <div style="padding: 20px 50px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
             <p style="color: #333; font-size: 11px; letter-spacing: 2px; margin: 0;">
-                SID AUTOMATION LAB • 數據環境校準完成
+                SID AUTOMATION LAB · 影像辨識與模擬輸入技術
             </p>
         </div>
     </div>
+</div></div>
 </div></div>
 
 
