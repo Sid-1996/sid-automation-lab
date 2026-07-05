@@ -1,4 +1,4 @@
-// Generate sitemap.xml from search-index.json + ROOT *.html
+// Generate sitemap.xml from *.html in this directory.
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-const BASE = process.env.SITE_BASE || 'https://your-domain.example';
+const BASE = process.env.SITE_BASE || 'https://sid-1996.github.io/sid-automation-lab';
 
 function xmlEscape(s) {
   return String(s)
@@ -20,7 +20,7 @@ function xmlEscape(s) {
 async function run() {
   const entries = await fs.readdir(ROOT, { withFileTypes: true });
   const files = entries
-    .filter(e => e.isFile() && e.name.endsWith('.html'))
+    .filter(e => e.isFile() && e.name.endsWith('.html') && e.name !== 'search.html')
     .map(e => e.name);
 
   const stat = (await Promise.all(files.map(async f => {
