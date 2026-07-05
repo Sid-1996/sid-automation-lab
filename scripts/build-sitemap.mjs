@@ -19,8 +19,16 @@ function xmlEscape(s) {
 
 async function run() {
   const entries = await fs.readdir(ROOT, { withFileTypes: true });
+  const REDIRECT_FILES = new Set([
+    'search.html',
+    '122982683733394226452246721229938899369382116125163.html',
+    '208542018224037208552551234214.html',
+    '32879320972031632773-rarr.html',
+    '3325821205212703891730446.html',
+    '38283303322344726088.html',
+  ]);
   const files = entries
-    .filter(e => e.isFile() && e.name.endsWith('.html') && e.name !== 'search.html' && e.name !== 'browndust2-music-assist.html' && e.name !== 'other-tools.html' && e.name !== 'contact.html' && e.name !== 'automation-projects.html' && e.name !== 'about.html')
+    .filter(e => e.isFile() && e.name.endsWith('.html') && !REDIRECT_FILES.has(e.name))
     .map(e => e.name);
 
   const stat = (await Promise.all(files.map(async f => {
@@ -39,13 +47,7 @@ async function run() {
     <priority>${pri}</priority>
   </url>`;
   });
-  urls.push(`  <url>
-    <loc>${xmlEscape(BASE + '/search.html')}</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>`);
-
-  const body = `<?xml version="1.0" encoding="UTF-8"?>
+    const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.join('\n')}
 </urlset>
