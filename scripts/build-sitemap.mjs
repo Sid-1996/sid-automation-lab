@@ -20,7 +20,7 @@ function xmlEscape(s) {
 async function run() {
   const entries = await fs.readdir(ROOT, { withFileTypes: true });
   const files = entries
-    .filter(e => e.isFile() && e.name.endsWith('.html') && e.name !== 'search.html')
+    .filter(e => e.isFile() && e.name.endsWith('.html') && e.name !== 'search.html' && e.name !== 'browndust2-music-assist.html' && e.name !== 'other-tools.html' && e.name !== 'contact.html' && e.name !== 'automation-projects.html' && e.name !== 'about.html')
     .map(e => e.name);
 
   const stat = (await Promise.all(files.map(async f => {
