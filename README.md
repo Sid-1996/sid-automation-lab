@@ -1,130 +1,48 @@
 # Sid Automation Lab
 
-> 個人自動化、遊戲輔助、影像辨識工具的發布與下載入口站。
->
-> 🌍 Live: **https://sid-1996.github.io/sid-automation-lab/**
+> 自動化工具與遊戲效率專家 — 基於圖像識別與模擬輸入技術的開源實驗室。
 
----
+![Sid Automation Lab Hero](uploads/content/2026-07-05%20153548.png)
 
-## 這是什麼
+🌐 **Live site:** <https://sid-1996.github.io/sid-automation-lab/>
 
-這裡是 **Sid** 開發的自動化與工具作品的曝光平台 — 收錄 Path of Exile 流亡黯道工具組、遊戲半自動腳本、影像辨識研究、AHK / Python / OCR 專案等下載與說明。把分散的作品集中在一個有 SEO 的固定入口，方便有緣人從搜尋引擎與社群連結進入。
+## 開發宗旨
 
-> 📌 **本 repo 是網站的原始檔**，不是純測試場，也不是檔案倉庫。
-> 網站本身部署於 GitHub Pages，並透過站主個人其他社群平台多點導流，提升作品可達性與曝光率。
+- 堅持開源透明 — 所有腳本公開釋出
+- 不讀寫記憶體、不修改遊戲文件
+- 專注圖像識別與模擬輸入技術
+- 讓工具回歸省時省力的本質
 
----
+## Projects
 
-## 🚀 部署平台
+| Project | Stack | Game / Use case |
+|---------|-------|-----------------|
+| [《流亡黯道2》工具箱](https://sid-1996.github.io/sid-automation-lab/sidexilegametool.html) | AHK v2 | Path of Exile 2 |
+| [《流亡黯道》舊版工具箱](https://sid-1996.github.io/sid-automation-lab/sidexiletoolbox.html) | AHK v1 | Path of Exile (legacy) |
+| [《深空之眼》半自動腳本](https://sid-1996.github.io/sid-automation-lab/aethergazersemiauto.html) | AHK v2 | Aether Gazer |
+| [《棕色塵埃2》音遊助手](https://sid-1996.github.io/sid-automation-lab/browndust2-music-assist.html) | AHK v2 | Brown Dust 2 |
+| [No-Code OCR 觸發點擊工具](https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html) | Python + AHK v2 | 通用（跨遊戲 + 重複作業） |
+| [通用壓槍腳本](https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html) | AHK v1 | FPS 射擊遊戲 |
 
-| 平台 | 網址 | 用途 |
-|------|------|------|
-| GitHub Pages | <https://sid-1996.github.io/sid-automation-lab/> | 唯一主入口、SEO 收錄 |
+## Tech Stack
 
-網站本身只在 GitHub Pages 上線；曝光策略則透過站主個人其他社群平台（Facebook 粉專、Discord、遊戲社群等）多點導流到此 URL。
+- **AutoHotkey v1 / v2** — 系統層按鍵 / 滑鼠 / 像素偵測
+- **Python** — 進階影像處理（OpenCV / Tesseract OCR）
+- **OpenCV** — 形狀比對 / Canny edge / 模板比對
+- **跨解析度設計** — 視窗比例座標而非絕對像素
 
----
+## Development
 
-## 🧩 主要收錄專案
+詳見 [AGENTS.md](./AGENTS.md)。
 
-- 📦 **Path of Exile 流亡黯道工具組（Sid 工具箱）** — 半自動戰鬥、找尋快遞、AHK 巨集
-- 🎯 **後座力輔助腳本 (Sid Recoil Script)** — 多款射擊遊戲滑鼠後座力補償
-- 🔍 **圖像識別 / 模擬輸入研究** — OCR 研究筆記與工具
-- 🤖 **Automation / OCR / AHK / Python 研究** — 各類雜項自動化腳本
-- 🗒️ **開發宗旨** — 為什麼做這些、理念
+## License
 
-完整工具與文章列表，請看站內導航。
+© 2026 Sid. All rights reserved.
 
----
+除非另有明示，本站所有內容採 **CC BY-NC-SA 4.0（姓名標示 — 非商業性 — 相同方式分享 4.0 國際）**：
 
-## 📣 聯絡作者
+- 允許在標示原作者前提下自由分享與修改
+- **禁止任何商業用途**
+- 衍生作品必須以相同授權釋出
 
-從站內點選「**聯絡作者 →**」（新分頁開 Google Form），可留下訊息、合作邀約、或回報問題。
-
----
-
-## 🛠️ 給開發者 / 重度讀者
-
-雖然本 repo 的編輯權限只給站主本人，但若你想 fork 架出自己的「作品集曝光站」也行，整站結構如下。
-
-### 目錄結構
-
-```
-Sid Automation Lab/
-├─ *.html                ← 16 個靜態頁面
-├─ favicon.svg
-├─ robots.txt            ← 搜尋引擎指示
-├─ sitemap.xml           ← 自動生成
-├─ ads.txt               ← Google AdSense 驗證
-├─ search-index.json     ← fuzzy 搜尋索引
-├─ serve.bat             ← Windows 本地一鍵 server
-│
-├─ uploads/
-│  ├─ content/           ← 內容圖（含 3 張輪播圖）
-│  └─ background/        ← 41 張 section 背景圖
-│
-├─ files/
-│  ├─ main_style.css
-│  ├─ search.js          ← fuse.js fuzzy 搜尋
-│  ├─ slideshow-local.js ← 自包含輪播
-│  ├─ theme/files/       ← jQuery主題 plugins
-│  └─ cdn_local/         ← 內化的 Weebly CDN 資源
-│      ├─ css/ + js/ + fonts/
-│
-└─ scripts/              ← Node 維運工具
-   ├─ build-index.mjs    ← 重建搜尋索引
-   ├─ build-sitemap.mjs  ← 重建 sitemap（支援 $env:SITE_BASE）
-   ├─ check-missing.mjs  ← 列出缺失的站內資源
-   ├─ download-cdn.mjs   ← 內化外部 CDN
-   ├─ inject-favicon.mjs
-   ├─ inject-search.mjs
-   └─ ...
-```
-
-### 本地預覽
-
-```powershell
-# Windows
-.\serve.bat                # 預設 8080，自動開瀏覽器
-
-# 或 Python / Node
-python -m http.server 8080
-npx serve -l 8080
-```
-
-開 `http://localhost:8080/`。
-
-### 維運指令
-
-| 任務 | 指令 |
-|------|------|
-| 檢查缺資源 | `node scripts/check-missing.mjs` |
-| 重建搜尋索引 | `node scripts/build-index.mjs` |
-| 重建 sitemap（自訂網域） | `$env:SITE_BASE="https://yourdomain.com"; node scripts/build-sitemap.mjs` |
-
----
-
-## 📦 給站主的發布流程
-
-1. 編輯 / 新增 HTML 頁面、`uploads/` 素材
-2. `node scripts/check-missing.mjs` 確認站內連結無 404
-3. `node scripts/build-index.mjs` + `node scripts/build-sitemap.mjs` 重建
-4. `git add -A && git commit -m "..." && git push`
-5. GitHub Pages 自動 rebuild（1-2 分鐘）
-6. 到個人其他社群平台（FB 粉專 / Discord / 遊戲社群等）分享新內容連結曝光
-
----
-
-## 📜 授權
-
-站內素材 / 工具版權依各工具說明頁標示為準。
-未標示者默認僅供個人下載使用，請勿整站重散佈。
-
----
-
-## ✨ 來源
-
-本站原本由 Weebly 提供，後由站主 2026 年初導出並改寫成純靜態檔案，
-內化所有依賴資源並遷移至 GitHub Pages，曝光則透過其他社群平台多點導流。
-
-© 2026 Sid · 獨立自動化開發者
+完整條款：<https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hant>
