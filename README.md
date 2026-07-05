@@ -11,16 +11,17 @@
 這裡是 **Sid** 開發的自動化與工具作品的曝光平台 — 收錄 Path of Exile 流亡黯道工具組、遊戲半自動腳本、影像辨識研究、AHK / Python / OCR 專案等下載與說明。把分散的作品集中在一個有 SEO 的固定入口，方便有緣人從搜尋引擎與社群連結進入。
 
 > 📌 **本 repo 是網站的原始檔**，不是純測試場，也不是檔案倉庫。
-> 網站本身同時部署於多個免費平台上（GitHub Pages、Vercel...），目的在於**分散曝光與提升可達性**。
+> 網站本身部署於 GitHub Pages，並透過站主個人其他社群平台多點導流，提升作品可達性與曝光率。
 
 ---
 
-## 🚀 已部署平台
+## 🚀 部署平台
 
 | 平台 | 網址 | 用途 |
 |------|------|------|
-| GitHub Pages | <https://sid-1996.github.io/sid-automation-lab/> | 主入口、SEO 收錄 |
-| Vercel | _陸續加入中_ | 預定第二入口（CDN 加速、自訂網域） |
+| GitHub Pages | <https://sid-1996.github.io/sid-automation-lab/> | 唯一主入口、SEO 收錄 |
+
+網站本身只在 GitHub Pages 上線；曝光策略則透過站主個人其他社群平台（Facebook 粉專、Discord、遊戲社群等）多點導流到此 URL。
 
 ---
 
@@ -56,7 +57,6 @@ Sid Automation Lab/
 ├─ sitemap.xml           ← 自動生成
 ├─ ads.txt               ← Google AdSense 驗證
 ├─ search-index.json     ← fuzzy 搜尋索引
-├─ vercel.json           ← Vercel 部署設定
 ├─ serve.bat             ← Windows 本地一鍵 server
 │
 ├─ uploads/
@@ -111,7 +111,7 @@ npx serve -l 8080
 3. `node scripts/build-index.mjs` + `node scripts/build-sitemap.mjs` 重建
 4. `git add -A && git commit -m "..." && git push`
 5. GitHub Pages 自動 rebuild（1-2 分鐘）
-6. Vercel 鏡像同步（未來）
+6. 到個人其他社群平台（FB 粉專 / Discord / 遊戲社群等）分享新內容連結曝光
 
 ---
 
@@ -125,6 +125,6 @@ npx serve -l 8080
 ## ✨ 來源
 
 本站原本由 Weebly 提供，後由站主 2026 年初導出並改寫成純靜態檔案，
-內化所有依賴資源並遷移至 GitHub Pages，未來再加入 Vercel 雙平台鏡像。
+內化所有依賴資源並遷移至 GitHub Pages，曝光則透過其他社群平台多點導流。
 
 © 2026 Sid · 獨立自動化開發者

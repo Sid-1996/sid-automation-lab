@@ -6,7 +6,7 @@
 
 > 這是站主 (Sid)「自動化 / 工具作品發布與下載入口」的原始碼 repo。
 >
-> 站本身同時部署於 GitHub Pages、Vercel 等多個免費平台，目的是**分散曝光與提升可達性**。
+> 站本身部署於 GitHub Pages 並透過其他社群平台多點曝光，提升作品可達性。
 
 ---
 
@@ -14,7 +14,7 @@
 
 **這是一個個人作品工具的曝光平台 repo，不是純測試場，也不是檔案倉庫。**
 
-- 站主最終目標：把分散開發的自動化、遊戲輔助、影像辨識研究與工具集中在一個**有 SEO 的固定入口**，藉由 GitHub Pages / Vercel 等多平台鏡像**提升作品的可達性與曝光率**
+- 站主最終目標：把分散開發的自動化、遊戲輔助、影像辨識研究與工具集中在一個**有 SEO 的固定入口**（GitHub Pages），並透過其他社群平台多點導流**提升作品的可達性與曝光率**
 - 維護具體目標：保留 Weebly 匯出靜態站的特徵，製作易維護、不改外觀的 static site
 
 ---
@@ -32,7 +32,7 @@
    - ✅ Gmail 信箱全站清除
    - ✅ 下載已改 Mega mirror，不存 repo
    - ✅ uploads 扁平化(圖床)
-   - ✅ GitHub Pages + Vercel-ready（vercel.json）
+   - ✅ GitHub Pages 已上線
 3. **已知限制**：
    - Google Analytics `UA-131254328-2` (死掉的 UA)，不影響渲染
    - jQuery 1.8.3 主題依賴無法升
@@ -45,7 +45,7 @@
 | 不要動 | 原因 |
 |---|---|
 | `search-index.json` | 由 `build-index.mjs` 自動生成 |
-| `vercel.json` `cleanUrls: true` | 已驗證正常 |
+| `robots.txt` / `sitemap.xml` 內 URL | 已指向 GH Pages；換網域時要設 `$env:SITE_BASE` 重跑 |
 | `cdn_local/` 內檔案結構 | 15+ 個 HTML 依賴這些路徑 |
 | jQuery 1.8.3 及相關主題 scripts | main.js 依賴 |
 
@@ -142,10 +142,11 @@ git add -A; git commit -m "..."; git push
 
 ## 版本歷程（摘要）
 
-- v1.0：Weebly → Vercel 遷移、內化 CDN、SEO 賦能、幻燈片本地化（2026-07-04）
+- v1.0：Weebly 靜態站重構、內化 CDN、SEO 賦能、幻燈片本地化（2026-07-04）
 - v1.1：`pwsh` 使用建議、中文亂碼 Troubleshooting（2026-07-04）
 - v1.2：修 `sidpayfor.html` 巢狀 HTML 結構債、WeChat 聯繫管道、`sidexiletoolbox.html` 補回 3 張圖（2026-07-05）
 - v1.3：重定位為曝光平台、全站除 Gmail、聯絡改為外連 Google Form、README 重寫、GitHub repo About 更新（2026-07-05）
 - v1.4：清理死檔、瘦身文檔、pull sitemap bug、正規化維護性（2026-07-05）
+- v1.5：決議不上 Vercel，專注 GitHub Pages + 社群平台曝光（2026-07-05）
 
 © 2026 Sid · 獨立自動化開發者
