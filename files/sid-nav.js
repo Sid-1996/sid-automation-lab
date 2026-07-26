@@ -8,7 +8,7 @@
     '#navigation.stuck #nav .wsite-menu-wrap { background: #000; }',
     '#nav .wsite-menu-item-wrap:hover > .wsite-menu-wrap, #nav .wsite-menu-subitem-wrap:hover > .wsite-menu-wrap { display: block !important; }',
     '#nav .wsite-menu-wrap .wsite-menu-wrap { top: 0; left: 100%; }',
-    '#nav .wsite-menu-wrap li a { padding: 10px 18px !important; }',
+    '#nav .wsite-menu-wrap li a { padding: 10px 18px !important; position: relative; }',
     '#nav .wsite-menu-arrow:before { right: 10px; }',
     '#navmobile .wsite-menu-wrap { display: none; }',
     '#navmobile .wsite-menu-wrap.open { display: block; }',
