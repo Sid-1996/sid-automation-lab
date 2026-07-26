@@ -52,6 +52,7 @@
 - `wsite-*` 類別為 Weebly 佈局/樣式，**不可刪除或重新命名**
 - 工具頁面的 `body class="wsite-... <page-id>"` 中 `<page-id>` 必須與檔名對應（例如 `ocrtriggerclicker`）
 - 區塊結構 `wsite-section-wrap` / `wsite-section-content` / `wsite-section-elements` 必須保留
+- 若頁面重新命名，`wsite-page-<id>` 中的 `<id>` 應一併更新為語意化名稱（`wsite-page-` 無運行時依賴，CSS/JS 不讀取其值）
 
 ## 4. SEO 規則
 
