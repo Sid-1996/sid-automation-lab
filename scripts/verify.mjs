@@ -113,14 +113,10 @@ async function testPage(browser, file) {
 
   const benignPatterns = [
     'masthead-search.png',
-    'CustomerAccounts::getAccountDetails',
-    '/gdpr/gdprscript.js',
     'dailymotion.com',
     'report-only Content Security Policy',
     'net::ERR_FAILED',
     'header.jpg',
-    '/ajax/api/',
-    'Unsupported method',
     'status of 404',
   ];
 
