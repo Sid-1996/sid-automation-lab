@@ -128,12 +128,12 @@ async function main() {
     'https://cdn11.editmysite.com/css/old/fancybox.css',
     'https://cdn11.editmysite.com/css/social-icons.css',
     'https://cdn11.editmysite.com/js/jquery-1.8.3.min.js',
-    'https://cdn11.editmysite.com/js/site/main.js',
     'https://cdn11.editmysite.com/js/site/main-customer-accounts-site.js',
     'https://cdn2.editmysite.com/js/lang/zh_TW/stl.js',
     // one-off files used by sidrecoilscript.html only:
-    'https://cdn11.editmysite.com/css/old/slideshow/slideshow.css',
-    'https://cdn11.editmysite.com/js/old/slideshow-jq.js'
+    'https://cdn11.editmysite.com/css/old/slideshow/slideshow.css'
+    // NOTE: main.js, slideshow-jq.js, theme/files/{plugins,custom,mobile}.js
+    // removed - not referenced by any HTML page after Weebly JS cleanup.
   ];
   for (const f of ASSETS) {
     try { await downloadOnce(f, localFor(f)); }

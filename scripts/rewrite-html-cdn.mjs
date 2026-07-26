@@ -18,12 +18,9 @@ const REWRITES = [
   ['//cdn11.editmysite.com/css/old/slideshow/slideshow.css',      'files/cdn_local/css/old/slideshow/slideshow.css'],
   // JS
   ['https://cdn11.editmysite.com/js/jquery-1.8.3.min.js',         'files/cdn_local/js/jquery-1.8.3.min.js'],
-  ['https://cdn11.editmysite.com/js/site/main.js',                'files/cdn_local/js/site/main.js'],
   ['https://cdn11.editmysite.com/js/site/main-customer-accounts-site.js', 'files/cdn_local/js/site/main-customer-accounts-site.js'],
-  ['https://cdn11.editmysite.com/js/old/slideshow-jq.js',         'files/cdn_local/js/old/slideshow-jq.js'],
   ['https://cdn2.editmysite.com/js/lang/zh_TW/stl.js',            'files/cdn_local/js/lang/zh_TW/stl.js'],
   ['//cdn11.editmysite.com/js/jquery-1.8.3.min.js',               'files/cdn_local/js/jquery-1.8.3.min.js'],
-  ['//cdn11.editmysite.com/js/site/main.js',                      'files/cdn_local/js/site/main.js'],
   ['//cdn2.editmysite.com/js/lang/zh_TW/stl.js',                  'files/cdn_local/js/lang/zh_TW/stl.js'],
   // Fonts
   ['https://cdn2.editmysite.com/fonts/Cabin/font.css',            'files/cdn_local/fonts/Cabin/font.css'],
