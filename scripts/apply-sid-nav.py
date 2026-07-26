@@ -24,24 +24,24 @@ PATTERNS = [
         ),
         ''
     ),
-    # 2. mobile.js script tag
+    # 2. mobile.js script tag (any attributes)
     (
         re.compile(
-            r'<script src="files/theme/files/mobile\.js"></script>\n?'
+            r'<script[^>]*src="files/theme/files/mobile\.js"[^>]*></script>\n?'
         ),
         ''
     ),
-    # 3. custom.js script tag
+    # 3. custom.js script tag (any attributes)
     (
         re.compile(
-            r'<script src="files/theme/files/custom\.js"></script>\n?'
+            r'<script[^>]*src="files/theme/files/custom\.js"[^>]*></script>\n?'
         ),
         ''
     ),
-    # 4. plugins.js script tag
+    # 4. plugins.js script tag (any attributes)
     (
         re.compile(
-            r'<script src="files/theme/files/plugins\.js"></script>\n?'
+            r'<script[^>]*src="files/theme/files/plugins\.js"[^>]*></script>\n?'
         ),
         ''
     ),
