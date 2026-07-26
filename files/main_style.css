@@ -501,3 +501,5 @@ div.paragraph ol, div.paragraph ol li { list-style: decimal outside !important; 
 .product-grid .product-grid-image .product-grid__image-sale-banner-wrapper {background: #d4b49a;}
 #wsite-com-category-product-group .category__image-sale-banner-wrapper {background: #d4b49a;}
 #wsite-search-product-results .wsite-search-product-result .wsite-search-product-image-container .search__image-sale-banner-wrapper {background: #d4b49a;}
+/* 添加 tap-highlight-color 以改善移动端体验 */
+* { -webkit-tap-highlight-color: transparent; }

@@ -1,0 +1,16 @@
+﻿/* HUMAN.TXT */
+/* https://humanstxt.org/ */
+
+TEAM:
+    Name: Sid
+    Contact: https://github.com/sid-1996
+    Location: Taiwan
+
+THANKS:
+    GitHub Pages
+    Open Source Community
+
+SITE:
+    Last update: 2026-07-26
+    Standards: HTML5, CSS3, ES6
+    Components: Vanilla JS
