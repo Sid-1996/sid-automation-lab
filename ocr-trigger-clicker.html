@@ -4,7 +4,7 @@
 <meta name="google-site-verification" content="4lWoqckzqXNbwUlyytkGLkFIFjTNKmb8Tr4jADOWXOY" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>No-Code OCR 觸發點擊工具 - Sid Automation Lab</title>
-<meta name="description" content="No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。適用遊戲自動化與重複作業。" />
+<meta name="description" content="No-Code 即時 OCR 觸發點擊工具 — 10 種步驟類型、4 種文字比對模式、OpenCV 圖示模板比對、群組規則管理、視窗比例座標跨解析度相容。Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。" />
 <meta name="keywords" content="OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, AutoHotkey v2, AHK v2, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, TCP Socket, ONNX, Python 自動化" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
@@ -750,9 +750,9 @@ var STYLE_PREFIX = 'wsite';
                 <h3 style="color: #fff; margin: 0 0 15px;">OCR 觸發引擎</h3>
                 <ul style="padding: 0; list-style: none; color: #9aa9bc; font-size: 14px; line-height: 1.8;">
                     <li>▸ <span class="highlight-blue">RapidOCR + ONNX</span> 繁中辨識</li>
-                    <li>▸ 三種比對模式：contains / exact / fuzzy</li>
-                    <li>▸ <span class="highlight-blue">視窗比例座標</span> 0~1 跨解析度</li>
-                    <li>▸ 步驟系統：detect / click / key / wait / jump</li>
+                    <li>▸ <span class="highlight-blue">圖示模板比對</span> OpenCV matchTemplate + NMS</li>
+                    <li>▸ 四種比對模式：contains / exact / fuzzy / regex</li>
+                    <li>▸ 10 種步驟：detect / click / key / wait / jump / compare / match_image / notify / scroll / drag</li>
                 </ul>
             </div>
 
@@ -764,6 +764,7 @@ var STYLE_PREFIX = 'wsite';
                     <li>▸ <span class="highlight-blue">ROI 框選</span> 全螢幕十字游標</li>
                     <li>▸ 點擊座標視覺化選取器</li>
                     <li>▸ 步驟測試按鈕 dry-run 即時預覽</li>
+                    <li>▸ <span class="highlight-blue">群組規則管理</span> 循環執行 / 執行一次 / 重複 N 次</li>
                 </ul>
             </div>
 
@@ -774,13 +775,21 @@ var STYLE_PREFIX = 'wsite';
                     <li>▸ <span class="highlight-blue">前景保護</span> 工具前景自動暫停</li>
                     <li>▸ 速率限制 最高 5 次/秒</li>
                     <li>▸ 緊急停止 + 常駐監控頻道</li>
-                    <li>▸ 效能監控：FPS / CPU / RAM / OCR 延遲</li>
+                    <li>▸ 效能監控：FPS / CPU / RAM / 點擊速率 / OCR 延遲</li>
                 </ul>
             </div>
         </div>
 
+        <div class="screenshot-wrap">
+            <img src="uploads/content/ocr-trigger-clicker-gui-main.png" alt="OCR Trigger Clicker 主介面" />
+        </div>
+
+        <div class="screenshot-wrap">
+            <img src="uploads/content/ocr-trigger-clicker-ocr-diagnostic.png" alt="OCR Trigger Clicker OCR 診斷面板" />
+        </div>
+
         <div style="padding: 40px; background: rgba(0, 242, 255, 0.02); text-align: center; border-top: 1px solid rgba(0, 242, 255, 0.1);">
-            <h2 style="color: #fff; margin-bottom: 25px; font-size: 20px; letter-spacing: 2px;">DOWNLOAD BETA</h2>
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 20px; letter-spacing: 2px;">DOWNLOAD v0.1.5</h2>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="https://github.com/Sid-1996/ocr-trigger-clicker/releases" target="_blank" class="download-btn">
                     立即下載 (Releases)
@@ -790,7 +799,7 @@ var STYLE_PREFIX = 'wsite';
                 </a>
             </div>
             <div style="margin-top: 20px; color: #444; font-size: 12px;">
-                Sid 製作 · Beta 階段持續開發中 · AGPL-3.0 授權
+                Sid 製作 · v0.1.5 · AGPL-3.0 授權
             </div>
         </div>
 
