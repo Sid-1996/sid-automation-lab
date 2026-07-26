@@ -6,7 +6,7 @@
 
 > 這是站主 (Sid)「自動化 / 工具作品發布與下載入口」的原始碼 repo。
 >
-> 站本身部署於 GitHub Pages 並透過其他社群平台多點曝光，提升作品可達性。
+> 站本身部署於 **GitHub Pages**（唯一目標環境），所有修復與開發皆以其部署後表現為基準。並透過其他社群平台多點曝光，提升作品可達性。
 
 ---
 
@@ -27,7 +27,7 @@
    - ✅ 自包含 fuzzy 搜尋（`search.html` + `search.js` + `search-index.json`）
    - ✅ 自包含輪播（`slideshow-local.js`，取代 Weebly `wSlideshow`）
    - ✅ 0 個內部外部關聯斷裂 (`check-missing` = missing 0)
-   - ✅ favicon、robots.txt、sitemap.xml、ads.txt 基本 SEO 到位
+   - ✅ favicon、robots.txt、sitemap.xml、ads.txt、`_headers`、`.nojekyll`、`humans.txt` 基本 SEO 到位
    - ✅ 聯絡已改為 Google Form（外部分頁）
    - ✅ Gmail 信箱全站清除
    - ✅ 下載已改 Mega mirror，不存 repo
@@ -37,6 +37,7 @@
    - Google Analytics `UA-131254328-2` (死掉的 UA)，不影響渲染
    - jQuery 1.8.3 主題依賴無法升
    - `main.js` 內含少數 `cdn2.editmysite.com` string（runtime 不觸發，base 已在 HTML 開頭 overwrite)
+   - `_headers` 中 `/assets/*` 快取規則對應到不存在目錄，但無有害影響
 
 ---
 
@@ -48,6 +49,7 @@
 | `robots.txt` / `sitemap.xml` 內 URL | 已指向 GH Pages；換網域時要設 `$env:SITE_BASE` 重跑 |
 | `cdn_local/` 內檔案結構 | 15+ 個 HTML 依賴這些路徑 |
 | jQuery 1.8.3 及相關主題 scripts | main.js 依賴 |
+| `_headers`、`.nojekyll` | GitHub Pages 部署設定，手動改可能影響部署行為 |
 
 ---
 
@@ -61,7 +63,7 @@ node scripts/build-sitemap.mjs
 記得 `robots.txt` 裡 Sitemap 行也要換。
 
 ### B. 換下載鏈接（Mega 外部）
-在 `sidrecoilscript.html` 改 line ~782/788 的 Mega 連結。fail：要驗 QR code / ZIP 是在外部未在 repo 中。
+在 `sidrecoilscript.html` 搜 `mega.nz` 找到 Mega 連結行進行修改。fail：要驗 QR code / ZIP 是在外部未在 repo 中。
 
 ### C. 新加 HTML / 刪除 HTML
 - 加/刪後跑 `node scripts/build-index.mjs` 重建索引
@@ -69,19 +71,19 @@ node scripts/build-sitemap.mjs
 - 跑 `node scripts/check-missing.mjs` 確認 0
 
 ### D. 替換專案卡片（首頁 .project-grid）
-在 `index.html` line ~1121-1188 內編輯 `.project-card` 區段。
+在 `index.html` 中搜尋 `class="project-grid"` 找到卡片區塊，編輯內部的 `.project-card` 區段。
 卡片 HTML 格式可複製，SVG icon 保持 `#00f2ff` stroke 風格。
 
 ### E. 聯絡表單更新
 目前 Google Form ID：`1FAIpQLSdk7p6XQXcX0z5ls7DMlEIzy0aj43MrnUOYviH9Taum4J68Bg`
 更改表單後需：
-1. 改 `32879320972031632773-rarr.html` 內 iframe `src`
-2. 改所有 15 個 `.html` nav JSON 的 `"url":"https://docs.google.com/forms/..."` 值
+1. 改 `contact.html` 內 iframe `src`（及重新導向頁 `32879320972031632773-rarr.html`）
+2. 改所有 `.html`（目前 16 個）nav JSON 的 `"url":"https://docs.google.com/forms/..."` 值
 3. 改 dropdown 子項 `<a href="...">` 中也有的 href
 
 ### F. 展開 flick、幻燈片故障
-- `sidrecoilscript.html:832+` JS 本地渲染 3 張圖 (`uploads/content/2026-06-17-*.png`)
-- `files/slideshow-local.js:23` URL 構建路徑
+- `sidrecoilscript.html` 中搜尋 `imgs` 陣列找到 JS 本地渲染區塊（3 張圖：`uploads/content/2026-06-17-*.png`）
+- `files/slideshow-local.js` 中搜尋 URL 構建邏輯
 
 ### G. 搜尋無法運作
 - 檢查 `search.html` + `files/search.js` 是否被誤編碼
@@ -120,7 +122,7 @@ git add -A; git commit -m "..."; git push
 
 | 症狀 | 看哪個檔 | 解方 |
 |---|---|---|
-| F12 `Uncaught SyntaxError` 在 `search.js` | `files/search.js:27` | smart quote 汙染 |
+| F12 `Uncaught SyntaxError` 在 `search.js` | `files/search.js` 中搜尋 `escapeHTML` | smart quote 汙染 |
 | 圖片 404 但檔案在 | `uploads/content/` | 跑 `node scripts\check-missing.mjs` |
 | 部署後字型／icon 沒套用 | `files/cdn_local/css/social-icons.css` | 內部 `@font-face` 路徑是否誤用遠端 URL |
 | main.js 404 | `files/cdn_local/js/` | 確認這兩個 469+521KB 檔存在 |
@@ -148,5 +150,8 @@ git add -A; git commit -m "..."; git push
 - v1.3：重定位為曝光平台、全站除 Gmail、聯絡改為外連 Google Form、README 重寫、GitHub repo About 更新（2026-07-05）
 - v1.4：清理死檔、瘦身文檔、pull sitemap bug、正規化維護性（2026-07-05）
 - v1.5：決議不上 Vercel，專注 GitHub Pages + 社群平台曝光（2026-07-05）
+- v1.6：新增 `_headers`（靜態資源快取策略）、`robots.txt`、`.nojekyll`、`humans.txt`、安全與 SEO 強化（2026-07-15）
+- v1.7：新增 AFDIAN 愛發電贊助整合 + nav 重新導向（2026-07-20）
+- v1.8：第一批效能優化 — DNS 預獲取、script defer、tap-highlight-color（2026-07-26）
 
 © 2026 Sid · 獨立自動化開發者

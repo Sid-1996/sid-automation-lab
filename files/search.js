@@ -4,7 +4,7 @@
   window.__SID_SEARCH_LOADED__ = true;
 
   const INDEX_URL = '/search-index.json';
-  const FUSE_URL = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
+  const FUSE_URL = 'https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.min.js';
 
   let fuse = null;
 

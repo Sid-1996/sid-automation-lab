@@ -25,8 +25,13 @@
 - 根目錄：`.html` 頁面（Weebly 靜態匯出）
 - `uploads/content/`：圖片資源
 - `files/`：`og-image.png` 等靜態資源
-- `scripts/build-sitemap.mjs`：自動生成 `sitemap.xml`（讀取所有 `.html` 並排除 `REDIRECT_FILES` Set 中的重新導向頁）
-- `scripts/build-index.mjs`：自動生成 `search-index.json` 給 `search.html` 用
+- `scripts/`：維護腳本（建置、檢查、CDN 內化等，共 10 個 `.mjs` 檔案）
+  - `scripts/build-sitemap.mjs`：自動生成 `sitemap.xml`（讀取所有 `.html` 並排除 `REDIRECT_FILES` Set 中的重新導向頁）
+  - `scripts/build-index.mjs`：自動生成 `search-index.json` 給 `search.html` 用
+  - `scripts/check-missing.mjs`：檢查內部引用斷裂
+- 主要部署平台：**GitHub Pages**（`https://sid-1996.github.io/sid-automation-lab/`）
+- 本地開發測試：執行 `serve.bat`（Python http.server / npx serve）
+- **所有修復與開發皆以 GitHub Pages 為基準目標環境**
 
 ### 重新命名歷史
 以下 Weebly 原始檔名已重新命名為語意化檔名，舊檔保留作為 `<meta http-equiv="refresh">` 重新導向：
@@ -61,10 +66,12 @@
 
 `search.html` 必須有 `<meta name="robots" content="noindex">` 且不入 sitemap。
 
-## 5. Base URL
+## 5. 部署平台與 Base URL
 
-- 站台：`https://sid-1996.github.io/sid-automation-lab/`
+- **主要部署平台（唯一目標環境）**：**GitHub Pages**
+- 站台 URL：`https://sid-1996.github.io/sid-automation-lab/`
 - Repo：`https://github.com/Sid-1996/sid-automation-lab`
+- 所有修復與開發皆以 GitHub Pages 部署後的表現為最終驗收標準
 
 ## 6. Commit 協定
 
