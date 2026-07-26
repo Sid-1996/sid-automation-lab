@@ -86,26 +86,8 @@ var STYLE_PREFIX = 'wsite';
 </script>
 <script src='files/cdn_local/js/jquery-1.8.3.min.js'></script>
 
-<script type="text/javascript" src="files/cdn_local/js/lang/zh_TW/stl.js?buildTime=1234&"></script>
-<script src="files/cdn_local/js/site/main.js?buildtime=1234"></script>
 		
-<script type="text/javascript"><!--
-	function initFlyouts(){
-		initPublishedFlyoutMenus(
-			[{"id":"849057931736952557","title":"&#39318;&#38913;","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"869600931407061729","title":"&#38283;&#30332;&#23447;&#26088;","url":"about.html","target":"","nav_menu":false,"nonclickable":false},{"id":"710073287667105530","title":"&#33258;&#21205;&#21270;&#38917;&#30446;","url":"automation-projects.html","target":"","nav_menu":false,"nonclickable":true},{"id":"201013272719899972","title":"&#24460;&#24231;&#21147;&#36628;&#21161;","url":"sidrecoilscript.html","target":"","nav_menu":false,"nonclickable":false},{"id":"340326026408176637","title":"&#20854;&#20182;&#24037;&#20855;(&#25512;&#34214;)","url":"other-tools.html","target":"","nav_menu":false,"nonclickable":true},{"id":"482342209794371076","title":"&#32879;&#32097;&#20316;&#32773; &rarr;","url":"https://docs.google.com/forms/d/e/1FAIpQLSdk7p6XQXcX0z5ls7DMlEIzy0aj43MrnUOYviH9Taum4J68Bg/viewform","target":"_blank","nav_menu":false,"nonclickable":false}],
-			"302760758911505782",
-			'',
-			'active',
-			false,
-			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
-			{}
-		)
-	}
-//-->
-</script>
-		
-		
-	<script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -1227,5 +1209,6 @@ var STYLE_PREFIX = 'wsite';
 
 	<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.min.js" defer></script>
 <script src="files/search.js" defer></script>
+<script src="files/sid-nav.js" defer></script>
 </body>
 </html>
