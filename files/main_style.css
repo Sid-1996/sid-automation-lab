@@ -29,6 +29,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  .container h2 { font-size: 1.25em; }
  .wsite-section { height: auto !important; }
  }
+ .wsite-section-effect-reveal .wsite-section-content > * { visibility: visible !important; }
  #header { position: relative; width: 100%; top: 0; left: 0; box-sizing: border-box; z-index: 13; }
  #masthead { width: 100%; position: relative; background: rgba(0,0,0,0.7); text-align: right; z-index: 13; }
  #masthead-wrap { display: table; width: 100%; max-width: 1140px; padding: 0 2em; height: 88px; margin: 0 auto; vertical-align: middle; box-sizing: border-box; }
