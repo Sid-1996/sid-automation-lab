@@ -45,7 +45,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  #search a { display: block; width: 26px; height: 26px; background: url(theme/images/masthead-search.png?1783076445) no-repeat center center; }
  #masthead .wsite-search-input:active, #masthead .wsite-search-input:focus { border-bottom: 1px solid #444444 !important; }
  #navigation { width: 100%; position: relative; background: rgba(0,0,0,0.5); z-index: 13; box-sizing: border-box; -webkit-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); -moz-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); -o-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); -ms-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); }
- #navigation-wrap { position: relative; max-width: 1140px; padding: 0 2em; margin: 0 auto; box-sizing: border-box; overflow: hidden; }
+ #navigation-wrap { position: relative; max-width: 1140px; padding: 0 2em; margin: 0 auto; box-sizing: border-box; overflow: visible; }
  @media (max-width: 991px) {
  #masthead-wrap { padding-top: 24px; padding-bottom: 24px; }
  #nav ul li a { padding: 16px 15px; }
@@ -53,6 +53,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  }
  @media (max-width: 767px) {
  #masthead { display: none; }
+ #navigation-wrap { overflow: hidden; }
  .wsite-logo a { font-family: 'Montserrat'; font-size: 1.5em; }
  }
  #mobile, #navigation .sitename { display: none; }
