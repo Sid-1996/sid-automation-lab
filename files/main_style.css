@@ -23,7 +23,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  .container h2 { font-size: 1.5em; }
  }
  @media (max-width: 767px) {
- .wsite-section-elements { overflow: hidden; }
+ .wsite-section-elements { }
  .wsite-multicol-col { box-sizing: border-box; max-width: 100% !important; display: block; width: auto !important; margin: 0 auto 2em !important; }
  .container { padding: 1.5em 2em; }
  .container h2 { font-size: 1.25em; }
@@ -169,7 +169,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  }
  .title-page .wsite-background { position: absolute; background-image: url(theme/images/header.jpg?1783076445); }
  .title-page .wsite-background { height: 100%; }
- .title-page .wsite-header-section { height: 295px; }
+ .title-page .wsite-header-section { min-height: 295px; height: auto; }
  .title-page #banner-wrap .container { padding: 2em; }
  .title-page #banner-wrap h2 { margin: 1em auto; font-size: 1.75em; }
  .title-page #banner h2 > span { display: inline-block; padding: 2.4em 0; }
