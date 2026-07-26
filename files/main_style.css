@@ -66,7 +66,8 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  #nav > ul > li:first-child .wsite-menu-item, #nav > ul > span:first-child .wsite-menu-item { padding-left: 0; }
  #nav > ul > li:last-child .wsite-menu-item, #nav > ul > span:last-child .wsite-menu-item { padding-right: 0; }
  #nav ul li a, #navmobile ul li a { color: #d4b49a; display: block; font-weight: 700; padding: 4px 0 2px; -webkit-transition: all 100ms linear; -moz-transition: all 100ms linear; -o-transition: all 100ms linear; -ms-transition: all 100ms linear; transition: all 100ms linear; }
- #nav ul li a { padding: 20px 15px; }
+ #nav > ul { display: flex; justify-content: space-between; align-items: center; }
+ #nav ul li a { padding: 20px 15px; white-space: nowrap; }
  #nav ul li#active a, #nav ul li a:hover, #nav ul li a:focus, #navmobile ul li#active a, #navmobile ul li a:hover, #navmobile ul li a:focus { color: #ffffff; }
  #navmobile ul li, #navmobile ul span { display: block; }
  #navmobile ul li, #navmobile ul span { margin: 0; }
