@@ -77,7 +77,7 @@ node scripts/build-sitemap.mjs
 ### E. 聯絡表單更新
 目前 Google Form ID：`1FAIpQLSdk7p6XQXcX0z5ls7DMlEIzy0aj43MrnUOYviH9Taum4J68Bg`
 更改表單後需：
-1. 改 `contact.html` 內 iframe `src`（及重新導向頁 `32879320972031632773-rarr.html`）
+1. 改 `contact.html` 內 iframe `src`
 2. 改所有 `.html`（目前 16 個）nav JSON 的 `"url":"https://docs.google.com/forms/..."` 值
 3. 改 dropdown 子項 `<a href="...">` 中也有的 href
 

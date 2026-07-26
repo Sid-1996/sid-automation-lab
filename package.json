@@ -1,0 +1,26 @@
+{
+  "name": "sid-automation-lab",
+  "version": "1.0.0",
+  "description": "> 自動化工具與遊戲效率專家 — 基於圖像識別與模擬輸入技術的開源實驗室。",
+  "main": "index.js",
+  "scripts": {
+    "serve": "python -m http.server 8080 --bind 127.0.0.1",
+    "verify": "node scripts/verify.mjs",
+    "test": "node scripts/verify.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sid-1996/sid-automation-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sid-1996/sid-automation-lab/issues"
+  },
+  "homepage": "https://github.com/Sid-1996/sid-automation-lab#readme",
+  "devDependencies": {
+    "@playwright/mcp": "^0.0.78"
+  }
+}

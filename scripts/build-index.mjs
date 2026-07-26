@@ -37,11 +37,6 @@ function firstWords(text, n = 200) {
 
 const REDIRECT_FILES = new Set([
   'search.html',
-  '122982683733394226452246721229938899369382116125163.html',
-  '208542018224037208552551234214.html',
-  '32879320972031632773-rarr.html',
-  '3325821205212703891730446.html',
-  '38283303322344726088.html',
 ]);
 
 async function build() {

@@ -33,8 +33,8 @@
 - 本地開發測試：執行 `serve.bat`（Python http.server / npx serve）
 - **所有修復與開發皆以 GitHub Pages 為基準目標環境**
 
-### 重新命名歷史
-以下 Weebly 原始檔名已重新命名為語意化檔名，舊檔保留作為 `<meta http-equiv="refresh">` 重新導向：
+### 重新命名歷史（已清理）
+以下 Weebly 原始檔名曾重新命名為語意化檔名，舊的重新導向頁已移除：
 
 | 舊檔名 | 新檔名 |
 |--------|--------|
@@ -44,8 +44,7 @@
 | `332582120...html` | `automation-projects.html` |
 | `382833033...html` | `about.html` |
 
-涉及 `REDIRECT_FILES` Set 修改時請同步更新 `scripts/build-sitemap.mjs`。
-`search.html` 永遠在 `REDIRECT_FILES` 中（noindex，不入 sitemap）。
+`search.html` 永遠排除於 sitemap 及搜尋索引之外（noindex，不入 sitemap）。
 
 ## 3. Weebly 類別保留
 
