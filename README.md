@@ -27,7 +27,7 @@
 | [《深空之眼》半自動腳本](https://sid-1996.github.io/sid-automation-lab/aethergazersemiauto.html) | 戰鬥半自動操作 | AHK v2 |
 | [《棕色塵埃2》音遊助手](https://sid-1996.github.io/sid-automation-lab/browndust2-music-assist.html) | 音樂節拍自動判定 | AHK v2 |
 | [No-Code OCR 觸發點擊工具](https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html) | 免寫碼 OCR 即時觸發，支援 10 種步驟與群組規則 | Python + AHK v2 |
-| [通用壓槍腳本](https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html) | FPS 遊戲後座力補償 | AHK v1 |
+| [🔒 通用壓槍腳本](https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html) | FPS 遊戲後座力補償（商業產品） | AHK v1 |
 
 ## Tech Stack
 
@@ -75,4 +75,4 @@ npx serve .
 ### 開源工具
 各工具之授權條款請參閱其獨立倉庫：
 - [ocr-trigger-clicker](https://github.com/Sid-1996/ocr-trigger-clicker) → AGPL-3.0
-- 其他 AHK 工具 → 各倉庫內 LICENSE 聲明
+- 其他開源 AHK 工具 → 各倉庫內 LICENSE 聲明
