@@ -53,7 +53,7 @@
 
 1. 安裝 [AutoHotkey v2](https://www.autohotkey.com/)
 2. 從 [Releases](https://github.com/Sid-1996/ocr-trigger-clicker/releases) 下載並解壓縮
-3. 執行 `ocr-trigger-clicker.exe`（建議系統管理員權限）
+3. 執行 `ocr-trigger-clicker.exe`
 
 ## 開發
 
