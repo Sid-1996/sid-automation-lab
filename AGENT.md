@@ -34,10 +34,8 @@
    - ✅ uploads 扁平化(圖床)
    - ✅ GitHub Pages 已上線
 3. **已知限制**：
-   - Google Analytics `UA-131254328-2` (死掉的 UA)，不影響渲染
    - jQuery 1.8.3 主題依賴無法升
-   - `main.js` 內含少數 `cdn2.editmysite.com` string（runtime 不觸發，base 已在 HTML 開頭 overwrite)
-   - `_headers` 中 `/assets/*` 快取規則對應到不存在目錄，但無有害影響
+   - 5 個 Weebly JS 檔案（`main.js`、`plugins.js`、`custom.js`、`mobile.js`、`slideshow-jq.js`）已於 2026-07-27 全部刪除，全站已無引用
 
 ---
 
@@ -48,7 +46,7 @@
 | `search-index.json` | 由 `build-index.mjs` 自動生成 |
 | `robots.txt` / `sitemap.xml` 內 URL | 已指向 GH Pages；換網域時要設 `$env:SITE_BASE` 重跑 |
 | `cdn_local/` 內檔案結構 | 15+ 個 HTML 依賴這些路徑 |
-| jQuery 1.8.3 及相關主題 scripts | main.js 依賴 |
+| jQuery 1.8.3 | 16 個 HTML 直接引用，升級有佈局風險 |
 | `_headers`、`.nojekyll` | GitHub Pages 部署設定，手動改可能影響部署行為 |
 
 ---
@@ -78,7 +76,7 @@ node scripts/build-sitemap.mjs
 目前 Google Form ID：`1FAIpQLSdk7p6XQXcX0z5ls7DMlEIzy0aj43MrnUOYviH9Taum4J68Bg`
 更改表單後需：
 1. 改 `contact.html` 內 iframe `src`
-2. 改所有 `.html`（目前 16 個）nav JSON 的 `"url":"https://docs.google.com/forms/..."` 值
+2. 改所有 `.html`（目前 16 個）nav 區塊 `<a href="...">` 中的 Google Form URL
 3. 改 dropdown 子項 `<a href="...">` 中也有的 href
 
 ### F. 展開 flick、幻燈片故障
@@ -106,13 +104,17 @@ node scripts/build-sitemap.mjs
 node scripts/check-missing.mjs
 # => 期望輸出：missing 0 file reference(s)：
 
-# 4. 本機驗證
+# 4. 全站驗證（16 頁 + FFFD=0）
+node scripts/verify.mjs
+# => 期望：全部 PASS，無 FFFD (U+FFFD) 字元
+
+# 5. 本機驗證
 .\serve.bat
 # 開 http://localhost:8080/
 
-# 5. F12 → Console → 無 Error (搜尋/幻燈片 OK)
+# 6. F12 → Console → 無 Error (搜尋/幻燈片 OK)
 
-# 6. git commit + push
+# 7. git commit + push
 git add -A; git commit -m "..."; git push
 ```
 
@@ -125,7 +127,6 @@ git add -A; git commit -m "..."; git push
 | F12 `Uncaught SyntaxError` 在 `search.js` | `files/search.js` 中搜尋 `escapeHTML` | smart quote 汙染 |
 | 圖片 404 但檔案在 | `uploads/content/` | 跑 `node scripts\check-missing.mjs` |
 | 部署後字型／icon 沒套用 | `files/cdn_local/css/social-icons.css` | 內部 `@font-face` 路徑是否誤用遠端 URL |
-| main.js 404 | `files/cdn_local/js/` | 確認這兩個 469+521KB 檔存在 |
 | `search.html` 500 或搜尋沒結果 | `search-index.json` | 跑 `build-index.mjs` 重建 |
 | 幻燈片沒渲染 | `sidrecoilscript.html:832` | Console.log `imgs` array |
 | 終端機列印中文變亂碼 | Shell 編碼 | 用 `pwsh` 而非舊版 `powershell.exe` |
@@ -153,5 +154,7 @@ git add -A; git commit -m "..."; git push
 - v1.6：新增 `_headers`（靜態資源快取策略）、`robots.txt`、`.nojekyll`、`humans.txt`、安全與 SEO 強化（2026-07-15）
 - v1.7：新增 AFDIAN 愛發電贊助整合 + nav 重新導向（2026-07-20）
 - v1.8：第一批效能優化 — DNS 預獲取、script defer、tap-highlight-color（2026-07-26）
+- v1.9：安全性強化 — Referrer-Policy meta、清理 5 個未引用 Weebly JS 檔案、導航選單中文化（2026-07-27）
+- v2.0：README 重寫 — Tech Stack 更新（RapidOCR/PyQt6/matchTemplate）、License 釐清、Projects 功能描述、GUIDE 新增（2026-07-27）
 
 © 2026 Sid · 獨立自動化開發者

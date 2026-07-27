@@ -1,6 +1,7 @@
-// Fix paths pointing to theme/images/masthead-search.png — actual layout
-// is files/theme/files/images/. (JS variant rules removed after Weebly
-// plugins.js/custom.js/mobile.js cleanup — those files no longer exist.)
+// Fix paths pointing to theme/images/ — actual layout is files/theme/files/images/.
+// CSS fix applied directly in main_style.css (2026-07-27).
+// JS variant rules removed after Weebly plugins.js/custom.js/mobile.js cleanup.
+// This script is now a no-op for theme image paths; retained for future use.
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
