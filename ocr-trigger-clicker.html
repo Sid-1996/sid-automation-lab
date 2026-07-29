@@ -4,20 +4,20 @@
 <meta name="google-site-verification" content="4lWoqckzqXNbwUlyytkGLkFIFjTNKmb8Tr4jADOWXOY" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>No-Code OCR 觸發點擊工具 - Sid Automation Lab</title>
-<meta name="description" content="No-Code 即時 OCR 觸發點擊工具 — 10 種步驟類型、4 種文字比對模式、OpenCV 圖示模板比對、群組規則管理、視窗比例座標跨解析度相容。Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。" />
-<meta name="keywords" content="OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, AutoHotkey v2, AHK v2, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, TCP Socket, ONNX, Python 自動化" />
+<meta name="description" content="No-Code 即時 OCR 觸發點擊工具 — 10 種步驟類型、4 種文字比對模式、OpenCV 圖示模板比對、群組規則管理、視窗比例座標跨解析度相容。Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。" />
+<meta name="keywords" content="OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, pynput, SendInput, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, template-matching, Python 自動化" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href="https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html" />
 <meta property="og:title" content="No-Code OCR 觸發點擊工具 - Sid Automation Lab" />
-<meta property="og:description" content="No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。" />
+<meta property="og:description" content="No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。" />
 <meta property="og:url" content="https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://sid-1996.github.io/sid-automation-lab/files/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="No-Code OCR 觸發點擊工具 - Sid Automation Lab" />
-<meta name="twitter:description" content="No-Code 即時 OCR 觸發點擊工具 — Python (PyQt6+RapidOCR) + AutoHotkey v2 雙引擎。" />
+<meta name="twitter:description" content="No-Code 即時 OCR 觸發點擊工具 — Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。" />
 <meta name="twitter:image" content="https://sid-1996.github.io/sid-automation-lab/files/og-image.png" />
 
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1181746742151021"
@@ -47,7 +47,7 @@ var STYLE_PREFIX = 'wsite';
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "No-Code OCR 觸發點擊工具",
-  "description": "No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) 與 AutoHotkey v2 雙引擎。適用遊戲自動化與重複作業。",
+  "description": "No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。適用遊戲自動化與重複作業。",
   "url": "https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Windows",
@@ -836,7 +836,7 @@ var STYLE_PREFIX = 'wsite';
             <h2 style="color: #fff; margin: 0; font-size: 28px; letter-spacing: 3px; display: flex; align-items: center; gap: 15px;">
                 SYSTEM <span style="color: #00f2ff;">ARCHITECTURE</span>
             </h2>
-            <p style="color: #666; margin-top: 10px; font-size: 15px;">TCP Socket 跨行程通訊 · Python ↔ AutoHotkey v2 雙引擎協作</p>
+            <p style="color: #666; margin-top: 10px; font-size: 15px;">pynput (SendInput) 內建模擬 · Python 單一行程直通</p>
         </div>
 
         <div class="arch-flow">
@@ -854,13 +854,7 @@ var STYLE_PREFIX = 'wsite';
             <div class="arch-arrow">→</div>
             <div class="arch-step">
                 <div class="arch-step-num">3</div>
-                <h4>TCP Socket</h4>
-                <p>port 12345<br>跨行程指令傳遞</p>
-            </div>
-            <div class="arch-arrow">→</div>
-            <div class="arch-step">
-                <div class="arch-step-num">4</div>
-                <h4>AHK v2 Client</h4>
+                <h4>pynput SendInput</h4>
                 <p>滑鼠移動 / 點擊<br>鍵盤按鍵模擬</p>
             </div>
         </div>
