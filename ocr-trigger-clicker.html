@@ -4,20 +4,20 @@
 <meta name="google-site-verification" content="4lWoqckzqXNbwUlyytkGLkFIFjTNKmb8Tr4jADOWXOY" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>No-Code OCR 觸發點擊工具 - Sid Automation Lab</title>
-<meta name="description" content="No-Code 即時 OCR 觸發點擊工具 — 10 種步驟類型、4 種文字比對模式、OpenCV 圖示模板比對、群組規則管理、視窗比例座標跨解析度相容。Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。" />
-<meta name="keywords" content="OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, pynput, SendInput, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, template-matching, Python 自動化" />
+<meta name="description" content="No-Code 即時 OCR 觸發點擊工具 — 10 種步驟類型、4 種文字比對模式、OpenCV 圖示模板比對、群組規則管理、後台掛機模式、視窗比例座標跨解析度相容。Python (PyQt6+RapidOCR) + pynput / PostMessage 雙輸入模擬。" />
+<meta name="keywords" content="OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, pynput, PostMessage, PrintWindow, 後台掛機, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, template-matching, Python 自動化" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href="https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html" />
 <meta property="og:title" content="No-Code OCR 觸發點擊工具 - Sid Automation Lab" />
-<meta property="og:description" content="No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。" />
+<meta property="og:description" content="No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，支援後台掛機模式，Python (PyQt6+RapidOCR) + pynput / PostMessage 雙輸入模擬。" />
 <meta property="og:url" content="https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://sid-1996.github.io/sid-automation-lab/files/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="No-Code OCR 觸發點擊工具 - Sid Automation Lab" />
-<meta name="twitter:description" content="No-Code 即時 OCR 觸發點擊工具 — Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。" />
+<meta name="twitter:description" content="No-Code 即時 OCR 觸發點擊工具 — Python (PyQt6+RapidOCR) + pynput / PostMessage 雙輸入模擬，支援後台掛機。" />
 <meta name="twitter:image" content="https://sid-1996.github.io/sid-automation-lab/files/og-image.png" />
 
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1181746742151021"
@@ -47,7 +47,7 @@ var STYLE_PREFIX = 'wsite';
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "No-Code OCR 觸發點擊工具",
-  "description": "No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，Python (PyQt6+RapidOCR) + pynput (SendInput) 內建模擬。適用遊戲自動化與重複作業。",
+  "description": "No-Code 即時 OCR 觸發點擊工具 — 視窗比例座標系統跨解析度相容，支援後台掛機模式，Python (PyQt6+RapidOCR) + pynput / PostMessage 雙輸入模擬。適用遊戲自動化與重複作業。",
   "url": "https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Windows",
@@ -752,8 +752,9 @@ var STYLE_PREFIX = 'wsite';
                 <ul style="padding: 0; list-style: none; color: #9aa9bc; font-size: 14px; line-height: 1.8;">
                     <li>▸ <span class="highlight-blue">RapidOCR + ONNX</span> 繁中辨識</li>
                     <li>▸ <span class="highlight-blue">圖示模板比對</span> OpenCV matchTemplate + NMS</li>
-                    <li>▸ 四種比對模式：包含 / 精確 / 模糊 / 規則式</li>
+                    <li>▸ 四種比對模式：包含 / 完全符合 / 近似比對 / 模板比對</li>
                     <li>▸ 10 種步驟：偵測 / 點擊 / 按鍵 / 等待 / 跳轉 / 比較 / 圖像比對 / 通知 / 滾動 / 拖曳</li>
+                    <li>▸ <span class="highlight-blue">重疊 OCR 合併</span> 同幀重疊區域共用單次辨識</li>
                 </ul>
             </div>
 
@@ -766,6 +767,9 @@ var STYLE_PREFIX = 'wsite';
                     <li>▸ 點擊座標視覺化選取器</li>
                     <li>▸ 步驟測試按鈕 dry-run 即時預覽</li>
                     <li>▸ <span class="highlight-blue">群組規則管理</span> 循環執行 / 執行一次 / 重複 N 次</li>
+                    <li>▸ <span class="highlight-blue">OCR 診斷面板</span> 按兩下文字直接建立規則</li>
+                    <li>▸ 多任務檔案管理，一鍵切換不同情境</li>
+                    <li>▸ 繁中 / English 雙語介面</li>
                 </ul>
             </div>
 
@@ -776,7 +780,18 @@ var STYLE_PREFIX = 'wsite';
                     <li>▸ <span class="highlight-blue">前景保護</span> 工具前景自動暫停</li>
                     <li>▸ 速率限制 最高 5 次/秒</li>
                     <li>▸ 緊急停止 + 常駐監控頻道</li>
-                    <li>▸ 效能監控：FPS / CPU / RAM / 點擊速率 / OCR 延遲</li>
+                    <li>▸ 效能監控：掃描/秒 / CPU / RAM / 點擊速率 / OCR 延遲</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <span class="status-tag">BACKGROUND MODE</span>
+                <h3 style="color: #fff; margin: 0 0 15px;">後台掛機模式</h3>
+                <ul style="padding: 0; list-style: none; color: #9aa9bc; font-size: 14px; line-height: 1.8;">
+                    <li>▸ <span class="highlight-blue">PrintWindow 截圖</span> + PostMessage 輸入</li>
+                    <li>▸ 視窗最小化 / 遮蓋照常執行，<span class="highlight-blue">不搶焦點</span></li>
+                    <li>▸ 後台截圖全黑偵測 + 管理員權限提醒</li>
+                    <li>▸ 註：多數 Unity 遊戲不支援後台（遊戲底層限制）</li>
                 </ul>
             </div>
         </div>
@@ -836,7 +851,7 @@ var STYLE_PREFIX = 'wsite';
             <h2 style="color: #fff; margin: 0; font-size: 28px; letter-spacing: 3px; display: flex; align-items: center; gap: 15px;">
                 SYSTEM <span style="color: #00f2ff;">ARCHITECTURE</span>
             </h2>
-            <p style="color: #666; margin-top: 10px; font-size: 15px;">pynput (SendInput) 內建模擬 · Python 單一行程直通</p>
+            <p style="color: #666; margin-top: 10px; font-size: 15px;">前景 pynput (SendInput) · 後台 PrintWindow + PostMessage · Python 單一行程直通</p>
         </div>
 
         <div class="arch-flow">
@@ -854,8 +869,8 @@ var STYLE_PREFIX = 'wsite';
             <div class="arch-arrow">→</div>
             <div class="arch-step">
                 <div class="arch-step-num">3</div>
-                <h4>pynput SendInput</h4>
-                <p>滑鼠移動 / 點擊<br>鍵盤按鍵模擬</p>
+                <h4>前景 / 後台輸入</h4>
+                <p>前景 pynput (SendInput)<br>後台 PostMessage 不搶焦點</p>
             </div>
         </div>
 
