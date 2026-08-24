@@ -47,7 +47,7 @@
 | `robots.txt` / `sitemap.xml` 內 URL | 已指向 GH Pages；換網域時要設 `$env:SITE_BASE` 重跑 |
 | `cdn_local/` 內檔案結構 | 15+ 個 HTML 依賴這些路徑 |
 | jQuery 1.8.3 | 16 個 HTML 直接引用，升級有佈局風險 |
-| `_headers`、`.nojekyll` | GitHub Pages 部署設定，手動改可能影響部署行為 |
+| `_headers`、`.nojekyll` | `.nojekyll` 為 GitHub Pages 必需；`_headers` 是 Cloudflare/Netlify 語法，GH Pages 不會套用（保留供未來遷移，勿誤認為已生效） |
 
 ---
 

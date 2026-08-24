@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
 ![AHK](https://img.shields.io/badge/AutoHotkey-v1%20%2F%20v2-0079C1)
-![Python](https://img.shields.io/badge/Python-3.12-3776AB)
+![Python](https://img.shields.io/badge/Python-3.13-3776AB)
 
 > 自動化工具與遊戲效率專家 — 基於圖像識別與模擬輸入技術的開源實驗室。
 
@@ -23,10 +23,11 @@
 | Project | 簡述 | Stack |
 |---------|------|-------|
 | [《流亡黯道2》工具箱](https://sid-1996.github.io/sid-automation-lab/sidexilegametool.html) | 血量監控、自動喝藥、自動拾取 | Python + AHK v2 |
-| [《流亡黯道》舊版工具箱](https://sid-1996.github.io/sid-automation-lab/sidexiletoolbox.html) | 經典版流亡黯道輔助工具 | AHK v2 |
+| [《流亡黯道》舊版工具箱](https://sid-1996.github.io/sid-automation-lab/sidexiletoolbox.html) | 經典版流亡黯道輔助工具 | AHK v1 |
 | [《深空之眼》半自動腳本](https://sid-1996.github.io/sid-automation-lab/aethergazersemiauto.html) | 戰鬥半自動操作 | AHK v2 |
 | [《棕色塵埃2》音遊助手](https://sid-1996.github.io/sid-automation-lab/browndust2-music-assist.html) | 音樂節拍自動判定 | AHK v2 |
 | [No-Code OCR 觸發點擊工具](https://sid-1996.github.io/sid-automation-lab/ocr-trigger-clicker.html) | 免寫碼 OCR 即時觸發，支援 10 種步驟與群組規則 | Python |
+| [《鳴潮》素材計算器](https://github.com/Sid-1996/WutheringWaves-Resource-Calculator) | 角色養成素材最佳合成路徑分析 | Web |
 | [🔒 通用壓槍腳本](https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html) | FPS 遊戲後座力補償（商業） | AHK v2 |
 
 ## Tech Stack
@@ -34,11 +35,11 @@
 | 技術 | 用途 |
 |------|------|
 | AutoHotkey v1 / v2 | 系統層按鍵 / 滑鼠 / 像素偵測 |
-| Python 3.12 | 進階影像處理與 GUI |
+| Python 3.13 | 進階影像處理與 GUI（uv 管理） |
 | PyQt6 | OCR 觸發工具 GUI 框架 |
 | RapidOCR + ONNX | 繁體中文 OCR 辨識引擎 |
 | OpenCV | 形狀比對 / 圖像模板比對 (matchTemplate + NMS) |
-| TCP Socket | Python ↔ AHK v2 跨行程通訊 |
+| pynput / Frida | 前景 SendInput 與後台注入輸入（另有混合模式） |
 | 視窗比例座標 | 跨解析度設計（0~1 比值） |
 
 ## 安裝使用
@@ -51,9 +52,9 @@
 
 ### No-Code OCR 觸發點擊工具
 
-1. 安裝 [AutoHotkey v2](https://www.autohotkey.com/)
-2. 從 [Releases](https://github.com/Sid-1996/ocr-trigger-clicker/releases) 下載並解壓縮
-3. 執行 `ocr-trigger-clicker.exe`
+1. 從 [Releases](https://github.com/Sid-1996/ocr-trigger-clicker/releases) 下載 `ocr-trigger-clicker.zip`
+2. 解壓縮後直接執行 `ocr-trigger-clicker.exe`（免安裝、免 Python / AutoHotkey 環境）
+3. 若遊戲沒反應，試試右鍵 → 以系統管理員身分執行
 
 ## 開發
 
