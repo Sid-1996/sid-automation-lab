@@ -13,6 +13,9 @@ desktop.ini
 *.swp
 *~
 
+# CodeGraph local index
+.codegraph/
+
 # Logs
 *.log
 npm-debug.log*
