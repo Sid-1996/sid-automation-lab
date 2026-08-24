@@ -1,6 +1,7 @@
-# Agent.md — Sid Automation Lab 協作指南
+# GUIDE.md — Sid Automation Lab 維護指南
 
 > 接手這份專案的 AI Agent 必讀。內容由 PM 維護。
+> 硬性規則（編碼、SEO、commit 規範）見 `AGENTS.md`；本檔為作業手冊（背景、紅線、工作流、故障排解）。
 
 ## 一句話定位
 
@@ -22,7 +23,7 @@
 ## 上下文：這個專案是什麼狀況
 
 1. **源頭**：Weebly 導出 → 純靜態無 build step。
-2. **當前狀態（截至本 agent.md 寫成時）**：
+2. **當前狀態（截至本 GUIDE.md 寫成時）**：
    - ✅ 所有外部 CDN 已內化到 `files/cdn_local/`（Weebly 資產 39 檔 + `js/fuse-7.0.0.min.js`，約 2 MB）
    - ✅ 自包含 fuzzy 搜尋（`search.html` + `search.js` + `search-index.json`）
    - ✅ 自包含輪播（`slideshow-local.js`，取代 Weebly `wSlideshow`）
@@ -140,7 +141,8 @@ git add -A; git commit -m "..."; git push
 | 文件 | 讀者 | 何時用 |
 |---|---|---|
 | `README.md` | PM / 暴露者 / Agent | 專案總覽 |
-| `AGENT.md` | Agent | 本檔；接手時速讀 |
+| `AGENTS.md` | Agent（自動載入） | 硬性規則：編碼、Weebly 類別、SEO、commit 規範 |
+| `GUIDE.md` | Agent | 本檔；接手時速讀，維護任務查這裡 |
 
 ---
 

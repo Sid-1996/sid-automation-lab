@@ -1,6 +1,7 @@
 # AGENTS.md — Sid Automation Lab 開發協定
 
 本專案為 GitHub Pages 靜態網站，內容為繁體中文。以下協定為必須遵守的硬性規則。
+維護作業手冊（專案背景、紅線表、常見任務、標準工作流、故障排解）詳見 `GUIDE.md`。
 
 ## 1. 編碼協定（最重要）
 
@@ -25,10 +26,11 @@
 - 根目錄：`.html` 頁面（Weebly 靜態匯出）
 - `uploads/content/`：圖片資源
 - `files/`：`og-image.png` 等靜態資源
-- `scripts/`：維護腳本（建置、檢查、CDN 內化等，共 10 個 `.mjs` 檔案）
+- `scripts/`：維護腳本（建置、檢查、CDN 內化等，共 11 個 `.mjs` + 2 個 `.py`）
   - `scripts/build-sitemap.mjs`：自動生成 `sitemap.xml`（讀取所有 `.html` 並排除 `REDIRECT_FILES` Set 中的重新導向頁）
   - `scripts/build-index.mjs`：自動生成 `search-index.json` 給 `search.html` 用
   - `scripts/check-missing.mjs`：檢查內部引用斷裂
+  - `scripts/verify.mjs`：全站驗證（16 頁 Playwright 檢查 + FFFD=0）
 - 主要部署平台：**GitHub Pages**（`https://sid-1996.github.io/sid-automation-lab/`）
 - 本地開發測試：執行 `serve.bat`（Python http.server / npx serve）
 - **所有修復與開發皆以 GitHub Pages 為基準目標環境**
@@ -80,6 +82,7 @@
 - 不要 amend 失敗的 commit — 修正後開新 commit
 - 不要 force-push
 - 提交前必跑 `node scripts/build-sitemap.mjs` + `node scripts/build-index.mjs`
+- 提交前建議加跑 `node scripts/check-missing.mjs`（期望 missing 0）與 `node scripts/verify.mjs`（期望 16/16 PASS）
 - 提交前必驗證所有變更檔案 FFFD=0
 
 ## 7. 字型

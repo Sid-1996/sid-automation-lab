@@ -58,7 +58,7 @@
 
 ## 開發
 
-詳見 [AGENTS.md](./AGENTS.md)。
+開發協定（硬性規則）詳見 [AGENTS.md](./AGENTS.md)；維護指南（紅線、工作流、故障排解）詳見 [GUIDE.md](./GUIDE.md)。
 
 本地開發：
 ```bash
