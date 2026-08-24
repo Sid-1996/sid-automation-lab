@@ -103,7 +103,10 @@ async function testPage(browser, file) {
 
   const startTime = Date.now();
   try {
-    await page.goto(`${BASE}/${file}`, { waitUntil: 'networkidle', timeout: 30000 });
+    // 'load' + settle delay instead of 'networkidle': third-party embeds
+    // (e.g. Dailymotion iframes) keep connections alive and never go idle.
+    await page.goto(`${BASE}/${file}`, { waitUntil: 'load', timeout: 30000 });
+    await page.waitForTimeout(1500);
   } catch (e) {
     issues.push(`Navigation: ${e.message.slice(0, 200)}`);
     await context.close();
@@ -241,10 +244,9 @@ async function testPage(browser, file) {
 
     const linkPaths = [...new Set(internalHrefs)].map(href => {
       const url = new URL(href, pageUrl);
-      if (url.hostname === 'sid-1996.github.io') {
-        return url.pathname.replace(/^\/sid-automation-lab/, '') || '/';
-      }
-      return url.pathname;
+      // Strip the GitHub Pages project subpath wherever it appears, so links
+      // like "/sid-automation-lab/" resolve against the local root server.
+      return url.pathname.replace(/^\/sid-automation-lab(?=\/|$)/, '') || '/';
     });
 
     for (const linkPath of linkPaths) {
