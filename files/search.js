@@ -3,8 +3,8 @@
   if (window.__SID_SEARCH_LOADED__) return;
   window.__SID_SEARCH_LOADED__ = true;
 
-  const INDEX_URL = '/search-index.json';
-  const FUSE_URL = 'https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.min.js';
+  const INDEX_URL = 'search-index.json';
+  const FUSE_URL = 'files/cdn_local/js/fuse-7.0.0.min.js';
 
   let fuse = null;
 

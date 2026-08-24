@@ -123,6 +123,20 @@ async function downloadFont(cssUrl, baseUrl) {
 }
 
 async function main() {
+  // Non-Weebly third-party libraries (explicit local paths, not host-derived)
+  // NOTE: fuse.js >= 7.1 dropped the UMD dist/fuse.min.js build; pin 7.0.0
+  // (last release shipping a classic-script global build).
+  const EXTRA_ASSETS = [
+    {
+      url: 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js',
+      out: path.join(LOCAL, 'js', 'fuse-7.0.0.min.js'),
+    },
+  ];
+  for (const a of EXTRA_ASSETS) {
+    try { await downloadOnce(a.url, a.out); }
+    catch (e) { console.warn('fail: ' + a.url + ' — ' + e.message); }
+  }
+
   const ASSETS = [
     'https://cdn11.editmysite.com/css/sites.css',
     'https://cdn11.editmysite.com/css/old/fancybox.css',

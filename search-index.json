@@ -3,90 +3,90 @@
     "url": "sidexiletoolbox.html",
     "title": "《流亡黯道》Sid工具箱 - Sid Automation Lab",
     "keywords": "流亡黯道,Path of Exile,poe,輔助工具,遊戲腳本,輔助,腳本,遊戲工具",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "SID EXILE TOOLBOX 已開源 · 經典舊版全功能整合區 正式版下載 內含 GUI 設置面板，支援自定義熱鍵 前往 GITHUB 下載 戰鬥與生存優化 高級自動喝水 智能監控血量、魔力及場景變化，支援多模式非同步觸發邏輯。 技能連段與地雷引爆 自定義技能施放序列 (Combo)，並自動執行地雷引爆優化。 循環技能輔助 針對需要長時間維持的技能提供自動循環觸發，減少操作壓力。 倉庫、背包與資源效率 自動管理系統 快搜倉庫頁、快"
   },
   {
     "url": "sidexilegametool.html",
     "title": "《流亡黯道2》工具箱 - Sid Automation Lab",
     "keywords": "流亡黯道,Path of Exile,poe,輔助工具,遊戲腳本,輔助,腳本,遊戲工具",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "流亡黯道 2 工具箱 獨立執行檔 · 零侵入影像辨識 · 穩定運作 Path of Exile 2 - Sid GameTools 完全免費開源 | 免安裝 Python 環境 前往 GitHub 下載 戰鬥與生存 血魔監控： 即時影像偵測並自動治療。 快速取物： F6 一鍵取出倉庫常用通貨。 技能連段： 支援多套邏輯，自動銜接。 效率與清包 自動清包： 智能掃描並一鍵清空背包。 高速連點： Ctrl+左鍵，保護手指不疲勞。 快速回城："
   },
   {
     "url": "browndust2-music-assist.html",
     "title": "《棕色塵埃2》音遊助手 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "BROWN DUST 2 音遊成就領獎小助手 幫你快速處理的音遊成就任務，輕鬆拿滿獎勵。 專為成就貼圖領獎設計 ，讓你可以專心欣賞並完成小遊戲任務。 下載 v1.0.2 (成就領獎專用版) 查看源碼 手殘玩家首選 針對中低難度任務設計，穩定達成過關門檻，我並沒有設計調整到完美精度避免排名爭議。 視覺模擬點擊 純影像辨識，不入侵遊戲，適合各種解析度。按下 F3 即可對齊判定區。 誠實開發聲明 這是一個輔助領獎的工具，並非競爭型外掛。高難度"
   },
   {
     "url": "sidrecoilscript.html",
     "title": "全通用壓槍腳本 - Sid Automation Lab",
     "keywords": "壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,三角洲行動,PUBG,AHK",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "SID 壓槍腳本 (全 FPS 遊戲通用) ● 射擊遊戲全通用 / 簡單易懂 ● 自訂 9 種槍械數據 / 支援微調 ● 支援各類鍵盤排佈 VERSION_LOGS [2026/06/16] 更新版本 v1.1.0 - 雲端驗證與自動保存數據 - F1 快捷隱藏/顯示面板 - 支援指定視窗鎖定功能 - 優化效能與修復已知錯誤 SYSTEM DOWNLOAD PREMIUM 正式版 Github下載 BETA 測試版 下載測試版 UTIL"
   },
   {
     "url": "automation-projects.html",
     "title": "自動化項目 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "Automation Projects Sid Automation Lab 開發的遊戲自動化工具與開源專案一覽 《流亡黯道2》工具箱 Path of Exile 2 專用 — 實時血魔監控、一鍵清包、技能連段 PoE 2 《流亡黯道》Sid 工具箱 流亡黯道1 多功能 AHK 工具箱 — 自動喝水、清包、快搜倉庫 PoE 1 · Legacy 深空之眼 半自動腳本 Aether Gazer 自動戰鬥輔助 — 普攻、連招、烤肉，AHK "
   },
   {
     "url": "other-tools.html",
     "title": "其他工具(推薦) - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "Sid Automation Lab 推薦的其他實用工具與資源列表，涵蓋遊戲輔助、系統優化、開發工具、影音處理等多個類別，所有推薦工具均經過實際篩選確保安全可靠。"
   },
   {
     "url": "aethergazersemiauto.html",
     "title": "深空之眼Sid半自動腳本 - Sid Automation Lab",
     "keywords": "Aether Gazer 腳本, Aether Gazer 自動化, Aether Gazer 巨集, Aether Gazer 自動掛機, Aether Gazer 半自動, Aether Gazer 外掛, AHK v2 腳本, 自動點擊, 遊戲自動化, 巨集工具, 掛機, 自動釋放技能, 自動化, 遊戲輔助工具",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "AETHER GAZER SEMI-AUTO 深空之眼 Sid 半自動戰鬥輔助系統 View Project on GitHub CORE SYSTEM 自動戰鬥核心 • 自動判定技能 CD 與可用狀態 • 像素級圖片偵測 判斷機制 • WASD 移動優先權，不干擾手操 CHARACTERS 角色特化模式 內建多款主流角色專屬偵測，針對特定技能圖示強化判斷： 魂羽 / 緋染 / 巧构 / 庚辰 ※ 其他角色功能開發中 OVERLAY 狀"
   },
   {
     "url": "about.html",
     "title": "開發宗旨 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "讓程式對抗 枯燥 ， 將決策的 靈魂 留給玩家。 我不做全自動掛機，因為遊戲不該是「被跳過」的對象。 我只負責消除設計中的冗餘勞動，把更有意義的時間還給你。 半自動的底線 拒絕代打、不代走路。我們只針對翻頁、冷卻讀秒、機械循環進行優化。工具不該越界， 你永遠是操作的主體。 純淨技術路徑 堅持圖像辨識與模擬操作， 不讀取記憶體、不改動遊戲檔案 。程式碼全數開源，接受社群對安全與後門的最嚴格審查。 推動官方進化 若功能被官方納入系統，便是我"
   },
   {
     "url": "contact.html",
     "title": "聯絡作者 &rarr; - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "✉ 展開聯絡表單 載入中… 聯絡作者 ✉ 展開聯絡表單 載入中…"
   },
   {
     "url": "sidpayfor.html",
     "title": "贊助腳本 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "SID LICENSE CENTER 正式版永久授權：自動化工具解鎖與規範 01 / 選擇付款方式 綠界科技 ECPay 台灣使用者（信用卡 / ATM / 超商） PayPal Global International / 海外用戶專用 02 / 聯繫作者啟用授權 付款成功後，請立即點擊下方按鈕前往粉絲專頁 私訊 FB 粉絲專頁：Sid 請私訊提供： 1. 付款名稱 與 2. 腳本內的硬體序號 (HWID) 作者將透過遠端方式啟用授權"
   },
   {
     "url": "aethergazer.html",
     "title": "AetherGazer - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "Sid Automation Lab 為 Aether Gazer 深空之眼開發的半自動戰鬥輔助腳本，支援圖像辨識與自動技能釋放，顯著降低戰鬥時間的人工作業負擔，提升掛機效率。"
   },
   {
     "url": "browndust2.html",
     "title": "BrownDust2 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "Sid Automation Lab 為 Brown Dust 2 棕色塵埃2 開發的遊戲輔助工具，提供自動化戰鬥功能與圖像辨識支援，協助玩家更有效率地進行遊戲，減少重複作業負擔。"
   },
   {
     "url": "ocr-trigger-clicker.html",
     "title": "No-Code OCR 觸發點擊工具 - Sid Automation Lab",
     "keywords": "OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, pynput, Frida, 混合模式, PrintWindow, 後台掛機, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, template-matching, Python 自動化",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "NO-CODE OCR TRIGGER CLICKER 即時偵測螢幕文字 · 自動執行點擊 View Project on GitHub CORE SYSTEM OCR 觸發引擎 ▸ RapidOCR + ONNX 繁中辨識 ▸ 圖示模板比對 OpenCV matchTemplate + NMS ▸ 四種比對模式：包含 / 完全符合 / 近似比對 / 模板比對 ▸ 10 種步驟：偵測 / 點擊 / 按鍵 / 等待 / 跳轉 / 比較 /"
   },
   {
     "url": "path-of-exile.html",
     "title": "Path of Exile - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "探索 Sid Automation Lab 為 Path of Exile 流亡黯道開發的 Sidexile 自動化工具系列，提供實時血魔監控、一鍵清包、技能連段等實用功能。"
   },
   {
     "url": "",
     "title": "Sid Automation Lab - Sid · 半自動化減負工具",
     "keywords": "圖像識別,模擬輸入,Automation,OCR,AHK,Python,html",
-    "snippet": "Sid Automation Lab Sid Automation Lab 首頁 開發宗旨 自動化項目 Path of Exile &gt; 《流亡黯道2》Sid工具箱 《流亡黯道》舊版工具箱 AetherGazer &gt; 《深空之眼》半自動腳本 BrownDust2 &gt; 《棕色塵埃2》音遊助手 後座力輔助 其他工具(推薦) 《鳴潮》ok-ww 自動化助手 《異環》ok-nte 自動化助手 《二重螺旋》自動化助手 聯絡作者 →"
+    "snippet": "🔍 圖像識別 · 模擬輸入 ⚙️ Automation / OCR / pynput / Python 自動化工具與 遊戲效率專家 Optimization System 專注開發基於圖像辨識與模擬輸入的高效工具。項目 不讀寫記憶體、不修改遊戲文件 ，開源透明。讓工具回歸「幫你省時省力」的本質。 6+ 開源項目 1000+ 活躍用戶 零記憶體注入 瀏覽開源工具 取得後座力輔助工具 ⚙️ 查看自動化項目 Aether Gazer Log"
   }
 ]

@@ -23,7 +23,7 @@
 
 1. **源頭**：Weebly 導出 → 純靜態無 build step。
 2. **當前狀態（截至本 agent.md 寫成時）**：
-   - ✅ 所有外部 CDN 已內化到 `files/cdn_local/`（39 檔，2 MB）
+   - ✅ 所有外部 CDN 已內化到 `files/cdn_local/`（Weebly 資產 39 檔 + `js/fuse-7.0.0.min.js`，約 2 MB）
    - ✅ 自包含 fuzzy 搜尋（`search.html` + `search.js` + `search-index.json`）
    - ✅ 自包含輪播（`slideshow-local.js`，取代 Weebly `wSlideshow`）
    - ✅ 0 個內部外部關聯斷裂 (`check-missing` = missing 0)
@@ -35,6 +35,7 @@
    - ✅ GitHub Pages 已上線
 3. **已知限制**：
    - jQuery 1.8.3 主題依賴無法升
+   - fuse.js 固定 7.0.0 UMD 版（官方自 7.1 起移除 `dist/fuse.min.js` 經典腳本構建，`@7.5.0/dist/fuse.min.js` 是 404；升級需改 module 載入）
    - 5 個 Weebly JS 檔案（`main.js`、`plugins.js`、`custom.js`、`mobile.js`、`slideshow-jq.js`）已於 2026-07-27 全部刪除，全站已無引用
 
 ---
@@ -156,5 +157,6 @@ git add -A; git commit -m "..."; git push
 - v1.8：第一批效能優化 — DNS 預獲取、script defer、tap-highlight-color（2026-07-26）
 - v1.9：安全性強化 — Referrer-Policy meta、清理 5 個未引用 Weebly JS 檔案、導航選單中文化（2026-07-27）
 - v2.0：README 重寫 — Tech Stack 更新（RapidOCR/PyQt6/matchTemplate）、License 釐清、Projects 功能描述、GUIDE 新增（2026-07-27）
+- v2.1：過時資訊清理與站體修復 — OCR 頁同步上游 v0.3.0（混合模式/Frida/三語）、BD2 助手 v1.0.2、AetherGazer 標示 AHK v2、favicon 相對路徑修復（原全站 404）、搜尋修復（fuse.js 7.5.0 URL 404 → 內化 7.0.0、索引路徑改相對）並讓 search-index snippet 抓正文、verify.mjs 子路徑正規化 + iframe timeout 修復（16/16 PASS）、README/humans.txt 校正、□ 佔位字元清理（2026-08-25）
 
 © 2026 Sid · 獨立自動化開發者

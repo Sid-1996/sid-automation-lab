@@ -14,7 +14,38 @@ const META_KW = /<meta\s+name=["']keywords["']\s+content=["']([^"']*)["']/i;
 const META_TW_DESC = /<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i;
 const BODY_RE = /<body[^>]*>([\s\S]*?)<\/body>/i;
 const TAG_RE = /<[^>]+>/g;
+const SCRIPT_STYLE_RE = /<(script|style)\b[\s\S]*?<\/\1>/gi;
+const COMMENT_RE = /<!--[\s\S]*?-->/g;
 const WHITESPACE_RE = /\s+/g;
+
+// Return candidate source regions, best first, so snippets reflect page
+// content instead of the shared nav boilerplate every page starts with.
+// #main wraps banner/hero blocks and #wsite-content, but on no-header-page
+// layouts the nav sits inside #main, so keep several candidates and filter.
+function candidates(raw) {
+  const out = [];
+  const push = (re) => {
+    const m = raw.match(re);
+    if (m && m.index !== undefined) out.push(raw.slice(m.index));
+  };
+  push(/<div\s+id=["']main["']/i);
+  push(/<div\s+id=["']wsite-content["']/i);
+  const body = BODY_RE.exec(raw);
+  if (body) out.push(body[1]);
+  return out;
+}
+
+// Nav menus repeat across pages; reject any region that opens with them.
+const NAV_SIGNATURE = /首頁\s*開發宗旨|Sid Automation Lab\s*Sid Automation Lab/;
+
+function cleanText(raw) {
+  return decodeEntities(
+    raw.replace(COMMENT_RE, ' ').replace(SCRIPT_STYLE_RE, ' ')
+  )
+    .replace(TAG_RE, ' ')
+    .replace(WHITESPACE_RE, ' ')
+    .trim();
+}
 
 function decodeEntities(s) {
   return s
@@ -30,9 +61,20 @@ function decodeEntities(s) {
 }
 
 function firstWords(text, n = 200) {
-  const t = text.replace(TAG_RE, ' ').replace(WHITESPACE_RE, ' ').trim();
-  const words = t.split(' ').filter(Boolean);
+  const words = text.split(' ').filter(Boolean);
   return words.slice(0, n).join(' ');
+}
+
+// Pick the first candidate region that neither opens with nav boilerplate nor
+// is too short to be useful; fall back to the meta description.
+function pickSnippet(raw, desc) {
+  for (const cand of candidates(raw)) {
+    const t = cleanText(cand);
+    if (t.length < 30) continue;
+    if (NAV_SIGNATURE.test(t.slice(0, 120))) continue;
+    return firstWords(t, 60);
+  }
+  return desc;
 }
 
 const REDIRECT_FILES = new Set([
@@ -49,8 +91,7 @@ async function build() {
     const title = (TITLE_RE.exec(raw) || [, ''])[1].trim();
     const desc = (META_DESC.exec(raw) || [, ''])[1].trim();
     const kw = (META_KW.exec(raw) || [, ''])[1].trim();
-    const body = (BODY_RE.exec(raw) || [, ''])[1];
-    const snippet = firstWords(decodeEntities(body), 60);
+    const snippet = pickSnippet(raw, desc);
     if (!title) continue;
     out.push({
       url: ent.name === 'index.html' ? '' : ent.name,
