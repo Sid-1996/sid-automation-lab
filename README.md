@@ -5,9 +5,7 @@
 ![AHK](https://img.shields.io/badge/AutoHotkey-v1%20%2F%20v2-0079C1)
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB)
 
-> 自動化工具與遊戲效率專家 — 基於圖像識別與模擬輸入技術的開源實驗室。
-
-![Sid Automation Lab Hero](uploads/content/2026-07-05%20153548.png)
+> 個人的自動化學習實驗室 — 一邊學習、一邊打造基於圖像識別與模擬輸入的開源工具。
 
 🌐 **Live site:** <https://sid-1996.github.io/sid-automation-lab/>
 
