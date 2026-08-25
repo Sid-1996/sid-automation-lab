@@ -21,6 +21,7 @@ async function run() {
   const entries = await fs.readdir(ROOT, { withFileTypes: true });
   const REDIRECT_FILES = new Set([
     'search.html',
+    'ocr-trigger-clicker.html',
   ]);
   const files = entries
     .filter(e => e.isFile() && e.name.endsWith('.html') && !REDIRECT_FILES.has(e.name))

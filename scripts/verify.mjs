@@ -12,6 +12,13 @@ const BASE = `http://127.0.0.1:${PORT}`;
 
 const SEARCH_FILE = 'search.html';
 const SLIDESHOW_PAGES = new Set(['sidrecoilscript.html']);
+// Redirect stubs: only check they exist and declare the right target —
+// no SEO/link checks (the meta refresh would race the page evaluations).
+const REDIRECT_PAGES = new Set(['ocr-trigger-clicker.html']);
+const REDIRECT_TARGET_RE = /url=https:\/\/sid-1996\.github\.io\/ocr-trigger-clicker\//;
+// GitHub Pages sites hosted outside this repo: sid-1996.github.io links are
+// otherwise resolved against the local root server and false-positive as 404.
+const EXTERNAL_LINK_PATHS = new Set(['/ocr-trigger-clicker']);
 
 const linkStatusCache = new Map();
 
@@ -85,6 +92,15 @@ async function run() {
 }
 
 async function testPage(browser, file) {
+  if (REDIRECT_PAGES.has(file)) {
+    const issues = [];
+    const status = await httpGetStatus(`${BASE}/${file}`);
+    if (status !== 200) issues.push(`HTTP ${status}`);
+    const raw = await fs.readFile(path.join(ROOT, file), 'utf8');
+    if (!REDIRECT_TARGET_RE.test(raw)) issues.push('Redirect target missing');
+    return { file, passed: issues.length === 0, issues, loadTime: 0, benignCount: 0 };
+  }
+
   const context = await browser.newContext();
   const page = await context.newPage();
 
@@ -249,13 +265,15 @@ async function testPage(browser, file) {
       return url.pathname.replace(/^\/sid-automation-lab(?=\/|$)/, '') || '/';
     });
 
-    for (const linkPath of linkPaths) {
+    const checkPaths = linkPaths.filter(p => !EXTERNAL_LINK_PATHS.has(p.replace(/\/+$/, '')));
+
+    for (const linkPath of checkPaths) {
       if (linkStatusCache.has(linkPath)) continue;
       const status = await httpGetStatus(`${BASE}${linkPath}`);
       linkStatusCache.set(linkPath, status);
     }
 
-    const brokenLinks = linkPaths.filter(p => linkStatusCache.get(p) !== 200);
+    const brokenLinks = checkPaths.filter(p => linkStatusCache.get(p) !== 200);
     if (brokenLinks.length > 0) {
       for (const link of brokenLinks.slice(0, 5)) {
         issues.push(`Broken internal link: "${link}" (status ${linkStatusCache.get(link)})`);

@@ -79,6 +79,7 @@ function pickSnippet(raw, desc) {
 
 const REDIRECT_FILES = new Set([
   'search.html',
+  'ocr-trigger-clicker.html',
 ]);
 
 async function build() {

@@ -72,12 +72,6 @@
     "snippet": "Sid Automation Lab 為 Brown Dust 2 棕色塵埃2 開發的遊戲輔助工具，提供自動化戰鬥功能與圖像辨識支援，協助玩家更有效率地進行遊戲，減少重複作業負擔。"
   },
   {
-    "url": "ocr-trigger-clicker.html",
-    "title": "No-Code OCR 觸發點擊工具 - Sid Automation Lab",
-    "keywords": "OCR, OCR 點擊, No-Code, PyQt6, RapidOCR, pynput, Frida, 混合模式, PrintWindow, 後台掛機, 視窗比例座標, 跨解析度, 遊戲自動化, 自動點擊, 畫面辨識, template-matching, Python 自動化",
-    "snippet": "NO-CODE OCR TRIGGER CLICKER 即時偵測螢幕文字 · 自動執行點擊 View Project on GitHub CORE SYSTEM OCR 觸發引擎 ▸ RapidOCR + ONNX 繁中辨識 ▸ 圖示模板比對 OpenCV matchTemplate + NMS ▸ 四種比對模式：包含 / 完全符合 / 近似比對 / 模板比對 ▸ 10 種步驟：偵測 / 點擊 / 按鍵 / 等待 / 跳轉 / 比較 /"
-  },
-  {
     "url": "path-of-exile.html",
     "title": "Path of Exile - Sid Automation Lab",
     "keywords": "",
