@@ -102,9 +102,9 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  #wsite-menus .wsite-menu li a { color: #d4b49a; border: none !important; font-weight: 700; padding: 0 !important; background: rgba(0,0,0,0.5); -webkit-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); -moz-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); -o-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); -ms-transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); transition: background 200ms cubic-bezier(0.55,0.085,0.68,0.53); }
  #navigation.stuck #wsite-menus .wsite-menu li a { background: #000000; }
  #wsite-menus .wsite-menu li a:hover { background: #000000; color: #ffffff; }
- #wsite-menus span.wsite-menu-title { padding: 15px 20px; }
- .wsite-menu-arrow { width: 5px; text-indent: -9999px; overflow: hidden; right: 15px; margin-top: -8px; font-size: 24px !important; }
- .wsite-menu-arrow:before { display: inline-block; content: '\2192'; position: absolute; right: 0; text-indent: 0 !important; }
+  #wsite-menus span.wsite-menu-title { padding: 15px 36px 15px 20px; }
+  .wsite-menu-arrow { position: absolute; top: 50%; right: 12px; width: 16px; margin-top: 0; transform: translateY(-50%); font-size: 16px !important; line-height: 1; text-align: center; text-indent: -9999px; overflow: hidden; }
+  .wsite-menu-arrow:before { display: inline-block; content: '\203A'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); text-indent: 0 !important; vertical-align: baseline; }
  @media (max-width: 767px) {
  .wsite-menu-title, .wsite-menu-back { display: inline-block !important; }
  .wsite-menu-arrow { display: none !important; }
