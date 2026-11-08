@@ -26,6 +26,7 @@
 <link rel="stylesheet" type="text/css" href="files/cdn_local/css/old/fancybox.css?buildtime=1234" />
 <link rel="stylesheet" type="text/css" href="files/cdn_local/css/social-icons.css?buildtime=1234" media="screen,projection" />
 <link rel="stylesheet" type="text/css" href="files/main_style.css?1788962014" title="wsite-theme-css" />
+<link rel="stylesheet" type="text/css" href="files/instrument-editorial.css?1" />
 <link href='files/cdn_local/fonts/Cabin/font.css?2' rel='stylesheet' type='text/css' />
 <link href='files/cdn_local/fonts/Montserrat/font.css?2' rel='stylesheet' type='text/css' />
 
@@ -643,46 +644,133 @@ var STYLE_PREFIX = 'wsite';
 		<div class="wsite-section-content">
     		<div class="container">
 			<div class="wsite-section-elements">
-				<div><div id="AUTO_PROJECTS_LIST" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div style="max-width: 1000px; margin: 0 auto; padding: 50px 24px; font-family: 'Segoe UI','PingFang TC','Microsoft JhengHei',sans-serif;">
-    <style>
-        .ap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-        .ap-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px; transition: all 0.3s; text-decoration: none; display: block; }
-        .ap-card:hover { border-color: #00f2ff; background: rgba(0,242,255,0.02); transform: translateY(-4px); }
-        .ap-card h3 { color: #fff; margin: 0 0 8px; font-size: 16px; }
-        .ap-card p { color: #9aa9bc; font-size: 13px; line-height: 1.6; margin: 0 0 12px; }
-        .ap-tag { display: inline-block; background: rgba(0,242,255,0.1); color: #00f2ff; padding: 2px 10px; border-radius: 4px; font-size: 11px; letter-spacing: 1px; }
-        @media (max-width: 768px) { .ap-grid { grid-template-columns: 1fr; } }
-    </style>
-    <h1 style="color: #fff; font-size: 1.4rem; margin: 0; letter-spacing: 2px;">Automation <span style="color: #00f2ff;">Projects</span></h1>
-    <p style="color: #6272a4; margin-top: 8px; font-size: 14px;">Sid Automation Lab 開發的遊戲自動化工具與開源專案一覽</p>
-    <div class="ap-grid">
-        <a href="sidexilegametool.html" class="ap-card">
-            <h3>《流亡黯道2》工具箱</h3>
-            <p>Path of Exile 2 專用 — 實時血魔監控、一鍵清包、技能連段</p>
-            <span class="ap-tag">PoE 2</span>
-        </a>
-        <a href="aethergazersemiauto.html" class="ap-card">
-            <h3>深空之眼 半自動腳本</h3>
-            <p>Aether Gazer 自動戰鬥輔助 — 普攻、連招、烤肉，AHK 實現</p>
-            <span class="ap-tag">Aether Gazer</span>
-        </a>
-        <a href="browndust2-music-assist.html" class="ap-card">
-            <h3>棕色塵埃2 音遊助手</h3>
-            <p>Brown Dust 2 音樂遊戲節奏助手 — AHK v2 色彩偵測</p>
-            <span class="ap-tag">Brown Dust 2</span>
-        </a>
-        <a href="sidrecoilscript.html" class="ap-card">
-            <h3>通用壓槍腳本</h3>
-            <p>FPS 射擊遊戲泛用 — v1.2.0 C# WPF，自訂 9 種槍械壓槍數據，支援所有射擊遊戲</p>
-            <span class="ap-tag">FPS · 通用</span>
-        </a>
-        <a href="https://sid-1996.github.io/ocr-trigger-clicker/" target="_blank" rel="noopener noreferrer" class="ap-card">
-            <h3>No-Code OCR 觸發點擊工具</h3>
-            <p>圖形化 OCR 即時偵測 → 自動點擊 — Python (PyQt6+RapidOCR) + pynput 內建模擬，跨解析度相容</p>
-            <span class="ap-tag">Python · pynput</span>
-        </a>
+				<div class="ile">
+  <section class="ile hero">
+    <h1 class="hero-title">自動化項目</h1>
+    <p class="hero-lede">用遊戲、任務或技術篩選下方六個專案。篩選條件會寫進網址（<span class="mono">?game=&amp;task=&amp;tech=&amp;q=</span>），可以把連結分享給別人；從首頁的「按需求找工具」點進來也會自動套用。</p>
+  </section>
+  <section class="ile band-graphite">
+    <h2>篩選專案</h2>
+    <p class="lede">三個下拉選單加關鍵字搜尋；按「重設」回到全部六個專案。</p>
+    <form class="filters" data-filter-form action="automation-projects.html" method="get">
+      <div class="field">
+        <label for="filter-q">關鍵字</label>
+        <input id="filter-q" name="q" type="search" placeholder="例如：喝藥、節拍、壓槍" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="filter-game">遊戲</label>
+        <select id="filter-game" name="game">
+          <option value="">全部遊戲</option>
+          <option value="poe2">流亡黯道 2</option>
+          <option value="aether">深空之眼</option>
+          <option value="browndust">棕色塵埃 2</option>
+          <option value="wuthering">鳴潮</option>
+          <option value="fps">通用 FPS</option>
+          <option value="ocr">站外 OCR</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="filter-task">任務</label>
+        <select id="filter-task" name="task">
+          <option value="">全部任務</option>
+          <option value="battle">戰鬥與生存輔助</option>
+          <option value="music">音遊節拍</option>
+          <option value="resource">素材計算</option>
+          <option value="repeat">重複作業自動化</option>
+          <option value="recoil">後座力補償</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="filter-tech">技術</label>
+        <select id="filter-tech" name="tech">
+          <option value="">全部技術</option>
+          <option value="ahk">AHK</option>
+          <option value="python">Python</option>
+          <option value="web">Web</option>
+          <option value="csharp">C#</option>
+        </select>
+      </div>
+      <button class="btn btn-secondary" type="button" id="filter-reset">重設</button>
+      <p class="result-count" data-result-count role="status" aria-live="polite">顯示 6 / 6 個專案</p>
+    </form>
+    <div class="projects-grid" data-projects>
+      <article class="featured" data-card data-game="poe2" data-task="battle" data-tech="python" data-search="流亡黯道2 工具箱 血量監控 自動喝藥 自動拾取 python pyside6 opencv">
+        <div>
+          <div class="meta"><span class="pill pill--ok">公開源碼</span><span class="tag">流亡黯道 2</span><span class="tag">Python (PySide6) + OpenCV</span></div>
+          <h3>《流亡黯道 2》工具箱</h3>
+          <p class="task">血量監控、自動喝藥、自動拾取。（現行 v1.4.0，Setup.exe 安裝。）</p>
+          <div class="actions"><a class="btn" href="sidexilegametool.html">查看專案</a></div>
+        </div>
+        <figure class="featured-media">
+          <dl class="poe-spec" aria-label="流亡黯道 2 工具箱公開版本資訊">
+            <div><dt>版本</dt><dd>v1.4.0（2026-11-05）</dd></div>
+            <div><dt>安裝</dt><dd>Setup.exe（Velopack 自動更新）</dd></div>
+            <div><dt>技術</dt><dd>PySide6 + OpenCV</dd></div>
+            <div><dt>授權</dt><dd>AGPL-3.0</dd></div>
+          </dl>
+          <figcaption class="media-note">上列為公開版本與安裝事實，非官方截圖。</figcaption>
+        </figure>
+      </article>
+      <article class="featured" data-card data-game="fps" data-task="recoil" data-tech="csharp" data-search="壓槍 sidallfps fps 後座力 c# wpf 9槍械">
+        <div>
+          <div class="meta"><span class="pill pill--warm">商業 · 試用＋購買</span><span class="tag">通用 FPS</span><span class="tag">C# WPF</span></div>
+          <h3>通用壓槍腳本（SidAllFPS）</h3>
+          <p class="task">FPS 後座力補償：自訂槍械壓槍數據（正式版 9 組為站面所載，待原作確認）；v1.2.0，14 天免費試用僅限 3 組槍械預設。</p>
+          <div class="actions"><a class="btn btn-warm" href="sidrecoilscript.html">查看專案（下載對照）</a></div>
+        </div>
+        <figure class="featured-media">
+          <img src="uploads/content/recoil-v120-basic-dark.png" alt="通用壓槍腳本 SidAllFPS v1.2.0 官方介面截圖" width="1280" height="720">
+          <figcaption class="media-note">官方截圖：SidAllFPS v1.2.0（現行版）。</figcaption>
+        </figure>
+      </article>
+      <ul class="project-list">
+        <li class="project-row" data-card data-game="aether" data-task="battle" data-tech="ahk" data-search="深空之眼 半自動 普攻 連招 findtext ahk">
+          <div>
+            <h3><a href="aethergazersemiauto.html">《深空之眼》半自動腳本</a></h3>
+            <div class="row-meta"><span class="pill pill--ok">公開源碼</span><span class="tag">深空之眼</span><span class="tag">AHK v2</span></div>
+          </div>
+          <p class="task">戰鬥半自動操作（普攻／連招；現行 v1.1.2，烤肉模式已移除）。</p>
+          <span class="row-action"><a class="btn" href="aethergazersemiauto.html">查看專案</a></span>
+        </li>
+        <li class="project-row" data-card data-game="browndust" data-task="music" data-tech="ahk" data-search="棕色塵埃2 音遊 音樂節拍 色彩偵測 節奏 浮動UI ahk">
+          <div>
+            <h3><a href="browndust2-music-assist.html">《棕色塵埃2》音遊助手</a></h3>
+            <div class="row-meta"><span class="pill pill--ok">公開源碼</span><span class="tag">棕色塵埃 2</span><span class="tag">AHK v2</span></div>
+          </div>
+          <p class="task">音樂節拍自動判定（色彩偵測＋多區域可調節奏與浮動 UI；現行 v1.0.2）。</p>
+          <span class="row-action"><a class="btn" href="browndust2-music-assist.html">查看專案</a></span>
+        </li>
+        <li class="project-row" data-card data-game="ocr" data-task="repeat" data-tech="python" data-search="ocr trigger clicker no-code 觸發 點擊 視窗比例座標 pyqt6 rapidocr pynput">
+          <div>
+            <h3><a href="https://sid-1996.github.io/ocr-trigger-clicker/" target="_blank" rel="noopener noreferrer">OCR Trigger Clicker</a></h3>
+            <div class="row-meta"><span class="pill pill--info">站外專站</span><span class="tag">站外 OCR</span><span class="tag">Python</span></div>
+          </div>
+          <p class="task">No-Code 觸發條件加點擊位置、視窗比例座標；有自己的獨立網站。（現行 v0.4.8，Setup.exe 安裝。）</p>
+          <span class="row-action"><a class="btn btn-secondary" href="https://sid-1996.github.io/ocr-trigger-clicker/" target="_blank" rel="noopener noreferrer">查看專案（站外專站）</a></span>
+        </li>
+        <li class="project-row" data-card data-game="wuthering" data-task="resource" data-tech="web" data-search="鳴潮 素材計算器 合成路徑 web">
+          <div>
+            <h3><a href="https://github.com/Sid-1996/WutheringWaves-Resource-Calculator" target="_blank" rel="noopener noreferrer">《鳴潮》素材計算器</a></h3>
+            <div class="row-meta"><span class="pill pill--ok">公開源碼</span><span class="tag">鳴潮</span><span class="tag">Web</span></div>
+          </div>
+          <p class="task">角色養成素材最佳合成路徑分析。（Web 工具，僅供學習交流。）</p>
+          <span class="row-action"><a class="btn btn-secondary" href="https://github.com/Sid-1996/WutheringWaves-Resource-Calculator" target="_blank" rel="noopener noreferrer">查看專案（GitHub）</a></span>
+        </li>
+      </ul>
     </div>
-</div></div>
+    <div class="empty" data-empty>
+      <h3>沒有符合的專案</h3>
+      <p>目前的篩選條件太窄了。試著清除關鍵字，或把遊戲／任務／技術改回「全部」，再逐一縮小範圍。</p>
+      <button class="btn btn-secondary" type="button" data-filter-reset>清除篩選，顯示全部</button>
+    </div>
+  </section>
+  <section class="ile band-light">
+    <h2>如何閱讀這份目錄</h2>
+    <div class="prose">
+      <p>特色條目放完整說明與視覺，其餘條目只保留名稱、任務、技術與入口。篩選時不合條件的條目會直接隱藏，計數即時更新；把網址傳給別人，對方會看到相同的篩選結果。</p>
+    </div>
+  </section>
+</div>
 				
 			</div>
 		</div>
@@ -705,5 +793,6 @@ var STYLE_PREFIX = 'wsite';
 	<script src="files/cdn_local/js/fuse-7.0.0.min.js" defer></script>
 <script src="files/search.js" defer></script>
 <script src="files/sid-nav.js?1788962014" defer></script>
+<script src="files/project-filter.js" defer></script>
 </body>
 </html>

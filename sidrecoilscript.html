@@ -4,7 +4,7 @@
 <meta name="google-site-verification" content="4lWoqckzqXNbwUlyytkGLkFIFjTNKmb8Tr4jADOWXOY" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<title>&#20840;&#36890;&#29992;&#22739;&#27085;&#33139;&#26412; - Sid Automation Lab</title>
-<meta name="description" content="全遊戲通用的壓槍腳本 v1.2.0（C# WPF 重寫版），支援 9 種槍械自訂壓槍數據，可隨時微調力道與間隔，適用於所有 FPS 射擊遊戲；另有 14 天免費試用版。" />
+<meta name="description" content="壓槍腳本 v1.2.0（C# WPF 重寫版），正式名稱 All FPS：自訂槍械數據（站面所載 9 組待原作確認），可微調力道與間隔；逐遊戲相容未公開；附 14 天免費試用版（僅限 3 組槍械預設）。" />
 <meta name="keywords" content="壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,三角洲行動,PUBG,C#,WPF" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
@@ -26,6 +26,7 @@
 <link rel="stylesheet" type="text/css" href="files/cdn_local/css/old/fancybox.css?buildtime=1234" />
 <link rel="stylesheet" type="text/css" href="files/cdn_local/css/social-icons.css?buildtime=1234" media="screen,projection" />
 <link rel="stylesheet" type="text/css" href="files/main_style.css?1788962014" title="wsite-theme-css" />
+<link rel="stylesheet" type="text/css" href="files/instrument-editorial.css?1" />
 <link href='files/cdn_local/fonts/Cabin/font.css?2' rel='stylesheet' type='text/css' />
 <link href='files/cdn_local/fonts/Montserrat/font.css?2' rel='stylesheet' type='text/css' />
 
@@ -100,7 +101,7 @@ var STYLE_PREFIX = 'wsite';
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "通用壓槍腳本",
-  "description": "FPS 射擊遊戲通用壓槍腳本 v1.2.0（C# WPF），支援 9 種槍械壓槍數據自訂；附 14 天免費試用版。",
+  "description": "FPS 後座力補償腳本 v1.2.0（C# WPF，正式名稱 All FPS）：自訂槍械壓槍數據（9 組為站面所載，待原作確認，逐遊戲相容未公開）；附 14 天免費試用版（僅限 3 組槍械預設）。",
   "url": "https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Windows",
@@ -635,156 +636,104 @@ var STYLE_PREFIX = 'wsite';
 			
         <div class="container">
 				<div class="wsite-section-elements">
-					<div><div id="238521658838288463" align="inherit" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><div class="script-section-wrapper" style="width: 100%; box-sizing: border-box;">
-    
-    <div class="script-main-container" style="max-width: 1000px; margin: 20px auto; background: #05070a; border-radius: 20px; border: 1px solid #1a1d24; font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-        
-        <style>
-            .sid-btn {
-                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-                cursor: pointer;
-                display: inline-block;
-                width: 100%;
-                padding: 10px 0;
-                text-decoration: none;
-                font-weight: bold;
-                border-radius: 4px;
-                font-size: 14px;
-                box-sizing: border-box;
-                text-align: center;
-                margin-top: 15px; /* 固定按鈕與上方文字的間距 */
-            }
-            .sid-btn:hover { filter: brightness(1.15); transform: translateY(-2px); }
-            .sid-btn:active { transform: translateY(1px) scale(0.98); filter: brightness(0.9); }
-            
-            .btn-donate {
-                animation: heartBeat 2s infinite;
-                background: linear-gradient(135deg, #ff4d4d 0%, #a32a2a 100%) !important;
-                color: #fff !important;
-            }
-
-            @keyframes heartBeat {
-                0% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.4); }
-                70% { box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
-                100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
-            }
-
-            .top-info-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 20px;
-                padding: 40px;
-                background: linear-gradient(180deg, rgba(255,77,77,0.05) 0%, transparent 100%);
-                align-items: center;
-            }
-
-            .info-left { flex: 1.2; min-width: 300px; }
-            .info-right { flex: 0.8; min-width: 280px; }
-
-            .download-grid {
-                display: grid; 
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-                padding: 0 40px 40px;
-            }
-
-            .card-item {
-                background: rgba(255, 255, 255, 0.02);
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                padding: 25px 15px;
-                border-radius: 12px;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .card-item .sid-btn { margin-top: auto; }
-
-            /* --- 響應式優化 --- */
-            @media (max-width: 900px) {
-                .download-grid { grid-template-columns: repeat(2, 1fr); }
-            }
-
-            @media (max-width: 768px) {
-                .top-info-container { padding: 30px 20px; text-align: center; }
-                .info-left h2 { border-left: none !important; padding: 0 !important; }
-                .info-left ul { display: inline-block; text-align: left; margin-left: 0 !important; }
-                .download-grid { padding: 0 20px 30px; gap: 10px; }
-            }
-
-            @media (max-width: 480px) {
-                .download-grid { grid-template-columns: 1fr; }
-            }
-        </style>
-
-        <div class="top-info-container">
-            <div class="info-left">
-                <h1 style="color: #ff4d4d; font-size: 28px; margin: 0 0 10px; border-left: 5px solid #ff4d4d; padding-left: 20px; letter-spacing: 1px; font-weight: bold;">
-                    SID 壓槍腳本 
-                </h1>
-                <div style="color: #666; font-size: 14px; margin-bottom: 20px; margin-left: 20px;">(全 FPS 遊戲通用)</div>
-                <ul style="color: #9aa9bc; line-height: 1.8; list-style: none; padding: 0; margin-left: 20px; font-size: 15px;">
-                    <li><span style="color: #ff4d4d; margin-right: 10px;">●</span> <strong>射擊遊戲全通用</strong> / 簡單易懂</li>
-                    <li><span style="color: #ff4d4d; margin-right: 10px;">●</span> <strong>自訂 9 種槍械數據</strong> / 支援微調</li>
-                    <li><span style="color: #ff4d4d; margin-right: 10px;">●</span> <strong>支援各類鍵盤排佈</strong></li>
-                </ul>
-            </div>
-            <div class="info-right">
-                <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(233,192,142,0.15);">
-                    <div style="color: #e9c08e; font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; font-weight: bold; text-align: center;">VERSION_LOGS</div>
-                    <div style="color: #666; font-family: monospace; font-size: 13px; line-height: 1.6;">
-                        [2026/11/08] 更新版本 v1.2.0<br>
-                        - 全新 Fluent 介面：深色/淺色主題、五大分頁、完整鍵盤導航<br>
-                        - 啟動 5 秒後自動檢查更新（10 分鐘節流）<br>
-                        - 工具已從 AHK 轉移至 C#（WPF）重寫，設定檔格式不變
-                    </div>
-                </div>
-            </div>
+					<div><div id="238521658838288463" align="inherit" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><section class="ile hero">
+    <div class="hero-split">
+      <div>
+        <a class="back-link" href="automation-projects.html">回到自動化項目</a>
+        <h1 class="hero-title">通用壓槍腳本（SidAllFPS）</h1>
+        <p class="hero-lede">FPS 後座力補償工具：自訂不同槍械的壓槍數據，隨時微調力道與間隔，協助把射擊手感調整到自己習慣的節奏。（正式名稱 All FPS；逐遊戲相容未公開，以 Releases 說明為準。）</p>
+        <div class="status-row" aria-label="版本與狀態">
+          <span class="pill pill--accent">版本 v1.2.0</span>
+          <span class="pill">C# WPF</span>
+          <span class="pill">正式版自訂槍械數據（9 組待原作確認）</span>
+          <span class="pill">All FPS（逐遊戲未公開）</span>
+          <span class="pill pill--warm">商業 · 試用＋購買</span>
         </div>
-
-        <div style="padding: 0 40px 30px;">
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
-                <div style="height: 1px; flex: 1; background: linear-gradient(90deg, transparent, #ff4d4d);"></div>
-                <h2 style="color: #fff; margin: 0; font-size: 20px; letter-spacing: 2px; font-weight: 300; text-align: center; white-space: nowrap;">SYSTEM <span style="color: #ff4d4d; font-weight: bold;">DOWNLOAD</span></h2>
-                <div style="height: 1px; flex: 1; background: linear-gradient(90deg, #ff4d4d, transparent);"></div>
-            </div>
-
-            <div class="download-grid">
-                <div class="card-item" style="border-color: rgba(233, 192, 142, 0.2);">
-                    <div style="color: #e9c08e; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">PREMIUM</div>
-                    <h3 style="color: #fff; margin: 0; font-size: 16px;">正式版</h3>
-                    <a href="https://github.com/Sid-1996/Sid-gun/releases/download/v1.2.0/SidAllFPS-v1.2.0.zip" class="sid-btn" style="background: #e9c08e; color: #000;">Github下載</a>
-                </div>
-
-                <div class="card-item" style="border-color: rgba(0, 242, 255, 0.2);">
-                    <div style="color: #00f2ff; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">TRIAL</div>
-                    <h3 style="color: #fff; margin: 0; font-size: 16px;">試用版</h3>
-                    <a href="https://github.com/Sid-1996/Sid-gun/releases/download/v1.2.0-trial/SidAllFPS.Trial-v1.2.0.zip" target="_blank" rel="noopener noreferrer" class="sid-btn sid-btn-outline" style="border: 1px solid #00f2ff; color: #00f2ff;">下載試用版</a>
-                </div>
-
-                <div class="card-item" style="border-color: rgba(255, 77, 77, 0.2);">
-                    <div style="color: #ff4d4d; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">LICENSE</div>
-                    <h3 style="color: #fff; margin: 0; font-size: 16px;">購買授權</h3>
-                    <a href="sidpayfor.html" class="sid-btn btn-donate">立即購買</a>
-                </div>
-            </div>
+        <div class="hero-cta">
+          <a class="btn" href="https://github.com/Sid-1996/Sid-gun/releases/download/v1.2.0-trial/SidAllFPS.Trial-v1.2.0.zip">先下載試用版 zip</a>
+          <a class="btn btn-secondary" href="#tiers">比較三種入口</a>
         </div>
-
-        <div style="padding: 25px 40px; background: rgba(0,0,0,0.3); border-top: 1px solid #1a1d24;">
-            <div style="display: flex; gap: 15px; align-items: flex-start; justify-content: center; max-width: 800px; margin: 0 auto;">
-                <span style="color: #ffb44d; font-size: 18px;">⚠️</span>
-                <div style="color: #666; font-size: 12px; line-height: 1.8;">
-                    <strong style="color: #ffb44d; font-size: 14px;">下載安全說明：</strong><br>
-                    若下載被封鎖，請點選「保留」；執行若遭阻擋，請點選「更多資訊」並按下「仍要執行」。
-                </div>
-            </div>
-        </div>
+        <p class="scope-line">v1.2.0：Fluent 深色／淺色主題、五大分頁、完整鍵盤導航；AHK 轉移至 C#（WPF）重寫，舊 AHK 設定檔實際沿用。</p>
+      </div>
+      <figure class="hero-shot">
+        <img src="uploads/content/recoil-v120-basic-dark.png" alt="SidAllFPS v1.2.0 主畫面官方截圖：深色介面與槍械數據設定" width="1280" height="720">
+        <figcaption>官方截圖 · SidAllFPS v1.2.0 主畫面（現行版）</figcaption>
+      </figure>
     </div>
-</div>
+  </section>
 
-</div>
+  <section class="ile" aria-labelledby="recoil-req">
+    <h2 id="recoil-req">系統需求與限制</h2>
+    <p class="lede">只有有證據的項目才列為需求；其餘標示「尚未公開」，請以 Releases 說明為準。</p>
+    <p class="table-hint">表格可左右滑動 — 右滑查看完整欄位</p>
+    <div class="spec-wrap">
+      <table class="spec">
+        <caption>系統需求與限制</caption>
+        <thead><tr><th scope="col">項目</th><th scope="col">內容</th><th scope="col">來源</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">作業系統</th><td>Windows 10 / 11（x64）</td><td>Releases v1.2.0 安裝需求</td></tr>
+          <tr><th scope="row">執行環境</th><td>.NET 10 Desktop Runtime（x64）</td><td>Releases v1.2.0 安裝需求</td></tr>
+          <tr><th scope="row">執行權限</th><td>解壓後以系統管理員身分執行 <span class="mono">SidAllFPS.Wpf.exe</span>（試用版 <span class="mono">SidAllFPS.Trial.exe</span>）</td><td>Releases v1.2.0 安裝需求</td></tr>
+          <tr><th scope="row">試用說明</th><td>14 天免費試用（伺服器核發票據，一機一張；功能與正式版一致，僅限 3 組槍械預設）</td><td>Releases v1.2.0-trial</td></tr>
+          <tr><th scope="row">檔案大小／雜湊</th><td>正式版約 3.1 MB、試用版約 3.2 MB；雜湊見 Releases digest</td><td>Releases v1.2.0 / v1.2.0-trial</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-</div>
+  <section class="ile band-light" aria-labelledby="tiers" id="tiers">
+    <h2>三種入口對照</h2>
+    <p class="lede">正式版、試用版、購買授權是三種不同用途，不分優先順序：先看自己是哪種人，再點對應的按鈕。</p>
+    <div class="tier-grid">
+      <article class="tier">
+        <span class="pill">正式版</span>
+        <h3>正式版 zip</h3>
+        <ul>
+          <li><strong>適用對象：</strong>已有授權者。</li>
+          <li><strong>取得方式：</strong>GitHub Releases 下載 <span class="mono">SidAllFPS-v1.2.0.zip</span>。</li>
+          <li><strong>注意事項：</strong>解壓後以系統管理員身分執行 <span class="mono">SidAllFPS.Wpf.exe</span>；需 .NET 10 Desktop Runtime（x64）。</li>
+        </ul>
+        <a class="btn" href="https://github.com/Sid-1996/Sid-gun/releases/download/v1.2.0/SidAllFPS-v1.2.0.zip">下載正式版 zip</a>
+      </article>
+      <article class="tier">
+        <span class="pill pill--accent">試用版</span>
+        <h3>試用版 zip</h3>
+        <ul>
+          <li><strong>適用對象：</strong>首次評估者。</li>
+          <li><strong>取得方式：</strong>GitHub Releases 下載 <span class="mono">SidAllFPS.Trial-v1.2.0.zip</span>，14 天免費試用（伺服器核發票據，一機一張；僅限 3 組槍械預設）。</li>
+          <li><strong>注意事項：</strong>解壓後以系統管理員身分執行 <span class="mono">SidAllFPS.Trial.exe</span>；同樣需要 .NET 10 Desktop Runtime（x64）。</li>
+        </ul>
+        <a class="btn" href="https://github.com/Sid-1996/Sid-gun/releases/download/v1.2.0-trial/SidAllFPS.Trial-v1.2.0.zip">下載試用版 zip</a>
+      </article>
+      <article class="tier">
+        <span class="pill pill--warm">購買授權</span>
+        <h3>購買授權</h3>
+        <ul>
+          <li><strong>適用對象：</strong>需要正式版授權者。</li>
+          <li><strong>取得方式：</strong>前往站內購買頁完成授權與金流。</li>
+          <li><strong>注意事項：</strong>授權說明以購買頁為準；完成後再回來下載正式版 zip。</li>
+        </ul>
+        <a class="btn btn-warm" href="sidpayfor.html">前往購買頁（sidpayfor）</a>
+      </article>
+    </div>
+    <div class="spacer-32">
+      <div class="callout" role="note">
+        <h3>下載安全提示</h3>
+        <p>若下載被封鎖，請點選「保留」；執行若遭阻擋，請點選「更多資訊」並按下「仍要執行」。（此為現行站原有的下載安全說明，與安全性保證無關。）</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ile band-graphite" aria-labelledby="quickstart">
+    <h2 id="quickstart">快速開始</h2>
+    <p class="lede">三個步驟；先確認 .NET 環境，再談執行。</p>
+    <ol class="steps steps-horizontal">
+      <li><strong>先檢查 .NET。</strong>確認已安裝 .NET 10 Desktop Runtime（x64）。</li>
+      <li><strong>下載並解壓。</strong>下載對應的正式版或試用版 zip，解壓到本機資料夾（不要直接在壓縮檔內執行）。</li>
+      <li><strong>以系統管理員身分執行。</strong>正式版執行 <span class="mono">SidAllFPS.Wpf.exe</span>，試用版執行 <span class="mono">SidAllFPS.Trial.exe</span>。</li>
+    </ol>
+  </section>
+
 				</div>
 			</div>
       

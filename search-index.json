@@ -15,13 +15,13 @@
     "url": "sidrecoilscript.html",
     "title": "全通用壓槍腳本 - Sid Automation Lab",
     "keywords": "壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,三角洲行動,PUBG,C#,WPF",
-    "snippet": "SID 壓槍腳本 (全 FPS 遊戲通用) ● 射擊遊戲全通用 / 簡單易懂 ● 自訂 9 種槍械數據 / 支援微調 ● 支援各類鍵盤排佈 VERSION_LOGS [2026/11/08] 更新版本 v1.2.0 - 全新 Fluent 介面：深色/淺色主題、五大分頁、完整鍵盤導航 - 啟動 5 秒後自動檢查更新（10 分鐘節流） - 工具已從 AHK 轉移至 C#（WPF）重寫，設定檔格式不變 SYSTEM DOWNLOAD PRE"
+    "snippet": "回到自動化項目 通用壓槍腳本（SidAllFPS） FPS 後座力補償工具：自訂不同槍械的壓槍數據，隨時微調力道與間隔，協助把射擊手感調整到自己習慣的節奏。（正式名稱 All FPS；逐遊戲相容未公開，以 Releases 說明為準。） 版本 v1.2.0 C# WPF 正式版自訂槍械數據（9 組待原作確認） All FPS（逐遊戲未公開） 商業 · 試用＋購買 先下載試用版 zip 比較三種入口 v1.2.0：Fluent 深色／淺色"
   },
   {
     "url": "automation-projects.html",
     "title": "自動化項目 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Automation Projects Sid Automation Lab 開發的遊戲自動化工具與開源專案一覽 《流亡黯道2》工具箱 Path of Exile 2 專用 — 實時血魔監控、一鍵清包、技能連段 PoE 2 深空之眼 半自動腳本 Aether Gazer 自動戰鬥輔助 — 普攻、連招、烤肉，AHK 實現 Aether Gazer 棕色塵埃2 音遊助手 Brown Dust 2 音樂遊戲節奏助手 — AHK v2 色彩偵測"
+    "snippet": "自動化項目 用遊戲、任務或技術篩選下方六個專案。篩選條件會寫進網址（ ?game=&amp;task=&amp;tech=&amp;q= ），可以把連結分享給別人；從首頁的「按需求找工具」點進來也會自動套用。 篩選專案 三個下拉選單加關鍵字搜尋；按「重設」回到全部六個專案。 關鍵字 遊戲 全部遊戲 流亡黯道 2 深空之眼 棕色塵埃 2 鳴潮 通用 FPS 站外 OCR 任務 全部任務 戰鬥與生存輔助 音遊節拍 素材計算 重複作業自動化 "
   },
   {
     "url": "other-tools.html",
@@ -75,6 +75,6 @@
     "url": "",
     "title": "Sid Automation Lab - Sid · 半自動化減負工具",
     "keywords": "圖像識別,模擬輸入,Automation,OCR,AHK,Python,html",
-    "snippet": "🔍 圖像識別 · 模擬輸入 ⚙️ Automation / OCR / pynput / Python 個人自動化 學習實驗室 Optimization System 這裡記錄我以圖像識別與模擬輸入打造自動化工具的學習過程。項目 不讀寫記憶體、不修改遊戲文件 ，開源透明。讓工具回歸「幫你省時省力」的本質。 6+ 開源項目 1000+ 活躍用戶 零記憶體注入 瀏覽開源工具 取得後座力輔助工具 ⚙️ 查看自動化項目 Aether Gaze"
+    "snippet": "個人自動化學習實驗室 Sid Automation Lab 一邊學習、一邊打造基於圖像辨識與模擬輸入的半自動減負工具。這裡整理六個實際公開的專案：每個專案寫明它能幫忙做什麼、用的技術，以及該到哪裡下載或查看源碼。 找工具 — 瀏覽自動化項目 認識開發宗旨 技術範圍：圖像辨識 · 模擬輸入（不讀寫記憶體、不修改遊戲檔案） 按需求找工具 依你想減輕的重複操作挑選；點選後會在項目頁套用對應篩選，可再用搜尋進一步縮小。 戰鬥與生存輔助 音遊節拍"
   }
 ]
