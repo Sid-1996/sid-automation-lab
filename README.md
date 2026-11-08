@@ -26,7 +26,7 @@
 | [《棕色塵埃2》音遊助手](https://sid-1996.github.io/sid-automation-lab/browndust2-music-assist.html) | 音樂節拍自動判定 | AHK v2 |
 | [No-Code OCR 觸發點擊工具](https://sid-1996.github.io/ocr-trigger-clicker/) | 免寫碼 OCR 即時觸發，支援 10 種步驟與群組規則 | Python |
 | [《鳴潮》素材計算器](https://github.com/Sid-1996/WutheringWaves-Resource-Calculator) | 角色養成素材最佳合成路徑分析 | Web |
-| [🔒 通用壓槍腳本](https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html) | FPS 遊戲後座力補償（商業） | AHK v2 |
+| [🔒 通用壓槍腳本](https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html) | FPS 遊戲後座力補償（商業） | C# WPF v1.2.0 |
 
 ## Tech Stack
 
@@ -42,11 +42,16 @@
 
 ## 安裝使用
 
-### AHK 工具（流亡黯道 / 深空之眼 / 棕色塵埃2 / 壓槍腳本）
+### AHK 工具（流亡黯道 / 深空之眼 / 棕色塵埃2）
 
 1. 安裝 [AutoHotkey v2](https://www.autohotkey.com/)（v1 工具需安裝 v1）
 2. 從各工具頁面下載腳本
 3. 以系統管理員身分執行（若目標程式以管理員權限執行）
+
+### 壓槍腳本（C# WPF，不需 AHK）
+
+1. 從壓槍腳本頁面下載 `SidAllFPS-v1.2.0.zip`（正式版）或試用版 `SidAllFPS.Trial-v1.2.0.zip`
+2. 解壓縮後以系統管理員身分執行 `SidAllFPS.Wpf.exe`（試用版為 `SidAllFPS.Trial.exe`），需 .NET 10 Desktop Runtime (x64)
 
 ### No-Code OCR 觸發點擊工具
 

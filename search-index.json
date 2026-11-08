@@ -20,8 +20,8 @@
   {
     "url": "sidrecoilscript.html",
     "title": "全通用壓槍腳本 - Sid Automation Lab",
-    "keywords": "壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,三角洲行動,PUBG,AHK",
-    "snippet": "SID 壓槍腳本 (全 FPS 遊戲通用) ● 射擊遊戲全通用 / 簡單易懂 ● 自訂 9 種槍械數據 / 支援微調 ● 支援各類鍵盤排佈 VERSION_LOGS [2026/06/16] 更新版本 v1.1.0 - 雲端驗證與自動保存數據 - F1 快捷隱藏/顯示面板 - 支援指定視窗鎖定功能 - 優化效能與修復已知錯誤 SYSTEM DOWNLOAD PREMIUM 正式版 Github下載 BETA 測試版 下載測試版 UTIL"
+    "keywords": "壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,三角洲行動,PUBG,C#,WPF",
+    "snippet": "SID 壓槍腳本 (全 FPS 遊戲通用) ● 射擊遊戲全通用 / 簡單易懂 ● 自訂 9 種槍械數據 / 支援微調 ● 支援各類鍵盤排佈 VERSION_LOGS [2026/11/08] 更新版本 v1.2.0 - 全新 Fluent 介面：深色/淺色主題、五大分頁、完整鍵盤導航 - 啟動 5 秒後自動檢查更新（10 分鐘節流） - 工具已從 AHK 轉移至 C#（WPF）重寫，設定檔格式不變 SYSTEM DOWNLOAD PRE"
   },
   {
     "url": "automation-projects.html",
@@ -57,7 +57,7 @@
     "url": "sidpayfor.html",
     "title": "贊助腳本 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "SID LICENSE CENTER 正式版永久授權：自動化工具解鎖與規範 01 / 選擇付款方式 綠界科技 ECPay 台灣使用者（信用卡 / ATM / 超商） PayPal Global International / 海外用戶專用 02 / 聯繫作者啟用授權 付款成功後，請立即點擊下方按鈕前往粉絲專頁 私訊 FB 粉絲專頁：Sid 請私訊提供： 1. 付款名稱 與 2. 腳本內的硬體序號 (HWID) 作者將透過遠端方式啟用授權"
+    "snippet": "SID LICENSE CENTER 正式版永久授權：自動化工具解鎖與規範 01 / 選擇付款方式 綠界科技 ECPay 台灣使用者（信用卡 / ATM / 超商） PayPal Global International / 海外用戶專用 02 / 聯繫作者啟用授權 付款成功後，請立即點擊下方按鈕前往粉絲專頁 私訊 FB 粉絲專頁：Sid 請私訊提供： 1. 付款名稱 與 2. 硬體序號 (HWID) ——執行正式版後，授權視窗會顯示序"
   },
   {
     "url": "aethergazer.html",

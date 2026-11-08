@@ -62,8 +62,8 @@ node scripts/build-sitemap.mjs
 ```
 記得 `robots.txt` 裡 Sitemap 行也要換。
 
-### B. 換下載鏈接（Mega 外部）
-在 `sidrecoilscript.html` 搜 `mega.nz` 找到 Mega 連結行進行修改。fail：要驗 QR code / ZIP 是在外部未在 repo 中。
+### B. 換下載鏈接（GitHub Releases）
+壓槍腳本的下載已改 GitHub Releases 直連（正式版 `v1.2.0`、試用版 `v1.2.0-trial`），在 `sidrecoilscript.html` 搜 `releases/download` 找到連結行進行修改。fail：要驗 ZIP 內容需從 GitHub Releases 下載（不在 repo 中）。
 
 ### C. 新加 HTML / 刪除 HTML
 - 加/刪後跑 `node scripts/build-index.mjs` 重建索引

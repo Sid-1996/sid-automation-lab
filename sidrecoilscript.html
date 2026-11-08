@@ -4,8 +4,8 @@
 <meta name="google-site-verification" content="4lWoqckzqXNbwUlyytkGLkFIFjTNKmb8Tr4jADOWXOY" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<title>&#20840;&#36890;&#29992;&#22739;&#27085;&#33139;&#26412; - Sid Automation Lab</title>
-<meta name="description" content="全遊戲通用的壓槍腳本，支援多達 9 種槍械自訂壓槍數據，可隨時微調力道與間隔，內建儲存記錄功能，適用於所有 FPS 射擊遊戲，操作簡單直覺、一目瞭然、上手即用。" />
-<meta name="keywords" content="壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,三角洲行動,PUBG,AHK" />
+<meta name="description" content="全遊戲通用的壓槍腳本 v1.2.0（C# WPF 重寫版），支援 9 種槍械自訂壓槍數據，可隨時微調力道與間隔，適用於所有 FPS 射擊遊戲；另有 14 天免費試用版。" />
+<meta name="keywords" content="壓槍腳本,自動壓槍,自訂壓槍,槍戰,FPS,射擊,射擊遊戲,三角洲行動,PUBG,C#,WPF" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
 <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -100,7 +100,7 @@ var STYLE_PREFIX = 'wsite';
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "通用壓槍腳本",
-  "description": "FPS 射擊遊戲通用壓槍腳本，支援 9 種槍械壓槍數據自訂。",
+  "description": "FPS 射擊遊戲通用壓槍腳本 v1.2.0（C# WPF），支援 9 種槍械壓槍數據自訂；附 14 天免費試用版。",
   "url": "https://sid-1996.github.io/sid-automation-lab/sidrecoilscript.html",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Windows",
@@ -711,7 +711,7 @@ var STYLE_PREFIX = 'wsite';
 
             .download-grid {
                 display: grid; 
-                grid-template-columns: repeat(4, 1fr); 
+                grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
                 padding: 0 40px 40px;
             }
@@ -722,9 +722,11 @@ var STYLE_PREFIX = 'wsite';
                 padding: 25px 15px;
                 border-radius: 12px;
                 text-align: center;
-                /* 移除 space-between，讓內容自然堆疊 */
-                display: block; 
+                display: flex;
+                flex-direction: column;
             }
+
+            .card-item .sid-btn { margin-top: auto; }
 
             /* --- 響應式優化 --- */
             @media (max-width: 900px) {
@@ -759,11 +761,10 @@ var STYLE_PREFIX = 'wsite';
                 <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(233,192,142,0.15);">
                     <div style="color: #e9c08e; font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; font-weight: bold; text-align: center;">VERSION_LOGS</div>
                     <div style="color: #666; font-family: monospace; font-size: 13px; line-height: 1.6;">
-                        [2026/06/16] 更新版本 v1.1.0<br>
-                        - 雲端驗證與自動保存數據<br>
-                        - F1 快捷隱藏/顯示面板<br>
-                        - 支援指定視窗鎖定功能<br>
-                        - 優化效能與修復已知錯誤
+                        [2026/11/08] 更新版本 v1.2.0<br>
+                        - 全新 Fluent 介面：深色/淺色主題、五大分頁、完整鍵盤導航<br>
+                        - 啟動 5 秒後自動檢查更新（10 分鐘節流）<br>
+                        - 工具已從 AHK 轉移至 C#（WPF）重寫，設定檔格式不變
                     </div>
                 </div>
             </div>
@@ -780,25 +781,19 @@ var STYLE_PREFIX = 'wsite';
                 <div class="card-item" style="border-color: rgba(233, 192, 142, 0.2);">
                     <div style="color: #e9c08e; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">PREMIUM</div>
                     <h3 style="color: #fff; margin: 0; font-size: 16px;">正式版</h3>
-                    <a href="https://github.com/Sid-1996/Sid-gun/releases" class="sid-btn" style="background: #e9c08e; color: #000;">Github下載</a>
+                    <a href="https://github.com/Sid-1996/Sid-gun/releases/download/v1.2.0/SidAllFPS-v1.2.0.zip" class="sid-btn" style="background: #e9c08e; color: #000;">Github下載</a>
                 </div>
 
                 <div class="card-item" style="border-color: rgba(0, 242, 255, 0.2);">
-                    <div style="color: #00f2ff; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">BETA</div>
-                    <h3 style="color: #fff; margin: 0; font-size: 16px;">測試版</h3>
-                    <a href="https://mega.nz/folder/BM8TSR7b#lVsAz3nYCZ2LTgP41n59vA" target="_blank" rel="noopener noreferrer" class="sid-btn sid-btn-outline" style="border: 1px solid #00f2ff; color: #00f2ff;">下載測試版</a>
-                </div>
-
-                <div class="card-item">
-                    <div style="color: #666; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">UTILITY</div>
-                    <h3 style="color: #fff; margin: 0; font-size: 16px;">序號查詢工具</h3>
-                    <a href="https://mega.nz/file/QQtkFbZa#Qx-nfdjuc4oxpBCg-4CltnDFOzskeuufz6nWYtmFVv4" target="_blank" rel="noopener noreferrer" class="sid-btn" style="background: #222; color: #888;">下載查詢工具</a>
+                    <div style="color: #00f2ff; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">TRIAL</div>
+                    <h3 style="color: #fff; margin: 0; font-size: 16px;">試用版</h3>
+                    <a href="https://github.com/Sid-1996/Sid-gun/releases/download/v1.2.0-trial/SidAllFPS.Trial-v1.2.0.zip" target="_blank" rel="noopener noreferrer" class="sid-btn sid-btn-outline" style="border: 1px solid #00f2ff; color: #00f2ff;">下載試用版</a>
                 </div>
 
                 <div class="card-item" style="border-color: rgba(255, 77, 77, 0.2);">
-                    <div style="color: #ff4d4d; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">SUPPORT</div>
-                    <h3 style="color: #fff; margin: 0; font-size: 16px;">贊助腳本</h3>
-                    <a href="sidpayfor.html" class="sid-btn btn-donate">立即贊助</a>
+                    <div style="color: #ff4d4d; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">LICENSE</div>
+                    <h3 style="color: #fff; margin: 0; font-size: 16px;">購買授權</h3>
+                    <a href="sidpayfor.html" class="sid-btn btn-donate">立即購買</a>
                 </div>
             </div>
         </div>
@@ -841,7 +836,7 @@ var STYLE_PREFIX = 'wsite';
 <div id='358574687281977932-slideshow'></div>
 <script type='text/javascript'>
 (function(jQuery) {
-function init() { window.wSlideshow && window.wSlideshow.render({elementID:"358574687281977932",nav:"none",navLocation:"bottom",captionLocation:"bottom",transition:"fade",autoplay:"1",speed:"3",aspectRatio:"auto",showControls:"true",randomStart:"false",images:[{"url":"content\/2026-06-17-140149.png","width":648,"height":734,"fullHeight":734,"fullWidth":648},{"url":"content\/2026-06-17-140112.png","width":648,"height":738,"fullHeight":738,"fullWidth":648},{"url":"content\/2026-06-17-140028.png","width":648,"height":740,"fullHeight":740,"fullWidth":648}]}) }
+function init() { window.wSlideshow && window.wSlideshow.render({elementID:"358574687281977932",nav:"none",navLocation:"bottom",captionLocation:"bottom",transition:"fade",autoplay:"1",speed:"3",aspectRatio:"auto",showControls:"true",randomStart:"false",images:[{"url":"content\/recoil-v120-basic-dark.png","width":1280,"height":720,"fullHeight":720,"fullWidth":1280},{"url":"content\/recoil-v120-weapon-dark.png","width":1280,"height":720,"fullHeight":720,"fullWidth":1280},{"url":"content\/recoil-v120-hotkeys-dark.png","width":1280,"height":720,"fullHeight":720,"fullWidth":1280},{"url":"content\/recoil-v120-help-dark.png","width":1280,"height":720,"fullHeight":720,"fullWidth":1280},{"url":"content\/recoil-v120-update-dark.png","width":1280,"height":720,"fullHeight":720,"fullWidth":1280}]}) }
 jQuery(document).ready(init);
 })(window.jQuery)
 </script>
