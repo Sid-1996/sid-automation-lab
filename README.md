@@ -21,7 +21,6 @@
 | Project | 簡述 | Stack |
 |---------|------|-------|
 | [《流亡黯道2》工具箱](https://sid-1996.github.io/sid-automation-lab/sidexilegametool.html) | 血量監控、自動喝藥、自動拾取 | Python + AHK v2 |
-| [《流亡黯道》舊版工具箱](https://sid-1996.github.io/sid-automation-lab/sidexiletoolbox.html) | 經典版流亡黯道輔助工具 | AHK v1 |
 | [《深空之眼》半自動腳本](https://sid-1996.github.io/sid-automation-lab/aethergazersemiauto.html) | 戰鬥半自動操作 | AHK v2 |
 | [《棕色塵埃2》音遊助手](https://sid-1996.github.io/sid-automation-lab/browndust2-music-assist.html) | 音樂節拍自動判定 | AHK v2 |
 | [No-Code OCR 觸發點擊工具](https://sid-1996.github.io/ocr-trigger-clicker/) | 免寫碼 OCR 即時觸發，支援 10 種步驟與群組規則 | Python |

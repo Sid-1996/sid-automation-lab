@@ -12,7 +12,7 @@ FILES = [
     'aethergazer.html', 'aethergazersemiauto.html',
     'browndust2.html', 'browndust2-music-assist.html',
     'path-of-exile.html', 'sidrecoilscript.html',
-    'sidpayfor.html', 'sidexiletoolbox.html', 'sidexilegametool.html',
+    'sidpayfor.html', 'sidexilegametool.html',
 ]
 
 # Each pattern is (regex, replacement)

@@ -22,6 +22,7 @@ async function run() {
   const REDIRECT_FILES = new Set([
     'search.html',
     'ocr-trigger-clicker.html',
+    'sidexiletoolbox.html',
   ]);
   const files = entries
     .filter(e => e.isFile() && e.name.endsWith('.html') && !REDIRECT_FILES.has(e.name))

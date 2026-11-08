@@ -1,0 +1,184 @@
+/* Sid Automation Lab — P0 現代覆蓋層 (preview)
+   僅疊在 main_style.css 之後，不改 wsite-* 結構，不動 jQuery / cdn_local。 */
+:root {
+  --bg-0: #05080f;
+  --bg-1: #0b1120;
+  --panel: rgba(11, 17, 32, 0.86);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #e6edf3;
+  --muted: #94a3b8;
+  --accent: #00f2ff;
+  --radius: 16px;
+  --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", "Consolas", monospace;
+}
+
+/* ---------- 頁面底色與排版 ---------- */
+html { background: var(--bg-0) !important; }
+body {
+  background: var(--bg-0) !important;
+  color: var(--text) !important;
+  font-family: var(--sans) !important;
+  line-height: 1.75 !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+/* 連結僅作用於內文文字，不要蓋掉實底按鈕（青底黑字） */
+#wsite-content .paragraph a,
+.wsite-section-elements .paragraph a,
+.project-card { color: var(--accent); }
+.project-card { color: var(--text); }
+#wsite-content .paragraph a { color: var(--accent) !important; }
+#wsite-content .paragraph a:hover { color: #7bf7ff !important; }
+h1, h2, h3, #wsite-title, .wsite-menu a, .wsite-menu-item {
+  font-family: var(--sans) !important;
+  letter-spacing: -0.01em;
+}
+p, .paragraph { line-height: 1.75 !important; }
+::selection { background: rgba(0, 242, 255, 0.28); }
+
+/* ---------- 頂部 & 導覽：玻璃擬態吸頂 ---------- */
+#header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999 !important;
+  background: var(--panel) !important;
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border-bottom: 1px solid var(--border);
+}
+.header-page #header { position: sticky !important; }
+#masthead, #navigation { background: transparent !important; }
+#wsite-title {
+  color: #fff !important;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+  font-weight: 800 !important;
+}
+/* 吸頂列壓矮：原本 masthead 88px + nav 53px = 142px 太高 */
+#masthead-wrap { height: 56px !important; padding: 0 2em !important; }
+#navigation-wrap { padding-top: 0 !important; padding-bottom: 0 !important; }
+#nav ul li a, #nav > ul > li > a.wsite-menu-item { padding-top: 14px !important; padding-bottom: 14px !important; }
+#nav ul li a, #nav > ul > li > a.wsite-menu-item {
+  color: var(--muted) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  padding: 18px 14px !important;
+  border-bottom: 2px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+#nav ul li a:hover,
+#nav ul li a:focus-visible,
+#nav ul li#active a {
+  color: #fff !important;
+  border-bottom-color: var(--accent);
+}
+#navmobile ul li a { color: var(--muted) !important; }
+#navmobile ul li a:hover { color: #fff !important; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 3px;
+}
+
+/* ---------- Hero：拿掉掃光動畫，改用流暢響應字距 ---------- */
+#banner-wrap {
+  background:
+    radial-gradient(900px 420px at 70% -80px, rgba(0, 242, 255, 0.16), transparent 60%),
+    var(--bg-0) !important;
+  border-bottom: 1px solid var(--border);
+}
+#banner-wrap h2 { text-transform: none; letter-spacing: 0; }
+@media (min-width: 768px) {
+  .wsite-header-section .wsite-section-content .container { padding: 3.5rem 2rem 3rem !important; }
+}
+
+/* ---------- 專案卡：去掉呼吸燈，改乾淨浮起 ---------- */
+.project-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 18px !important;
+  padding: 8px 0 !important;
+}
+.project-card {
+  width: auto !important;
+  min-height: 0 !important;
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  background: linear-gradient(180deg, rgba(21, 30, 48, .92), rgba(11, 17, 32, .92)) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .35) !important;
+  animation: none !important;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease !important;
+}
+.project-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(0, 242, 255, .6) !important;
+  box-shadow: 0 16px 40px rgba(0, 242, 255, .14) !important;
+  background: linear-gradient(180deg, rgba(15, 27, 44, .97), rgba(11, 17, 32, .97)) !important;
+  animation: none !important;
+}
+.project-title { color: #fff !important; font-size: 1.05rem !important; }
+.project-desc { color: var(--muted) !important; font-size: .875rem !important; }
+.project-footer { font-family: var(--mono) !important; font-size: 12px !important; color: var(--muted) !important; }
+.tag {
+  font-size: 12px !important;
+  color: var(--accent) !important;
+  background: rgba(0, 242, 255, 0.18) !important;
+  border: 1px solid rgba(0, 242, 255, 0.35) !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+}
+
+/* ---------- 贊助區：去浮動動畫 ---------- */
+.support-wrapper { max-width: 1080px; }
+.support-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+  letter-spacing: -0.02em;
+}
+.sponsor-btn {
+  min-width: 220px !important;
+  border-radius: var(--radius) !important;
+  animation: none !important;
+}
+.qr-container { animation: none !important; }
+
+/* ---------- 通用按鈕 ---------- */
+.toolbox-btn, .wsite-button {
+  border-radius: 12px !important;
+  font-family: var(--sans) !important;
+}
+
+/* ---------- 內文段 ---------- */
+#content-wrapper { background: transparent !important; }
+#wsite-content .paragraph, #wsite-content p { color: var(--muted) !important; }
+#wsite-content .paragraph a {
+  color: var(--accent) !important;
+  border-bottom: 1px solid rgba(0, 242, 255, .45);
+}
+hr.styled-hr { border: 0; border-top: 1px solid var(--border); opacity: .7; }
+
+/* 頁尾資訊列：原本 #6272a4 on #020937 = 4.07:1，未達且分隔符 opacity .3 更差 */
+[id="106031564341190087"] > div > div:last-child,
+[id="106031564341190087"] > div > div:last-child span {
+  color: #a8b8d0 !important;
+  opacity: 1 !important;
+}
+
+/* ---------- 動效無障礙 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- 手機 ---------- */
+@media (max-width: 767px) {
+  .project-grid { grid-template-columns: 1fr !important; }
+  #nav ul li a { padding: 14px 10px !important; }
+  .container { padding: 2rem 1.25rem !important; }
+  /* Hero 直立裝飾字在小螢幕隱藏，避免擠壓標題 */
+  [id="487530535137851427"] > div > div:nth-child(2) > div:nth-child(2) { display: none !important; }
+  [id="487530535137851427"] > div { gap: 18px !important; padding: 32px 4px !important; }
+  /* 頂部標籤堆疊 */
+      [id="467510086308192609"] > div { flex-wrap: wrap !important; }
+}

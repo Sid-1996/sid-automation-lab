@@ -1,11 +1,5 @@
 [
   {
-    "url": "sidexiletoolbox.html",
-    "title": "《流亡黯道》Sid工具箱 - Sid Automation Lab",
-    "keywords": "流亡黯道,Path of Exile,poe,輔助工具,遊戲腳本,輔助,腳本,遊戲工具",
-    "snippet": "SID EXILE TOOLBOX 已開源 · 經典舊版全功能整合區 正式版下載 內含 GUI 設置面板，支援自定義熱鍵 前往 GITHUB 下載 戰鬥與生存優化 高級自動喝水 智能監控血量、魔力及場景變化，支援多模式非同步觸發邏輯。 技能連段與地雷引爆 自定義技能施放序列 (Combo)，並自動執行地雷引爆優化。 循環技能輔助 針對需要長時間維持的技能提供自動循環觸發，減少操作壓力。 倉庫、背包與資源效率 自動管理系統 快搜倉庫頁、快"
-  },
-  {
     "url": "sidexilegametool.html",
     "title": "《流亡黯道2》工具箱 - Sid Automation Lab",
     "keywords": "流亡黯道,Path of Exile,poe,輔助工具,遊戲腳本,輔助,腳本,遊戲工具",
@@ -27,7 +21,7 @@
     "url": "automation-projects.html",
     "title": "自動化項目 - Sid Automation Lab",
     "keywords": "",
-    "snippet": "Automation Projects Sid Automation Lab 開發的遊戲自動化工具與開源專案一覽 《流亡黯道2》工具箱 Path of Exile 2 專用 — 實時血魔監控、一鍵清包、技能連段 PoE 2 《流亡黯道》Sid 工具箱 流亡黯道1 多功能 AHK 工具箱 — 自動喝水、清包、快搜倉庫 PoE 1 · Legacy 深空之眼 半自動腳本 Aether Gazer 自動戰鬥輔助 — 普攻、連招、烤肉，AHK "
+    "snippet": "Automation Projects Sid Automation Lab 開發的遊戲自動化工具與開源專案一覽 《流亡黯道2》工具箱 Path of Exile 2 專用 — 實時血魔監控、一鍵清包、技能連段 PoE 2 深空之眼 半自動腳本 Aether Gazer 自動戰鬥輔助 — 普攻、連招、烤肉，AHK 實現 Aether Gazer 棕色塵埃2 音遊助手 Brown Dust 2 音樂遊戲節奏助手 — AHK v2 色彩偵測"
   },
   {
     "url": "other-tools.html",

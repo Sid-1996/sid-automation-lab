@@ -14,8 +14,12 @@ const SEARCH_FILE = 'search.html';
 const SLIDESHOW_PAGES = new Set(['sidrecoilscript.html']);
 // Redirect stubs: only check they exist and declare the right target —
 // no SEO/link checks (the meta refresh would race the page evaluations).
-const REDIRECT_PAGES = new Set(['ocr-trigger-clicker.html']);
-const REDIRECT_TARGET_RE = /url=https:\/\/sid-1996\.github\.io\/ocr-trigger-clicker\//;
+const REDIRECT_PAGES = new Set(['ocr-trigger-clicker.html', 'sidexiletoolbox.html']);
+const REDIRECT_TARGETS = {
+  'ocr-trigger-clicker.html': 'url=https://sid-1996.github.io/ocr-trigger-clicker/',
+  'sidexiletoolbox.html': 'url=https://sid-1996.github.io/sid-automation-lab/sidexilegametool.html',
+};
+const REDIRECT_TARGET_RE = /url=https:\/\/(?:sid-1996\.github\.io\/ocr-trigger-clicker\/|sid-1996\.github\.io\/sid-automation-lab\/sidexilegametool\.html)/;
 // GitHub Pages sites hosted outside this repo: sid-1996.github.io links are
 // otherwise resolved against the local root server and false-positive as 404.
 const EXTERNAL_LINK_PATHS = new Set(['/ocr-trigger-clicker']);
@@ -97,7 +101,9 @@ async function testPage(browser, file) {
     const status = await httpGetStatus(`${BASE}/${file}`);
     if (status !== 200) issues.push(`HTTP ${status}`);
     const raw = await fs.readFile(path.join(ROOT, file), 'utf8');
-    if (!REDIRECT_TARGET_RE.test(raw)) issues.push('Redirect target missing');
+    const expected = REDIRECT_TARGETS[file];
+    if (expected && !raw.includes(expected)) issues.push('Redirect target missing');
+    else if (!expected && !REDIRECT_TARGET_RE.test(raw)) issues.push('Redirect target missing');
     return { file, passed: issues.length === 0, issues, loadTime: 0, benignCount: 0 };
   }
 
