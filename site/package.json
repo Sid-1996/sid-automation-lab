@@ -1,0 +1,21 @@
+{
+  "name": "sid-automation-lab-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sid Automation Lab 正式站 —— Astro + Content Collections + Vanilla JS（A+C 混合設計）",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/sync-assets.mjs",
+    "preview": "astro preview",
+    "serve": "python -m http.server 8144 --bind 127.0.0.1 --directory dist",
+    "verify": "node verify.mjs",
+    "og": "python scripts/make-og.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^7.4.7"
+  }
+}

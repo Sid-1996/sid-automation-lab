@@ -1,0 +1,231 @@
+---
+import { u } from '../lib/url';
+// src/pages/sponsor.astro —— 贊助支持頁（對應正式站 index.html#sponsor-section 區塊）
+// 內容取自正式站首頁「☕ Support the Project」區塊的真實連結，未新增規則。
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import TerminalBlock from '../components/TerminalBlock.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: '贊助支持 — Sid Automation Lab',
+  description:
+    '支持 Sid Automation Lab 的開源自動化工具持續維護：可透過綠界 ECPay、PayPal 或愛發電 AFDIAN 提供小額贊助。',
+  url: 'https://sid-1996.github.io/sid-automation-lab/sponsor.html',
+};
+---
+
+<BaseLayout
+  title="贊助開發 — 支持開源自動化專案｜Sid Automation Lab"
+  description="支持 Sid Automation Lab 的開源自動化工具持續維護：可透過綠界 ECPay、PayPal 或愛發電 AFDIAN 提供小額贊助。若要購買 500 元正式版授權，請前往購買授權頁。"
+  path="sponsor.html"
+  og="/images/og-sponsor.png"
+  navKey="sponsor"
+  jsonLd={jsonLd}
+>
+  <SiteHeader slot="header" navKey="sponsor" />
+
+  <!-- ===== 頁頭 ===== -->
+  <section class="sp">
+    <div class="shell">
+      <nav class="crumb mono" aria-label="麵包屑">
+        <a href={u('/index.html')}>home</a>
+        <span aria-hidden="true">/</span>
+        <span class="crumb__now">sponsor</span>
+      </nav>
+
+      <div class="sp__head">
+        <p class="sp__eyebrow mono">support the project</p>
+        <h1 class="sp__title">贊助支持</h1>
+        <p class="sp__lede">
+          如果這些 Automation / OCR 研究專案對你有幫助，歡迎支持後續開發與維護。
+        </p>
+        <p class="sp__sub">
+          本站六個公開專案中，五個為公開授權、免費取用。贊助不是使用條件，
+          而是你覺得這些工具值得被繼續維護下去。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 贊助管道 ===== -->
+  <section class="section section--tight">
+    <div class="shell">
+      <header class="section__head">
+        <p class="section__eyebrow">01 / 贊助管道</p>
+        <h2 class="section__title">選擇贊助管道</h2>
+        <p class="section__lede">四個管道任選其一，金額由你決定。</p>
+      </header>
+
+      <div class="chan">
+        <article class="chan__item">
+          <h3 class="chan__name">ECPay Support</h3>
+          <p class="chan__desc">綠界科技（台灣）— 信用卡 / ATM / 超商</p>
+          <a class="btn btn--term btn--sm" href="https://p.ecpay.com.tw/E0E3A" target="_blank" rel="noopener noreferrer">
+            <span class="btn__prompt" aria-hidden="true">$</span>前往贊助
+          </a>
+        </article>
+
+        <article class="chan__item">
+          <h3 class="chan__name">PayPal Small Support</h3>
+          <p class="chan__desc">PayPal — 小額支持</p>
+          <a class="btn btn--term btn--sm" href="https://www.paypal.com/ncp/payment/GJS4D5VTSVWG4" target="_blank" rel="noopener noreferrer">
+            <span class="btn__prompt" aria-hidden="true">$</span>前往贊助
+          </a>
+        </article>
+
+        <article class="chan__item">
+          <h3 class="chan__name">PayPal Project Support</h3>
+          <p class="chan__desc">PayPal — 專案支持</p>
+          <a class="btn btn--term btn--sm" href="https://www.paypal.com/ncp/payment/S5PTHJJVBC5VS" target="_blank" rel="noopener noreferrer">
+            <span class="btn__prompt" aria-hidden="true">$</span>前往贊助
+          </a>
+        </article>
+
+        <article class="chan__item">
+          <h3 class="chan__name">愛發電 AFDIAN</h3>
+          <p class="chan__desc">afdian.com — 一次性或訂閱</p>
+          <a class="btn btn--term btn--sm" href="https://afdian.com/a/sid-1996" target="_blank" rel="noopener noreferrer">
+            <span class="btn__prompt" aria-hidden="true">$</span>前往贊助
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 條碼 + 區隔 ===== -->
+  <section class="section section--panel">
+    <div class="shell">
+      <div class="split">
+        <div class="split__col">
+          <h2 class="split__title">掃碼贊助</h2>
+          <p class="split__text">也可以直接掃描綠界條碼，從行動端完成付款。</p>
+          <figure class="qr">
+            <img
+              src="https://payment.ecpay.com.tw/Upload/QRCode/201901/QRCode_21c4c069-547f-4115-9f8d-2c050273f028.png"
+              alt="綠界科技 ECPay 贊助 QR Code"
+              width="200"
+              height="200"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="mono">ecpay_qr</figcaption>
+          </figure>
+        </div>
+
+        <div class="split__col split__col--note">
+          <p class="split__eyebrow mono">not the same thing</p>
+          <h2 class="split__title">這不是授權購買</h2>
+          <p class="split__text">
+            贊助是自願支持，金額任意、不影響任何功能；<strong>授權購買</strong>則是
+            通用壓槍腳本（SidAllFPS）正式版的 500 元一次性買斷，兩者是不同的東西。
+          </p>
+          <a class="btn btn--ghost" href={u('/license.html')}>
+            <span class="btn__prompt" aria-hidden="true">$</span>前往購買授權頁
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 用途說明 ===== -->
+  <section class="section section--sunk">
+    <div class="shell">
+      <div class="shell--narrow">
+        <TerminalBlock title="sponsor.md">
+          <p class="term-line"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">cat sponsor.md</span></p>
+          <p class="term-line term-line--ok"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">公開授權專案</span><span class="term-line__note">— 5 個，免費取用</span></p>
+          <p class="term-line term-line--ok"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">贊助用途</span><span class="term-line__note">— 後續開發與維護</span></p>
+          <p class="term-line"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">贊助非使用條件</span><span class="term-line__note">— 金額任意</span></p>
+          <p class="term-line term-line--warn"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">正式版授權</span><span class="term-line__note">— 另頁，500 元</span></p>
+        </TerminalBlock>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  /* ---------- 頁頭 ---------- */
+  .sp { padding-block: var(--sp-6) var(--sp-8); border-bottom: var(--bw) solid var(--line); }
+  .crumb {
+    display: flex; gap: var(--sp-2); align-items: center;
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    color: var(--ink-3); margin-bottom: var(--sp-5);
+  }
+  .crumb a { color: var(--signal); }
+  .crumb__now { color: var(--ink-2); }
+  .sp__eyebrow {
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: var(--signal); margin: 0 0 var(--sp-4);
+  }
+  .sp__title {
+    margin: 0 0 var(--sp-4);
+    font-size: clamp(var(--fs-3xl), 4.4vw, var(--fs-4xl));
+    line-height: var(--lh-tight); letter-spacing: var(--tracking-tight);
+    font-weight: 800;
+  }
+  .sp__lede {
+    margin: 0 0 var(--sp-4); color: var(--ink); font-size: var(--fs-lg);
+    max-width: 46ch; line-height: var(--lh-snug);
+  }
+  .sp__sub { margin: 0; color: var(--ink-2); font-size: var(--fs-md); max-width: 62ch; }
+
+  /* ---------- 管道 ---------- */
+  .chan {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--bw); background: var(--line); border: var(--bw) solid var(--line);
+  }
+  .chan__item {
+    background: var(--panel); padding: var(--sp-5) var(--sp-4);
+    display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-3);
+  }
+  .chan__name {
+    margin: 0; font-family: var(--font-mono); font-size: var(--fs-sm);
+    letter-spacing: var(--tracking-wide); color: var(--signal);
+  }
+  .chan__desc { margin: 0; color: var(--ink-2); font-size: var(--fs-sm); flex: 1 1 auto; }
+
+  /* ---------- 條碼 / 區隔 ---------- */
+  .split {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-7); align-items: center;
+  }
+  .split__title {
+    margin: 0 0 var(--sp-3); font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-tight); font-weight: 700;
+  }
+  .split__eyebrow {
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: var(--amber); margin: 0 0 var(--sp-3);
+  }
+  .split__text { margin: 0 0 var(--sp-5); color: var(--ink-2); font-size: var(--fs-md); }
+  .split__text strong { color: var(--ink); }
+  .split__col--note {
+    border: var(--bw) solid var(--amber-dim); border-radius: var(--r-sm);
+    background: var(--amber-fade); padding: var(--sp-5);
+  }
+
+  .qr { margin: 0; }
+  .qr img {
+    width: 200px; height: 200px; background: #fff;
+    border: var(--bw) solid var(--line); border-radius: var(--r-sm);
+  }
+  .qr figcaption {
+    margin-top: var(--sp-2); font-size: var(--fs-3xs);
+    letter-spacing: var(--tracking-mono); color: var(--ink-3);
+  }
+
+  @media (max-width: 1023px) {
+    .chan { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .split { grid-template-columns: 1fr; gap: var(--sp-6); }
+  }
+  @media (max-width: 767px) {
+    .chan { grid-template-columns: 1fr; }
+  }
+</style>

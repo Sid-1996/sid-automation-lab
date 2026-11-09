@@ -1,0 +1,136 @@
+---
+import { u } from '../lib/url';
+// src/components/SiteHeader.astro
+// 全站共用導覽（A 的儀器面板條 + C 的指令式標籤）
+interface Props {
+  navKey?: 'home' | 'projects' | 'principle' | 'sponsor' | 'license';
+}
+const { navKey = 'home' } = Astro.props;
+
+const links = [
+  { key: 'home', href: u('/index.html'), label: '首頁', idx: '01' },
+  { key: 'projects', href: u('/projects.html'), label: '專案', idx: '02' },
+  { key: 'principle', href: u('/index.html#principle'), label: '開發理念', idx: '03' },
+  { key: 'sponsor', href: u('/sponsor.html'), label: '贊助開發', idx: '04' },
+  { key: 'license', href: u('/license.html'), label: '購買授權', idx: '05' },
+];
+---
+
+<header class="hdr" data-header>
+  <div class="shell hdr__inner">
+    <a class="brand" href={u('/index.html')} aria-label="Sid Automation Lab 首頁">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">
+        SID<span class="brand__dim">/</span>AUTOMATION<span class="brand__dim">/</span>LAB
+      </span>
+    </a>
+
+    <nav class="hdr__nav" aria-label="主要導覽">
+      {links.map((l) => (
+        <a href={l.href} class:list={['hdr__link', { 'is-current': navKey === l.key }]} aria-current={navKey === l.key ? 'page' : undefined}>
+          <span class="hdr__link-index mono">{l.idx}</span>
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hdr__tools">
+      <a class="btn btn--term btn--sm hdr__cta" href={u('/projects.html')}>
+        <span class="btn__prompt" aria-hidden="true">$</span>ls ./projects
+      </a>
+      <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="開啟選單" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="hdr__mobile" id="mobile-nav" hidden aria-label="行動版導覽" data-mobile-nav>
+    {links.map((l) => (
+      <a href={l.href} class:list={[{ 'is-current': navKey === l.key }]} aria-current={navKey === l.key ? 'page' : undefined}>
+        <span class="hdr__mobile-index mono">{l.idx}</span>{l.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<style>
+  .hdr {
+    position: sticky; top: 0; z-index: var(--z-header);
+    background: rgba(11, 14, 18, .93);
+    backdrop-filter: blur(10px);
+    border-bottom: var(--bw) solid var(--line);
+  }
+  .hdr__inner {
+    display: flex; align-items: center; gap: var(--sp-5);
+    min-height: 60px;
+  }
+  .brand { display: inline-flex; align-items: center; gap: var(--sp-3); text-decoration: none; flex: 0 0 auto; }
+  .brand__mark {
+    width: 12px; height: 12px; flex: 0 0 auto;
+    border: var(--bw) solid var(--signal);
+    position: relative;
+  }
+  .brand__mark::after { content: ""; position: absolute; inset: 3px; background: var(--signal); }
+  .brand__name {
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-mono); color: var(--ink); font-weight: 600;
+    white-space: nowrap;
+  }
+  .brand__dim { color: var(--signal-dim); }
+
+  .hdr__nav { display: flex; align-items: center; gap: var(--sp-5); margin-left: auto; }
+  .hdr__link {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    min-height: 44px; color: var(--ink-2); font-size: var(--fs-sm);
+    border-bottom: var(--bw) solid transparent;
+    text-decoration: none;
+  }
+  .hdr__link:hover { color: var(--ink); border-bottom-color: var(--signal); }
+  .hdr__link.is-current { color: var(--ink); border-bottom-color: var(--signal); }
+  .hdr__link-index {
+    font-size: var(--fs-3xs); color: var(--signal-dim); letter-spacing: var(--tracking-mono);
+  }
+
+  .hdr__tools { display: flex; align-items: center; gap: var(--sp-3); flex: 0 0 auto; }
+
+  .hdr__burger {
+    display: none; width: 44px; height: 44px;
+    background: transparent; border: var(--bw) solid var(--line-strong);
+    border-radius: var(--r-sm); cursor: pointer; padding: 12px 10px;
+  }
+  .hdr__burger span { display: block; height: 2px; background: var(--ink); margin: 4px 0; }
+  .hdr__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hdr__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .hdr__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .hdr__mobile {
+    display: none; flex-direction: column;
+    border-top: var(--bw) solid var(--line);
+    background: var(--bg); padding: var(--sp-2) var(--shell-pad) var(--sp-4);
+  }
+  .hdr__mobile a {
+    display: flex; align-items: center; gap: var(--sp-3);
+    min-height: 48px;
+    padding: var(--sp-3) 0; border-bottom: var(--bw) solid var(--line-soft);
+    color: var(--ink); font-size: var(--fs-md); text-decoration: none;
+  }
+  .hdr__mobile a:hover { color: var(--signal); }
+  .hdr__mobile a.is-current { color: var(--signal); }
+  .hdr__mobile-index {
+    font-size: var(--fs-3xs); color: var(--signal-dim);
+    letter-spacing: var(--tracking-mono); min-width: 20px;
+  }
+
+  /* 導覽項目變多後，在窄一點的桌面先收窄間距 */
+  @media (max-width: 1180px) {
+    .hdr__inner { gap: var(--sp-4); }
+    .hdr__nav { gap: var(--sp-3); }
+    .hdr__link { font-size: var(--fs-xs); }
+  }
+  @media (max-width: 900px) {
+    .hdr__nav { display: none; }
+    .hdr__cta { display: none; }
+    .hdr__burger { display: block; }
+    .hdr__mobile[data-open="true"] { display: flex; }
+  }
+</style>

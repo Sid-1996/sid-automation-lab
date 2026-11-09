@@ -1,0 +1,104 @@
+---
+// src/components/SignalPanel.astro
+// A 的核心元件：訊號面板 —— 4 條通道對應 4 個真實技術領域（非即時數據、靜態示意）
+const channels = [
+  {
+    id: 'vision',
+    name: 'IMAGE RECOGNITION',
+    value: 'OCR',
+    path: '0,32 18,24 34,30 52,16 68,28 86,12 102,26 118,20 136,32 152,22 168,28 186,14 202,27 220,18 240,26',
+    foot: ['RapidOCR · PP-OCRv5', 'matchTemplate + NMS'],
+  },
+  {
+    id: 'input',
+    name: 'SIMULATED INPUT',
+    value: 'SendInput',
+    path: '0,28 30,28 30,10 60,10 60,32 92,32 92,16 120,16 120,34 150,34 150,12 180,12 180,30 210,30 210,18 240,18',
+    foot: ['pynput / Frida', '前景 + 後台 + 混合'],
+  },
+  {
+    id: 'pixel',
+    name: 'PIXEL DETECT',
+    value: 'AHK v2',
+    path: '0,36 26,36 26,36 52,36 52,14 78,14 78,14 104,14 104,14 130,14 130,36 156,36 156,36 182,36 182,36 208,36 208,36 240,36',
+    foot: ['ImageSearch / FindText', '視窗比例座標 0~1'],
+  },
+  {
+    id: 'beat',
+    name: 'BEAT DETECT',
+    value: 'OpenCV',
+    path: '0,34 12,34 20,10 28,34 40,34 48,16 56,34 68,34 76,8 84,34 96,34 104,20 112,34 124,34 132,12 140,34 152,34 160,22 168,34 180,34 188,14 196,34 208,34 216,24 224,34 240,34',
+    foot: ['色彩偵測', '多區域可調節奏'],
+  },
+];
+---
+
+<section class="sig" aria-label="本站技術領域一覽：影像辨識、模擬輸入、像素偵測、節拍判定">
+  <div class="sig__head">
+    <span class="mono mono--label">channels / capability map</span>
+    <span class="mono mono--label">4 domains</span>
+  </div>
+
+  {channels.map((c) => (
+    <div class="sig__chan" data-chan={c.id}>
+      <div class="sig__chan-top">
+        <span class="sig__name mono">CH·{channels.indexOf(c) + 1} {c.name}</span>
+        <span class="sig__value mono mono--value">{c.value}</span>
+      </div>
+      <div class="sig__scope" aria-hidden="true">
+        <svg viewBox="0 0 240 44" preserveAspectRatio="none">
+          <polyline points={c.path} />
+        </svg>
+      </div>
+      <div class="sig__chan-foot mono">
+        <span>{c.foot[0]}</span>
+        <span class="sig__foot-dim">{c.foot[1]}</span>
+      </div>
+    </div>
+  ))}
+
+  <div class="sig__foot mono">
+    <span>PRINCIPLE</span>
+    <span class="sig__foot-dim">不讀寫記憶體 · 不修改遊戲檔案</span>
+  </div>
+</section>
+
+<style>
+  .sig {
+    border: var(--bw) solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--panel);
+    overflow: hidden;
+  }
+  .sig__head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--panel-2);
+    border-bottom: var(--bw) solid var(--line);
+  }
+  .sig__chan { padding: var(--sp-3) var(--sp-4) var(--sp-4); border-bottom: var(--bw) solid var(--line-soft); }
+  .sig__chan-top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); }
+  .sig__name { font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono); color: var(--ink-2); }
+  .sig__scope {
+    height: 46px; margin: var(--sp-2) 0 var(--sp-2);
+    border-inline: var(--bw) solid var(--line);
+    background: repeating-linear-gradient(90deg, var(--line-soft) 0 1px, transparent 1px 24px);
+  }
+  .sig__scope svg { width: 100%; height: 100%; display: block; }
+  .sig__scope polyline { fill: none; stroke: var(--signal); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .sig__chan[data-chan="input"] .sig__scope polyline { stroke: var(--signal-dim); }
+  .sig__chan[data-chan="beat"] .sig__scope polyline { stroke: var(--amber); }
+  .sig__chan-foot { display: flex; justify-content: space-between; gap: var(--sp-3); font-size: var(--fs-3xs); color: var(--ink-3); }
+  .sig__foot-dim { color: var(--ink-3); }
+  .sig__foot {
+    display: flex; justify-content: space-between; gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    color: var(--ink-3); background: var(--panel-2);
+    border-top: var(--bw) solid var(--line);
+  }
+  @media (max-width: 420px) {
+    .sig__chan-foot { flex-direction: column; gap: 2px; }
+  }
+</style>

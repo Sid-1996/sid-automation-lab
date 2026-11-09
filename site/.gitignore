@@ -1,0 +1,6 @@
+# 建置產物與相依套件（不納入版控）
+node_modules/
+dist/
+.astro/
+
+# 保留 docs/screenshots/ 與 docs/*.md 作為交付紀錄

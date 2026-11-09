@@ -1,0 +1,12 @@
+---
+// 既有公開 URL → 新架構
+// 搜尋功能由專案列表頁的三重篩選承載；查詢字串以 q 參數帶過去。
+import RedirectPage from '../components/RedirectPage.astro';
+---
+<RedirectPage
+  from="/search.html?q=…"
+  to="/projects.html"
+  title="搜尋 — Sid Automation Lab"
+  note="搜尋功能已整合到專案目錄頁（分類 / 技術 / 關鍵字），正在前往。"
+  preserveQuery={true}
+/>

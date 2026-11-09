@@ -1,0 +1,280 @@
+---
+import { u } from '../lib/url';
+// src/pages/projects.astro —— 專案列表（分類 / 搜尋 / 技術篩選）
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ProjectRow from '../components/ProjectRow.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+
+/**
+ * 站外推薦的開源工具（非本站作品）
+ * 資料來源：GitHub API 查證（repo 描述、語言、授權、stars、最後更新）
+ */
+const EXTERNAL_TOOLS = [
+  {
+    title: '《鳴潮》ok-ww 自動化助手',
+    desc: '鳴潮 後台自動戰鬥、自動刷聲骸、一鍵日常。',
+    url: 'https://github.com/ok-oldking/ok-wuthering-waves',
+    license: 'AGPL-3.0',
+    lang: 'Python',
+    stars: '8,573',
+    updated: '2026-11-05',
+  },
+  {
+    title: '《異環》ok-nte 自動化助手',
+    desc: '異環 後台副本掛機。',
+    url: 'https://github.com/BnanZ0/ok-nte',
+    license: 'GPL-3.0',
+    lang: 'Python',
+    stars: '1,359',
+    updated: '2026-11-08',
+  },
+  {
+    title: '《二重螺旋》自動化助手',
+    desc: '二重螺旋 後台副本掛機。',
+    url: 'https://github.com/BnanZ0/ok-duet-night-abyss',
+    license: 'AGPL-3.0',
+    lang: 'Python',
+    stars: '660',
+    updated: '2026-11-04',
+  },
+];
+
+const categories = [
+  { key: 'all', label: '全部' },
+  { key: 'battle', label: '戰鬥與生存輔助' },
+  { key: 'music', label: '音遊節拍' },
+  { key: 'recoil', label: '後座力補償' },
+  { key: 'repeat', label: '重複作業自動化' },
+  { key: 'resource', label: '素材計算' },
+];
+
+const techs = ['python', 'ahk', 'csharp', 'web'];
+const techLabel: Record<string, string> = {
+  python: 'Python',
+  ahk: 'AutoHotkey',
+  csharp: 'C#',
+  web: 'Web',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: '自動化專案',
+  description: 'Sid Automation Lab 的公開專案目錄，含版本、技術棧、授權狀態與下載入口。',
+  url: 'https://sid-1996.github.io/sid-automation-lab/automation-projects.html',
+};
+---
+
+<BaseLayout
+  title="專案目錄 — Sid Automation Lab"
+  description="Sid Automation Lab 的公開專案目錄：六個自動化工具的版本、技術棧、授權狀態與下載入口，涵蓋 OCR 觸發點擊、壓槍腳本、流亡黯道 2 工具箱等。"
+  path="projects.html"
+  navKey="projects"
+  og="/images/og-projects.png"
+  jsonLd={jsonLd}
+>
+  <SiteHeader slot="header" navKey="projects" />
+
+  <section class="ph">
+    <div class="shell">
+      <p class="ph__eyebrow mono">module index</p>
+      <h1 class="ph__title">專案目錄</h1>
+      <p class="ph__lede">
+        六個公開專案。以下標明每個專案的用途、技術棧、版本與授權狀態，
+        以及該到哪裡取得。沒有填寫下載次數、使用者數或評分，因為站上並未公開這些數字。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="shell">
+      <!-- 篩選列 -->
+      <div class="filters">
+        <div class="filters__row">
+          <span class="filters__label mono mono--label">需求分類</span>
+          <div class="filters__chips" role="group" aria-label="依需求分類篩選">
+            {categories.map((c, i) => (
+              <button
+                type="button"
+                class:list={['chip', { 'is-on': i === 0 }]}
+                data-category={c.key}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+              >{c.label}</button>
+            ))}
+          </div>
+        </div>
+
+        <div class="filters__row">
+          <span class="filters__label mono mono--label">技術棧</span>
+          <div class="filters__chips" role="group" aria-label="依技術棧篩選">
+            <button type="button" class="chip is-on" data-tech="all" aria-pressed="true">全部</button>
+            {techs.map((t) => (
+              <button type="button" class="chip" data-tech={t} aria-pressed="false">{techLabel[t]}</button>
+            ))}
+          </div>
+        </div>
+
+        <div class="filters__row filters__row--search">
+          <label class="filters__label mono mono--label" for="proj-search">搜尋</label>
+          <div class="filters__search">
+            <span class="filters__search-prefix mono" aria-hidden="true">$</span>
+            <input
+              type="search"
+              id="proj-search"
+              placeholder="grep -i &quot;關鍵字&quot; ./projects"
+              autocomplete="off"
+              data-search
+            />
+          </div>
+          <button type="button" class="btn btn--ghost btn--sm" data-reset>重設</button>
+        </div>
+      </div>
+
+      <p class="count mono" data-count aria-live="polite">顯示 6 / 6 個專案</p>
+
+      <!-- 清單 -->
+      <div class="plist" data-list>
+        {projects.map((p, i) => <ProjectRow project={p} index={i} compact={false} />)}
+      </div>
+
+      <p class="empty" data-empty hidden>
+        沒有符合條件的專案。請調整分類、技術棧或搜尋關鍵字後再試一次。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 站外推薦的開源工具（非本站作品） ===== -->
+  <section class="section section--sunk" id="external-tools">
+    <div class="shell">
+      <header class="section__head">
+        <p class="section__eyebrow">external / not ours</p>
+        <h2 class="section__title">站外推薦的開源工具</h2>
+        <p class="section__lede">
+          以下是<strong>其他開發者</strong>的公開專案，本站只做推薦與連結，
+          不提供下載、不做版本保證，也不負維護責任。
+        </p>
+      </header>
+
+      <div class="ext">
+        {EXTERNAL_TOOLS.map((t) => (
+          <article class="ext__item">
+            <div class="ext__head">
+              <h3 class="ext__name">{t.title}</h3>
+              <span class="tag tag--ext mono">{t.license}</span>
+            </div>
+            <p class="ext__desc">{t.desc}</p>
+            <dl class="ext__meta mono">
+              <div><dt>LANG</dt><dd>{t.lang}</dd></div>
+              <div><dt>STARS</dt><dd>{t.stars}</dd></div>
+              <div><dt>UPDATED</dt><dd>{t.updated}</dd></div>
+            </dl>
+            <a class="btn btn--term btn--sm" href={t.url} target="_blank" rel="noopener noreferrer">
+              <span class="btn__prompt" aria-hidden="true">$</span>open github
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  .ph { padding-block: var(--sp-8) var(--sp-7); border-bottom: var(--bw) solid var(--line); }
+  .ph__eyebrow {
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: var(--signal); margin: 0 0 var(--sp-3);
+  }
+  .ph__title {
+    margin: 0 0 var(--sp-3); font-size: clamp(var(--fs-3xl), 4.6vw, var(--fs-4xl));
+    line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); font-weight: 800;
+  }
+  .ph__lede { margin: 0; color: var(--ink-2); font-size: var(--fs-md); max-width: 68ch; }
+
+  .filters {
+    border: var(--bw) solid var(--line); background: var(--panel);
+    border-radius: var(--r-sm); padding: var(--sp-4);
+    display: flex; flex-direction: column; gap: var(--sp-4);
+  }
+  .filters__row { display: flex; align-items: flex-start; gap: var(--sp-4); flex-wrap: wrap; }
+  .filters__label { flex: 0 0 84px; padding-top: 10px; }
+  .filters__chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); flex: 1 1 auto; }
+  .chip {
+    font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: var(--tracking-wide);
+    background: transparent; color: var(--ink-2);
+    border: var(--bw) solid var(--line); border-radius: var(--r-xs);
+    padding: var(--sp-2) var(--sp-3); min-height: 38px; cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+                background var(--dur-fast) var(--ease);
+  }
+  .chip:hover { color: var(--ink); border-color: var(--line-strong); }
+  .chip.is-on { background: var(--signal); border-color: var(--signal); color: var(--ink-invert); font-weight: 700; }
+
+  .filters__row--search { align-items: center; }
+  .filters__search {
+    display: flex; align-items: center; gap: var(--sp-2);
+    flex: 1 1 320px; min-width: 0;
+    background: var(--bg); border: var(--bw) solid var(--line);
+    border-radius: var(--r-xs); padding-inline: var(--sp-3);
+  }
+  .filters__search:focus-within { border-color: var(--signal); }
+  .filters__search-prefix { color: var(--signal); font-size: var(--fs-sm); }
+  .filters__search input {
+    flex: 1 1 auto; min-width: 0;
+    background: transparent; border: 0; outline: none;
+    color: var(--ink); font-family: var(--font-mono); font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-wide);
+    padding-block: var(--sp-3); min-height: 44px;
+  }
+  .filters__search input::placeholder { color: var(--ink-3); }
+
+  .count { font-size: var(--fs-2xs); letter-spacing: var(--tracking-mono); color: var(--ink-3); margin: var(--sp-4) 0 var(--sp-5); }
+
+  .plist { border-top: var(--bw) solid var(--line); }
+  .empty {
+    border: var(--bw) dashed var(--line-strong); color: var(--ink-2);
+    text-align: center; padding: var(--sp-8) var(--sp-4); margin: var(--sp-6) 0 0;
+    border-radius: var(--r-sm);
+  }
+  .empty[hidden] { display: none; }
+
+  /* ---------- 站外推薦 ---------- */
+  .ext {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--bw); background: var(--line); border: var(--bw) solid var(--line);
+  }
+  .ext__item {
+    background: var(--panel); padding: var(--sp-5) var(--sp-4);
+    display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-3);
+  }
+  .ext__head { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+  .ext__name { margin: 0; font-size: var(--fs-md); color: var(--ink); font-weight: 600; }
+  .ext__desc { margin: 0; color: var(--ink-2); font-size: var(--fs-sm); flex: 1 1 auto; }
+  .ext__meta {
+    display: flex; flex-wrap: wrap; gap: var(--sp-4); margin: 0;
+    padding-top: var(--sp-3); border-top: var(--bw) solid var(--line-soft); width: 100%;
+  }
+  .ext__meta div { margin: 0; }
+  .ext__meta dt {
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    color: var(--ink-3); margin-bottom: 2px;
+  }
+  .ext__meta dd { margin: 0; font-size: var(--fs-xs); color: var(--ink-2); }
+
+  @media (max-width: 900px) {
+    .ext { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 767px) {
+    .filters__label { flex-basis: 100%; padding-top: 0; }
+    .filters__row--search { align-items: stretch; }
+    .filters__search { flex-basis: 100%; }
+  }
+</style>

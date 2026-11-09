@@ -16,6 +16,9 @@ desktop.ini
 # CodeGraph local index
 .codegraph/
 
+# 設計原型（凍結備份，正式實作在 site/，決策文件已複製到 site/docs/）
+devtools/
+
 # Logs
 *.log
 npm-debug.log*

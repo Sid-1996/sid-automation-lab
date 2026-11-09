@@ -1,0 +1,22 @@
+---
+import { u } from '../lib/url';
+// src/components/SiteFooter.astro
+---
+
+<footer class="footer">
+  <div class="shell footer__inner">
+    <div>
+      <p class="footer__brand">SID / AUTOMATION / LAB</p>
+      <p class="footer__note">© 2026 Sid · 獨立自動化開發者</p>
+      <p class="footer__note">網站內容採 CC BY-NC-SA 4.0 授權。</p>
+    </div>
+    <nav class="footer__nav" aria-label="頁尾導覽">
+      <a href={u('/index.html')}>首頁</a>
+      <a href={u('/projects.html')}>專案</a>
+      <a href={u('/index.html#principle')}>開發理念</a>
+      <a href={u('/sponsor.html')}>贊助開發</a>
+      <a href={u('/license.html')}>購買授權</a>
+      <a href={u('/index.html#contact')}>聯絡作者</a>
+    </nav>
+  </div>
+</footer>

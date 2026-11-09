@@ -1,0 +1,23 @@
+---
+// src/components/TerminalBlock.astro
+// C 的局部元素：終端區塊（用於原理宣告與安裝指令，非全頁裝飾）
+interface Props {
+  title?: string;
+  variant?: 'default' | 'sunk';
+}
+const { title = 'session', variant = 'default' } = Astro.props;
+---
+
+<div class:list={['term', { 'term--sunk': variant === 'sunk' }]}>
+  <div class="term__bar">
+    <span class="term__file">{title}</span>
+    <span aria-hidden="true">read-only</span>
+  </div>
+  <div class="term__body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .term--sunk { background: var(--bg-sunk); }
+</style>

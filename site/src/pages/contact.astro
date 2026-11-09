@@ -1,0 +1,10 @@
+---
+// 既有公開 URL → 新架構（Q17：保留 URL + 轉址到首頁對應錨點）
+import RedirectPage from '../components/RedirectPage.astro';
+---
+<RedirectPage
+  from="/contact.html"
+  to="/index.html#contact"
+  title="聯絡作者 — Sid Automation Lab"
+  note="「聯絡作者」已併入首頁的聯絡區塊，正在前往。"
+/>

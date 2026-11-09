@@ -1,0 +1,371 @@
+---
+import { u } from '../lib/url';
+// src/pages/license.astro —— SID 正式版授權購買頁（對應正式站 sidpayfor.html）
+// 內容全部取自正式站 sidpayfor.html 的真實文案與真實金流連結，未新增規則。
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import TerminalBlock from '../components/TerminalBlock.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'SID 正式版永久授權',
+  description:
+    '通用壓槍腳本（SidAllFPS）正式版的一次性買斷授權：支援綠界 ECPay 與 PayPal 付款，付款後提供硬體序號 (HWID) 由作者遠端啟用。',
+  brand: { '@type': 'Brand', name: 'Sid Automation Lab' },
+  offers: {
+    '@type': 'Offer',
+    price: '500',
+    priceCurrency: 'TWD',
+    url: 'https://sid-1996.github.io/sid-automation-lab/sidpayfor.html',
+  },
+};
+---
+
+<BaseLayout
+  title="購買正式版授權 — SID LICENSE CENTER（NT$ 500）｜Sid Automation Lab"
+  description="購買通用壓槍腳本（SidAllFPS）正式版授權：一次性買斷 500 元，支援綠界 ECPay 與 PayPal。付款後提供硬體序號 (HWID) 由作者遠端啟用授權，單一主機綁定。"
+  path="license.html"
+  og="/images/og-license.png"
+  navKey="license"
+  jsonLd={jsonLd}
+>
+  <SiteHeader slot="header" navKey="license" />
+
+  <!-- ===== 頁頭 ===== -->
+  <section class="lc">
+    <div class="shell">
+      <nav class="crumb mono" aria-label="麵包屑">
+        <a href={u('/index.html')}>home</a>
+        <span aria-hidden="true">/</span>
+        <span class="crumb__now">license</span>
+      </nav>
+
+      <div class="lc__head">
+        <p class="lc__eyebrow mono">sid license center</p>
+        <h1 class="lc__title">SID <span class="lc__title-em">LICENSE</span> CENTER</h1>
+        <p class="lc__sub">正式版永久授權：自動化工具解鎖與規範</p>
+
+        <dl class="lc__readout">
+          <div><dt class="mono">授權類型</dt><dd class="mono">一次性買斷</dd></div>
+          <div><dt class="mono">價格</dt><dd class="mono">NT$ 500</dd></div>
+          <div><dt class="mono">適用專案</dt><dd class="mono">SidAllFPS v1.2.0</dd></div>
+          <div><dt class="mono">啟用方式</dt><dd class="mono">遠端 HWID</dd></div>
+        </dl>
+
+        <div class="lc__actions">
+          <a class="btn btn--primary" href="#pay">
+            <span class="btn__prompt" aria-hidden="true">$</span>選擇付款方式
+          </a>
+          <a class="btn btn--ghost" href={u('/projects/sidallfps.html')}>先看專案頁</a>
+          <a class="btn btn--ghost" href={u('/sponsor.html')}>只想支持開發？</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 01 付款方式 ===== -->
+  <section class="section section--tight" id="pay">
+    <div class="shell">
+      <header class="section__head">
+        <p class="section__eyebrow">01 / 選擇付款方式</p>
+        <h2 class="section__title">選擇付款方式</h2>
+        <p class="section__lede">
+          台灣使用者請選綠界 ECPay，海外用戶請選 PayPal。付款金額與商品頁面一致。
+        </p>
+      </header>
+
+      <div class="pay">
+        <article class="pay__card">
+          <div class="pay__head">
+            <h3 class="pay__name">綠界科技 ECPay</h3>
+            <p class="pay__desc">台灣使用者（信用卡 / ATM / 超商）</p>
+          </div>
+          <a class="pay__cta" href="https://p.ecpay.com.tw/5D513F0" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://payment.ecpay.com.tw/Content/themes/WebStyle20170517/images/ecgo.png"
+              alt="綠界科技 ECPay 付款"
+              width="160"
+              height="42"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="pay__cta-hint mono">前往 ECPay 付款</span>
+          </a>
+        </article>
+
+        <article class="pay__card">
+          <div class="pay__head">
+            <h3 class="pay__name">PayPal Global</h3>
+            <p class="pay__desc">International / 海外用戶專用</p>
+          </div>
+          <form
+            class="pay__form"
+            action="https://www.paypal.com/ncp/payment/DDK55NCQMW5DU"
+            method="post"
+            target="_blank"
+          >
+            <button class="pay__btn-paypal" type="submit">立即付款</button>
+            <img
+              src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg"
+              alt="PayPal 支援的付款方式"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </form>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 聯繫啟用 ===== -->
+  <section class="section section--panel">
+    <div class="shell">
+      <header class="section__head">
+        <p class="section__eyebrow">02 / 聯繫作者啟用授權</p>
+        <h2 class="section__title">聯繫作者啟用授權</h2>
+        <p class="section__lede">付款完成後仍需一次人工對話，請依下列流程提供資訊，作者才能啟用授權。</p>
+      </header>
+
+      <div class="steps">
+        <div class="steps__col">
+          <h3 class="steps__title">
+            <span class="steps__idx mono">01</span>私訊 Facebook 粉絲專頁
+          </h3>
+          <p class="steps__text">付款成功後，請立即點擊下方按鈕前往粉絲專頁。</p>
+          <a class="btn btn--primary" href="https://www.facebook.com/talksometingshit/" target="_blank" rel="noopener noreferrer">
+            <span class="btn__prompt" aria-hidden="true">$</span>私訊 FB 粉絲專頁：Sid
+          </a>
+
+          <ul class="need">
+            <li><strong>付款名稱</strong></li>
+            <li><strong>硬體序號 (HWID)</strong> —— 執行正式版後，授權視窗會顯示序號並可一鍵複製（試用版到期時的鎖定視窗亦可複製）</li>
+          </ul>
+          <p class="steps__note">
+            作者將透過遠端方式啟用授權，無需回傳任何檔案。
+          </p>
+        </div>
+
+        <div class="steps__col">
+          <h3 class="steps__title">
+            <span class="steps__idx mono">02</span>大陸地區：WeChat 聯繫
+          </h3>
+          <p class="steps__text">不便使用 FB 的用戶，可掃描下方 QR Code 加 WeChat 聯繫。</p>
+          <figure class="qr">
+            <img
+              src={u('/images/wechat-qr.jpg')}
+              alt="WeChat 聯繫 QR Code"
+              width="430"
+              height="430"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="mono">wechat_qr.jpg</figcaption>
+          </figure>
+          <p class="steps__note">提供方式同上：付款名稱與硬體序號 (HWID)。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 規範 ===== -->
+  <section class="section section--tight" id="rules">
+    <div class="shell">
+      <header class="section__head">
+        <p class="section__eyebrow">03 / 交易安全與授權規範</p>
+        <h2 class="section__title">交易安全與授權規範</h2>
+      </header>
+
+      <div class="rules">
+        <section class="panel panel--warn">
+          <h3 class="panel__title mono">售前聲明（避糾紛必讀）</h3>
+          <ul class="rules__list">
+            <li>本軟體為<strong>一次性買斷制</strong>，只需 500 元即可永久使用。</li>
+            <li>請先確認「試用版」可於您的電腦正常運行再行購買。</li>
+            <li>數位授權具唯一性，發放後<strong>恕不接受任何理由退款</strong>。</li>
+            <li>輔助工具皆有偵測風險，使用者需自行承擔帳號安全。</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h3 class="panel__title mono">授權與保固細則</h3>
+          <ul class="rules__list">
+            <li>本商品採用<strong>遠端授權機制</strong>。購買後請將硬體序號 (HWID) 提供給作者，作者將透過遠端方式啟用授權，無需回傳任何檔案。</li>
+            <li>授權鎖定<strong>單一硬體序號</strong>，不支援轉移至其他電腦。</li>
+            <li>更換主機板或大幅改裝硬體將導致序號失效，需重新購買。</li>
+            <li>若相同序號卻遺失授權，作者提供<strong>永久免費補發</strong>。</li>
+            <li>作者為業餘性質，解鎖服務固定於<strong>每日 17:30 後</strong>處理。</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 授權視窗說明 ===== -->
+  <section class="section section--sunk">
+    <div class="shell">
+      <div class="shell--narrow">
+        <TerminalBlock title="license.hwid">
+          <p class="term-line"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">cat license.hwid</span></p>
+          <p class="term-line term-line--ok"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">遠端啟用授權</span><span class="term-line__note">— 不需回傳檔案</span></p>
+          <p class="term-line term-line--ok"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">單一 HWID 綁定</span><span class="term-line__note">— 不支援轉移</span></p>
+          <p class="term-line term-line--ok"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">遺失授權免費補發</span><span class="term-line__note">— 永久</span></p>
+          <p class="term-line term-line--warn"><span class="term-line__prompt" aria-hidden="true">&gt;</span><span class="term-line__cmd">解鎖服務時間</span><span class="term-line__note">— 每日 17:30 後</span></p>
+        </TerminalBlock>
+
+        <p class="lic__band">
+          SID AUTOMATION LAB · 穩定運作中，非詐騙平台請安心交易
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  /* ---------- 頁頭 ---------- */
+  .lc { padding-block: var(--sp-6) var(--sp-8); border-bottom: var(--bw) solid var(--line); }
+  .crumb {
+    display: flex; gap: var(--sp-2); align-items: center;
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    color: var(--ink-3); margin-bottom: var(--sp-5);
+  }
+  .crumb a { color: var(--signal); }
+  .crumb__now { color: var(--ink-2); }
+  .lc__eyebrow {
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    text-transform: uppercase; color: var(--signal); margin: 0 0 var(--sp-4);
+  }
+  .lc__title {
+    margin: 0 0 var(--sp-4);
+    font-family: var(--font-mono);
+    font-size: clamp(var(--fs-3xl), 5vw, var(--fs-5xl));
+    line-height: var(--lh-tight); letter-spacing: var(--tracking-wide);
+    font-weight: 700;
+  }
+  .lc__title-em { color: var(--signal); }
+  .lc__sub { margin: 0 0 var(--sp-6); color: var(--ink-2); font-size: var(--fs-md); }
+
+  .lc__readout {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--bw); background: var(--line);
+    border: var(--bw) solid var(--line); margin: 0 0 var(--sp-6);
+  }
+  .lc__readout > div { background: var(--panel); padding: var(--sp-4); }
+  .lc__readout dt {
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    color: var(--ink-3); margin-bottom: var(--sp-1);
+  }
+  .lc__readout dd { margin: 0; font-size: var(--fs-sm); color: var(--ink); font-weight: 600; }
+  .lc__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+
+  /* ---------- 付款卡片 ---------- */
+  .pay {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--bw); background: var(--line);
+    border: var(--bw) solid var(--line);
+  }
+  .pay__card {
+    background: var(--panel); padding: var(--sp-6) var(--sp-5);
+    display: flex; flex-direction: column; align-items: center;
+    gap: var(--sp-5); text-align: center;
+  }
+  .pay__name { margin: 0 0 var(--sp-2); font-size: var(--fs-lg); color: var(--ink); font-weight: 700; }
+  .pay__desc { margin: 0; color: var(--ink-3); font-size: var(--fs-sm); }
+  .pay__cta { display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); }
+  .pay__cta img { height: 42px; width: auto; }
+  .pay__cta-hint { font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono); color: var(--signal); }
+  .pay__cta:hover .pay__cta-hint { text-decoration: underline; }
+  .pay__form { display: flex; flex-direction: column; align-items: center; gap: var(--sp-3); }
+  .pay__btn-paypal {
+    min-height: 44px; padding: var(--sp-3) var(--sp-7);
+    background: #ffd140; color: #000; font-weight: 700; font-size: var(--fs-md);
+    border: 0; border-radius: var(--r-sm); cursor: pointer;
+  }
+  .pay__btn-paypal:hover { background: #ffe06b; }
+
+  /* ---------- 啟用流程 ---------- */
+  .steps {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-6);
+  }
+  .steps__col {
+    border: var(--bw) solid var(--line); border-radius: var(--r-sm);
+    background: var(--bg-sunk); padding: var(--sp-5);
+  }
+  .steps__title {
+    margin: 0 0 var(--sp-3); font-size: var(--fs-lg); color: var(--ink);
+    display: flex; align-items: baseline; gap: var(--sp-3);
+  }
+  .steps__idx { color: var(--signal); font-size: var(--fs-xs); }
+  .steps__text { margin: 0 0 var(--sp-4); color: var(--ink-2); font-size: var(--fs-sm); }
+  .steps__note { margin: var(--sp-4) 0 0; color: var(--ink-3); font-size: var(--fs-sm); }
+
+  .need { list-style: none; margin: var(--sp-4) 0 0; padding: 0; }
+  .need li {
+    position: relative; padding: var(--sp-2) 0 var(--sp-2) var(--sp-5);
+    font-size: var(--fs-sm); color: var(--ink-2);
+  }
+  .need li::before {
+    content: ""; position: absolute; left: 0; top: 13px;
+    width: 8px; height: 1px; background: var(--signal-dim);
+  }
+  .need strong { color: var(--ink); }
+
+  .qr { margin: 0; text-align: center; }
+  .qr img {
+    width: 180px; height: 180px; border: var(--bw) solid var(--line);
+    border-radius: var(--r-sm); background: var(--panel);
+  }
+  .qr figcaption {
+    margin-top: var(--sp-2); font-size: var(--fs-3xs);
+    letter-spacing: var(--tracking-mono); color: var(--ink-3);
+  }
+
+  /* ---------- 規範 ---------- */
+  .rules {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-5);
+  }
+  .panel {
+    border: var(--bw) solid var(--line); border-radius: var(--r-sm);
+    background: var(--panel); padding: var(--sp-5);
+  }
+  .panel--warn { border-color: var(--amber-dim); background: var(--amber-fade); }
+  .panel__title {
+    margin: 0 0 var(--sp-4); font-size: var(--fs-3xs);
+    letter-spacing: var(--tracking-mono); text-transform: uppercase;
+    color: var(--signal);
+  }
+  .panel--warn .panel__title { color: var(--amber); }
+  .rules__list { list-style: none; margin: 0; padding: 0; }
+  .rules__list li {
+    position: relative; padding: var(--sp-2) 0 var(--sp-2) var(--sp-5);
+    font-size: var(--fs-sm); color: var(--ink-2); line-height: var(--lh-snug);
+  }
+  .rules__list li::before {
+    content: ""; position: absolute; left: 0; top: 13px;
+    width: 8px; height: 1px; background: var(--signal-dim);
+  }
+  .panel--warn .rules__list li::before { background: var(--amber); }
+  .rules__list strong { color: var(--ink); }
+
+  .lic__band {
+    margin: var(--sp-6) 0 0; text-align: center;
+    font-family: var(--font-mono); font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-mono); color: var(--ink-3);
+  }
+
+  @media (max-width: 1023px) {
+    .lc__readout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pay, .steps, .rules { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 767px) {
+    .lc__readout { grid-template-columns: 1fr; }
+  }
+</style>

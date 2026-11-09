@@ -1,0 +1,68 @@
+name: Deploy site to GitHub Pages
+
+# 正式站部署：建置 site/ 的 Astro 專案 → 產出 site/dist → 部署到 GitHub Pages
+#
+# 觸發時機：
+#   - site/ 內任何檔案變動後 push 到 main
+#   - 手動觸發（workflow_dispatch）
+#
+# 首次啟用需在 repo Settings → Pages → Build and deployment
+# 將 Source 改為「GitHub Actions」（此設定切換前，線上仍由 main 分支的舊站提供服務）。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (Astro + asset sync)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        working-directory: site
+        run: npm ci
+
+      # astro build + sync-assets.mjs（同步 files/、uploads/、ads.txt、robots.txt、humans.txt 並產生 sitemap.xml）
+      - name: Build
+        working-directory: site
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

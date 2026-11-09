@@ -1,0 +1,70 @@
+---
+import { u } from '../lib/url';
+// src/components/ProjectRow.astro
+// 首頁用的專案通道列（A 的 channel row）—— 非卡片牆
+interface Props {
+  project: any;
+  index: number;
+  /** 是否顯示完整描述（首頁精簡 / 列表頁完整） */
+  compact?: boolean;
+}
+const { project, index, compact = true } = Astro.props;
+const num = String(index + 1).padStart(2, '0');
+const href = u(`/projects/${project.id}.html`);
+---
+
+<article class="prow" data-category={project.data.category} data-stack={project.data.techs.join(' ')}>
+  <span class="prow__idx mono">{num}</span>
+
+  <div class="prow__body">
+    <div class="prow__meta">
+      <span class:list={['tag', `tag--${project.data.license}`]}>{project.data.licenseLabel}</span>
+      {project.data.version && <span class="tag tag--version">v{project.data.version}</span>}
+      <span class="prow__cat mono">{project.data.categoryLabel}</span>
+    </div>
+    <h3 class="prow__title"><a href={href}>{project.data.title}</a></h3>
+    <p class="prow__desc">{project.data.summary}</p>
+    {!compact && project.data.stack.length > 0 && (
+      <div class="techline prow__stack">
+        {project.data.stack.map((s: string, i: number) => (
+          <>
+            {i > 0 && <span class="techline__sep">/</span>}
+            <span>{s}</span>
+          </>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <div class="prow__cta">
+    <a class="btn btn--ghost btn--sm" href={href}>
+      <span class="btn__prompt" aria-hidden="true">$</span>開啟
+    </a>
+  </div>
+</article>
+
+<style>
+  .prow {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    gap: var(--sp-5);
+    align-items: start;
+    padding: var(--sp-5) 0;
+    border-bottom: var(--bw) solid var(--line);
+  }
+  .prow__idx { color: var(--ink-3); font-size: var(--fs-sm); padding-top: 2px; }
+  .prow__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); }
+  .prow__cat { font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono); color: var(--ink-3); }
+  .prow__title { margin: 0 0 var(--sp-2); font-size: var(--fs-xl); line-height: var(--lh-snug); }
+  .prow__title a { color: var(--ink); text-decoration: none; }
+  .prow__title a:hover { color: var(--signal); }
+  .prow__desc { margin: 0; color: var(--ink-2); font-size: var(--fs-sm); max-width: 62ch; }
+  .prow__stack { margin-top: var(--sp-3); }
+  .prow__cta { justify-self: end; }
+
+  @media (max-width: 767px) {
+    .prow { grid-template-columns: 1fr; gap: var(--sp-3); padding: var(--sp-4) 0; }
+    .prow__idx { font-size: var(--fs-3xs); }
+    .prow__cta { justify-self: start; }
+  }
+</style>

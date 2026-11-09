@@ -1,0 +1,126 @@
+/* ============================================================
+   Design Tokens — Sid Automation Lab「A+C 混合」
+   A（訊號工作檯）75%：深色石墨、青綠訊號色、髮絲線、方正圓角
+   C（終端主控台）25%：等寬技術字、指令語彙、模組化區塊（局部使用）
+   ============================================================ */
+
+:root {
+  /* ---------- 1. 色彩：底層 ---------- */
+  --bg:            #0b0e12;   /* 頁面底：近黑石墨 */
+  --bg-sunk:       #070a0d;   /* 更深的凹槽（頁尾、程式碼區） */
+  --bg-elev:       #10151b;   /* 抬升層（sticky header 底） */
+  --panel:         #141a21;   /* 面板 */
+  --panel-2:       #1a212a;   /* 面板標題列 / hover */
+  --panel-3:       #202832;   /* 更高的面板（選取態） */
+
+  /* ---------- 2. 色彩：線 ---------- */
+  --line:          #232c37;   /* 主要髮絲線 */
+  --line-soft:     #1a212a;   /* 次要分隔線 */
+  --line-strong:   #33404e;   /* 強調邊框 */
+
+  /* ---------- 3. 色彩：文字 ---------- */
+  --ink:           #e8edf2;   /* 主要文字（對比 15.2:1） */
+  --ink-2:         #9aa8b4;   /* 次要文字（7.4:1） */
+  --ink-3:         #6b7885;   /* 輔助文字（4.6:1，僅 11px 以上） */
+  --ink-invert:    #06231a;   /* 綠底上的文字 */
+
+  /* ---------- 4. 色彩：強調 ---------- */
+  --signal:        #4ae3b0;   /* 主強調：訊號綠 */
+  --signal-dim:    #2fa383;   /* 綠的邊界／次要 */
+  --signal-fade:   rgba(74, 227, 176, .10);
+  --signal-fade-2: rgba(74, 227, 176, .05);
+
+  --amber:         #ffb454;   /* 數值讀出、商業項目 */
+  --amber-dim:     #a8722a;
+  --amber-fade:    rgba(255, 180, 84, .10);
+  --info:          #6ba7ff;   /* 站外專案 / 提示 */
+  --info-dim:      #3f5c73;
+
+  /* 狀態色 */
+  --state-open:    var(--signal);
+  --state-com:     var(--amber);
+  --state-ext:     var(--info);
+  --state-danger:  #ff6b6b;
+
+  /* ---------- 5. 字體 ---------- */
+  /* 中文：系統 Sans，零外部請求 */
+  --font-sans: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC",
+               "Hiragino Sans CNS", system-ui, -apple-system, sans-serif;
+  /* 英文技術字：系統等寬（Windows 預設含 Consolas），零外部請求 */
+  --font-mono: "Cascadia Mono", Consolas, "SF Mono", "DejaVu Sans Mono",
+               ui-monospace, "Courier New", monospace;
+
+  /* ---------- 6. 字級階梯 ---------- */
+  --fs-3xs: 0.6875rem;  /* 11px  micro label */
+  --fs-2xs: 0.75rem;    /* 12px  meta / tag  */
+  --fs-xs:  0.8125rem;  /* 13px  mono technical */
+  --fs-sm:  0.875rem;   /* 14px  輔助內文 */
+  --fs-md:  0.9375rem;  /* 15px  內文 */
+  --fs-base:1rem;       /* 16px  基準 */
+  --fs-lg:  1.125rem;   /* 18px  小標 */
+  --fs-xl:  1.25rem;    /* 20px  區塊標 */
+  --fs-2xl: 1.5rem;     /* 24px  卡片標 */
+  --fs-3xl: 2rem;       /* 32px  H2 */
+  --fs-4xl: 2.75rem;    /* 44px  H1 */
+  --fs-5xl: 3.5rem;     /* 56px  display */
+
+  --lh-tight: 1.18;
+  --lh-snug:  1.4;
+  --lh-normal:1.7;
+  --lh-loose: 1.9;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.06em;
+  --tracking-mono: 0.12em;
+
+  /* ---------- 7. 間距 ---------- */
+  --sp-1: 0.25rem;   /*  4 */
+  --sp-2: 0.5rem;    /*  8 */
+  --sp-3: 0.75rem;   /* 12 */
+  --sp-4: 1rem;      /* 16 */
+  --sp-5: 1.5rem;   /* 24 */
+  --sp-6: 2rem;      /* 32 */
+  --sp-7: 3rem;      /* 48 */
+  --sp-8: 4rem;      /* 64 */
+  --sp-9: 6rem;      /* 96 */
+
+  /* ---------- 8. 容器 ---------- */
+  --shell: 1200px;          /* 主容器 */
+  --shell-narrow: 860px;    /* 長文容器 */
+  --shell-pad: 28px;        /* 容器左右留白（≥1024px） */
+  --shell-pad-sm: 20px;     /* <768px 容器左右留白 */
+  --measure: 70ch;          /* 正文行寬上限 */
+  --measure-narrow: 46ch;
+
+  /* ---------- 9. 圓角（全站方正，僅 2~4px） ---------- */
+  --r-xs: 2px;
+  --r-sm: 3px;
+  --r-md: 4px;
+
+  /* ---------- 10. 邊框 / 陰影（幾乎不用陰影） ---------- */
+  --bw: 1px;
+  --bw-thick: 2px;
+  --shadow-pop: 0 18px 44px rgba(0, 0, 0, .55);
+
+  /* ---------- 11. 層級 ---------- */
+  --z-header: 40;
+  --z-overlay: 80;
+  --z-skip: 100;
+
+  /* ---------- 12. 動態 ---------- */
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --ease: cubic-bezier(.2, .7, .3, 1);
+
+  /* ---------- 13. 斷點（供文件與媒體查詢參考） ---------- */
+  /* --bp-sm: 480px   小手機 */
+  /* --bp-md: 768px   平板 */
+  /* --bp-lg: 1024px  筆電 */
+  /* --bp-xl: 1280px  桌面 */
+  /* --bp-2xl: 1440px 大螢幕 */
+
+  /* ---------- 14. 元件狀態 ---------- */
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--signal);
+  --tap: -webkit-tap-highlight-color: rgba(74, 227, 176, .18);
+}

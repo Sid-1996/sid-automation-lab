@@ -1,0 +1,341 @@
+---
+import { u } from '../../lib/url';
+// src/pages/projects/[slug].astro —— 專案詳細頁
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TerminalBlock from '../../components/TerminalBlock.astro';
+import '../../styles/tokens.css';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.id }, props: { project: p } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+
+const hasShots = d.screenshots.length > 0;
+
+const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const idx = all.findIndex((p) => p.id === project.id);
+const prev = idx > 0 ? all[idx - 1] : null;
+const next = idx < all.length - 1 ? all[idx + 1] : null;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: d.title,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Windows',
+  description: d.summary,
+  softwareVersion: d.version || undefined,
+  ...(d.license === 'commercial' ? {} : { license: d.licenseLabel }),
+};
+---
+
+<BaseLayout
+  title={`${d.title}${d.version ? ` v${d.version}` : ''} — Sid Automation Lab`}
+  description={d.summary}
+  path={`projects/${project.id}.html`}
+  og="/images/og-detail.png"
+  navKey="projects"
+  jsonLd={jsonLd}
+>
+  <SiteHeader slot="header" navKey="projects" />
+
+  <!-- ===== 專案頁頭 ===== -->
+  <section class="ph">
+    <div class="shell">
+      <nav class="crumb mono" aria-label="麵包屑">
+        <a href={u('/projects.html')}>projects</a>
+        <span aria-hidden="true">/</span>
+        <span class="crumb__now">{project.id}</span>
+      </nav>
+
+      <div class="ph__grid">
+        <div class="ph__main">
+          <div class="ph__meta">
+            <span class:list={['tag', `tag--${d.license}`]}>{d.licenseLabel}</span>
+            {d.version && <span class="tag tag--version">v{d.version}</span>}
+            <span class="tag">{d.categoryLabel}</span>
+          </div>
+          <h1 class="ph__title">{d.title}</h1>
+          <p class="ph__lede">{d.summary}</p>
+
+          <div class="ph__actions">
+            <a class="btn btn--primary" href={d.downloadUrl} target="_blank" rel="noopener noreferrer">
+              <span class="btn__prompt" aria-hidden="true">$</span>{d.downloadLabel}
+            </a>
+            {d.links.filter((l: any) => l.kind === 'repo').map((l: any) => (
+              <a class="btn btn--ghost" href={l.url} target="_blank" rel="noopener noreferrer">
+                <span class="btn__prompt" aria-hidden="true">$</span>原始碼
+              </a>
+            ))}
+          </div>
+
+          <dl class="spec">
+            <div>
+              <dt class="mono">VERSION</dt>
+              <dd>{d.version ? `v${d.version}` : '未發布版本'}</dd>
+            </div>
+            <div>
+              <dt class="mono">RELEASED</dt>
+              <dd>{d.releaseDate}</dd>
+            </div>
+            <div>
+              <dt class="mono">LICENSE</dt>
+              <dd>{d.licenseLabel}</dd>
+            </div>
+            <div>
+              <dt class="mono">STACK</dt>
+              <dd class="mono">{d.stack.join(' / ')}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="ph__side">
+          <TerminalBlock title={`${project.id}.env`}>
+            {d.install.map((line: string, i: number) => (
+              <p class="term-line" key={i}>
+                <span class="term-line__prompt" aria-hidden="true">&gt;</span>
+                <span class="term-line__cmd">{line}</span>
+              </p>
+            ))}
+          </TerminalBlock>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 詳細內容 ===== -->
+  <section class="section section--tight">
+    <div class="shell detail">
+      <div class="detail__main">
+        <article class="detail__body prose">
+          <Content />
+        </article>
+
+        {hasShots && (
+          <section class="shots-block">
+            <h2 class="shots-block__title">官方截圖</h2>
+            <p class="shots-block__lede">以下為官方釋出的介面截圖，未經修改或重新繪製。</p>
+            <div class="shots">
+              {d.screenshots.map((s) => (
+                <figure class="shot">
+                  <img src={u(s.src)} alt={s.alt} width={s.width} height={s.height} loading="lazy" decoding="async" />
+                  <figcaption class="mono">{s.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {!hasShots && (
+          <section class="panel panel--inline">
+            <h2 class="panel__title mono">功能</h2>
+            <ul class="feat">
+              {d.features.map((f) => (
+                <li>
+                  <h3 class="feat__title">{f.title}</h3>
+                  <p class="feat__detail">{f.detail}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
+
+      <aside class="detail__side">
+        {hasShots && (
+          <section class="panel">
+            <h2 class="panel__title mono">功能</h2>
+            <ul class="feat">
+              {d.features.map((f) => (
+                <li>
+                  <h3 class="feat__title">{f.title}</h3>
+                  <p class="feat__detail">{f.detail}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section class="panel">
+          <h2 class="panel__title mono">執行需求</h2>
+          <ul class="req">
+            {d.requirements.map((r) => <li>{r}</li>)}
+          </ul>
+        </section>
+
+        {d.notes.length > 0 && (
+          <section class="panel panel--note">
+            <h2 class="panel__title mono">備註</h2>
+            <ul class="req">
+              {d.notes.map((n) => <li>{n}</li>)}
+            </ul>
+          </section>
+        )}
+
+        <section class="panel">
+          <h2 class="panel__title mono">取得方式</h2>
+          <div class="downloads">
+            <a class="btn btn--primary btn--sm" href={d.downloadUrl} target="_blank" rel="noopener noreferrer">
+              <span class="btn__prompt" aria-hidden="true">$</span>{d.downloadLabel}
+            </a>
+            {d.links.map((l: any) => (
+              <a class="dl-link" href={l.url} target="_blank" rel="noopener noreferrer">
+                <span class="dl-link__kind mono">{l.kind}</span>
+                <span class="dl-link__label">{l.label}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== 上下篇 ===== -->
+  <nav class="pager" aria-label="專案切換">
+    <div class="shell pager__inner">
+      {prev ? (
+        <a class="pager__link" href={u(`/projects/${prev.id}.html`)}>
+          <span class="pager__dir mono">← prev</span>
+          <span class="pager__name">{prev.data.title}</span>
+        </a>
+      ) : <span></span>}
+      {next ? (
+        <a class="pager__link pager__link--next" href={u(`/projects/${next.id}.html`)}>
+          <span class="pager__dir mono">next →</span>
+          <span class="pager__name">{next.data.title}</span>
+        </a>
+      ) : <span></span>}
+    </div>
+  </nav>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  /* ---------- 頁頭 ---------- */
+  .ph { padding-block: var(--sp-6) var(--sp-8); border-bottom: var(--bw) solid var(--line); }
+  .crumb {
+    display: flex; gap: var(--sp-2); align-items: center;
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    color: var(--ink-3); margin-bottom: var(--sp-5);
+  }
+  .crumb a { color: var(--signal); }
+  .crumb__now { color: var(--ink-2); }
+  .ph__grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: var(--sp-7); align-items: start; }
+  .ph__meta { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+  .ph__title {
+    margin: 0 0 var(--sp-4); font-size: clamp(var(--fs-3xl), 4.4vw, var(--fs-4xl));
+    line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); font-weight: 800;
+  }
+  .ph__lede { margin: 0 0 var(--sp-6); color: var(--ink-2); font-size: var(--fs-md); max-width: 58ch; }
+  .ph__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-bottom: var(--sp-7); }
+
+  .spec {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--bw); background: var(--line);
+    border: var(--bw) solid var(--line); margin: 0;
+  }
+  .spec > div { background: var(--panel); padding: var(--sp-4); }
+  .spec > div:last-child { grid-column: 1 / -1; }
+  .spec dt { font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono); color: var(--ink-3); margin-bottom: var(--sp-1); }
+  .spec dd { margin: 0; font-size: var(--fs-sm); color: var(--ink); }
+
+  /* ---------- 內容 ---------- */
+  .detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: var(--sp-7); align-items: start; }
+  .detail__main { min-width: 0; }
+  .prose { color: var(--ink-2); font-size: var(--fs-md); max-width: 68ch; }
+  .prose :global(p) { margin: 0 0 var(--sp-4); }
+  .prose :global(blockquote) {
+    margin: var(--sp-5) 0; padding: var(--sp-4);
+    border-left: var(--bw-thick) solid var(--signal);
+    background: var(--panel); color: var(--ink-2); font-size: var(--fs-sm);
+  }
+  .prose :global(strong) { color: var(--ink); }
+
+  .shots-block { margin-top: var(--sp-7); padding-top: var(--sp-6); border-top: var(--bw) solid var(--line); }
+  .shots-block__title {
+    margin: 0 0 var(--sp-2); font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-tight); font-weight: 700;
+  }
+  .shots-block__lede { margin: 0 0 var(--sp-5); color: var(--ink-3); font-size: var(--fs-sm); }
+
+  .detail__side { display: flex; flex-direction: column; gap: var(--sp-4); position: sticky; top: 84px; }
+  .panel { border: var(--bw) solid var(--line); border-radius: var(--r-sm); background: var(--panel); padding: var(--sp-5); }
+  .panel--inline { margin-top: var(--sp-6); }
+  .panel--note { border-color: var(--amber-dim); background: var(--amber-fade); }
+  .panel__title {
+    margin: 0 0 var(--sp-4); font-size: var(--fs-3xs);
+    letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--signal);
+  }
+  .panel--note .panel__title { color: var(--amber); }
+
+  .feat { list-style: none; margin: 0; padding: 0; }
+  .feat li { padding: var(--sp-3) 0; border-bottom: var(--bw) solid var(--line-soft); }
+  .feat li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .feat__title { margin: 0 0 var(--sp-1); font-size: var(--fs-md); color: var(--ink); }
+  .feat__detail { margin: 0; font-size: var(--fs-sm); color: var(--ink-2); }
+
+  .req { list-style: none; margin: 0; padding: 0; }
+  .req li {
+    position: relative; padding: var(--sp-2) 0 var(--sp-2) var(--sp-5);
+    font-size: var(--fs-sm); color: var(--ink-2);
+  }
+  .req li::before {
+    content: ""; position: absolute; left: 0; top: 13px;
+    width: 8px; height: 1px; background: var(--signal-dim);
+  }
+  .panel--note .req li::before { background: var(--amber); }
+
+  .downloads { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .dl-link {
+    display: flex; align-items: center; gap: var(--sp-3);
+    min-height: 40px; padding: var(--sp-2) var(--sp-3);
+    border: var(--bw) solid var(--line); border-radius: var(--r-xs);
+    color: var(--ink-2); font-size: var(--fs-sm); text-decoration: none;
+  }
+  .dl-link:hover { border-color: var(--signal); color: var(--ink); }
+  .dl-link__kind {
+    font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono);
+    color: var(--signal-dim); flex: 0 0 auto; min-width: 56px;
+  }
+
+  /* ---------- 截圖 ---------- */
+  .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-5); }
+  .shots > .shot:only-child { grid-column: 1 / -1; }
+  .shot { margin: 0; }
+  .shot img {
+    width: 100%; height: auto; border: var(--bw) solid var(--line);
+    border-radius: var(--r-sm); background: var(--panel);
+  }
+  .shot figcaption { font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono); color: var(--ink-3); margin-top: var(--sp-2); }
+
+  /* ---------- 上下篇 ---------- */
+  .pager { border-top: var(--bw) solid var(--line); background: var(--bg-sunk); }
+  .pager__inner { display: flex; justify-content: space-between; gap: var(--sp-5); padding-block: var(--sp-5); }
+  .pager__link { display: flex; flex-direction: column; gap: var(--sp-1); text-decoration: none; min-height: 44px; }
+  .pager__link--next { text-align: right; align-items: flex-end; }
+  .pager__dir { font-size: var(--fs-3xs); letter-spacing: var(--tracking-mono); color: var(--signal); }
+  .pager__name { font-size: var(--fs-sm); color: var(--ink-2); }
+  .pager__link:hover .pager__name { color: var(--ink); }
+
+  @media (max-width: 1023px) {
+    .ph__grid { grid-template-columns: 1fr; gap: var(--sp-6); }
+    .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .detail { grid-template-columns: 1fr; }
+    .detail__side { position: static; }
+    .shots { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 767px) {
+    .spec { grid-template-columns: 1fr; }
+    .pager__inner { flex-direction: column; }
+    .pager__link--next { text-align: left; align-items: flex-start; }
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import { u } from '../lib/url';
+// src/layouts/BaseLayout.astro
+// 三頁共用的 HTML 外殼：lang / meta / canonical / OG / JSON-LD / 資產載入
+interface Props {
+  title: string;
+  description: string;
+  /** 頁面路徑（用於 canonical 與 JSON-LD url） */
+  path: string;
+  /** 導覽列目前的頁面鍵 */
+  navKey?: 'home' | 'projects' | 'principle' | 'sponsor' | 'license';
+  /** 是否為專案詳細頁（隱藏通用 canonical 覆寫） */
+  jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
+  /** 頁型專屬 OG 圖片路徑（決策 Q10）；未指定則沿用全站預設圖 */
+  og?: string;
+}
+
+const {
+  title,
+  description,
+  path,
+  navKey = 'home',
+  jsonLd,
+  noindex = false,
+  og = '/files/og-image.png',
+} = Astro.props;
+
+const SITE = 'https://sid-1996.github.io/sid-automation-lab';
+const canonical = `${SITE}/${path}`;
+const ogImage = og.startsWith('http') ? og : `${SITE}${og}`;
+---
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex" />}
+  <link rel="canonical" href={canonical} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  {jsonLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  )}
+
+  <link rel="icon" type="image/svg+xml" href={u('/favicon.svg')} />
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要內容</a>
+
+  <slot name="header" />
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <slot name="footer" />
+
+  <script src={u('/site.js')} defer></script>
+</body>
+</html>
