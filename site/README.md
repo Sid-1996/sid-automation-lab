@@ -35,7 +35,11 @@ npm run dev     # http://localhost:4321/sid-automation-lab/
 | `npm run preview` | Astro 內建 preview |
 | `npm run serve` | 以 `python -m http.server` 服務 `dist/`（port 8144） |
 | `npm run verify` | Playwright 全站驗收（見下方第六節） |
+| `npm run live-check` | **線上正式站**巡檢（轉址、篩選、行動選單、console 錯誤），部署後或每次更新後可重跑 |
 | `npm run og` | 重新產生 5 張頁型專屬 OG 圖（Pillow + Noto Sans TC） |
+
+> `verify` 與 `live-check` 需要 `playwright`。它由 repo 根目錄的 `@playwright/mcp` 帶入，
+> `site/` **不另加相依**；全新 clone 時先在 repo 根目錄執行 `npm install` 即可。
 
 > ⚠️ `npm run serve` 直接服務 `dist/` **根目錄**，但站點以 base 前綴 `/sid-automation-lab/` 部署，
 > 因此本機要看完整效果請用 `npm run verify`（它會把 `dist/` 掛到 `/sid-automation-lab/` 底下）或

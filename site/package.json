@@ -10,6 +10,7 @@
     "preview": "astro preview",
     "serve": "python -m http.server 8144 --bind 127.0.0.1 --directory dist",
     "verify": "node verify.mjs",
+    "live-check": "node scripts/live-check.mjs",
     "og": "python scripts/make-og.py"
   },
   "keywords": [],

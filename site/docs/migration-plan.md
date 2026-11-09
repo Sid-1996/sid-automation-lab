@@ -2,7 +2,7 @@
 
 > 文件版本：2026-11-09
 > 範圍：`site/` 內的 Astro 實作遷移至 GitHub Pages 正式環境
-> 狀態：**Phase 1（遷移與建置）已完成，尚未切換線上部署來源**
+> 狀態：**Phase 1 完成並已上線**（commit `43bd460` + `dccca1d`，Pages 來源已切為 `workflow`）
 
 ---
 
@@ -112,7 +112,46 @@ GitHub Pages 無伺服器端 301，這是純靜態環境下的標準做法。
 
 ---
 
-## 四、部署切換計畫（**需業主授權後才執行**）
+## 四、實際切換紀錄（2026-11-09）
+
+### 執行的 commit
+
+| commit | 內容 |
+|--------|------|
+| `43bd460` | `feat: migrate site to Astro (A+C hybrid) with legacy URL redirects`（105 檔案，+9306 行）|
+| `dccca1d` | `fix: bump Pages workflow to Node 22 (Astro 7 requires >=22.23.4)` |
+
+### 切換過程中的兩個真實狀況
+
+1. **Actions 的 deploy 步驟會直接覆蓋已發布內容**，即使 Pages 設定仍是 `legacy`。
+   首次 workflow 成功後，線上已立即是新版 Astro build。
+   → **這代表「不切換」其實是不安全的**：下一次 push 觸發的 legacy 建置會把線上覆蓋回舊站。
+   因此 `build_type` 必須切成 `workflow`，否則新舊會互相覆蓋。
+2. **Astro 7 要求 Node ≥ 22.23.4**，workflow 原本寫 Node 20 導致首次建置失敗
+   （`Node.js v20.20.2 is not supported by Astro!`），已改為 Node 22。
+
+### 切換後的線上巡檢結果（`npm run live-check`，24 項全 PASS）
+
+| 項目 | 結果 |
+|------|------|
+| 16 個既有公開 URL | 全部 HTTP 200，無 404 |
+| 13 個站內轉址 | 實際導向的 pathname 與 fragment 全部正確（含 `other-tools.html` → `projects.html#external-tools`）|
+| `/search.html?q=壓槍` | 查詢字串保留，且篩選已套用（顯示 1 / 6 個專案）|
+| `/ocr-trigger-clicker.html` | 站外導向 `https://sid-1996.github.io/ocr-trigger-clicker/` 成功 |
+| `sitemap.xml` | 10 筆，內容頁 canonical 一致，無轉址頁 |
+| `robots.txt` / `ads.txt` / `humans.txt` | 內容與 repo 根目錄一致 |
+| 5 張頁型專屬 OG 圖 | `/images/og-*.png` 全部 200 |
+| `uploads/` 既有資產 | 抽查可正常取得 |
+| 首頁 H1 / 站內圖片 / 水平溢出 | H1 = 1、圖片全載入、overflow = 0 |
+| 專案列表篩選 / URL 同步 | 分類篩選可用，URL 同步為 `?category=battle` |
+| 行動版選單 | 可開啟、Esc 可關閉 |
+| Console 錯誤 | 0 |
+
+> 重跑方式：`cd site && npm run live-check`
+
+---
+
+## 五、部署切換計畫（**已執行**）
 
 切換前線上仍是 `main` 分支的 legacy 部署，`site/` 的任何變動對線上**零影響**。
 
@@ -145,7 +184,7 @@ GitHub Pages 無伺服器端 301，這是純靜態環境下的標準做法。
 
 ---
 
-## 五、風險與緩解
+## 六、風險與緩解
 
 | 風險 | 機率 | 影響 | 緩解 |
 |------|------|------|------|
@@ -157,7 +196,7 @@ GitHub Pages 無伺服器端 301，這是純靜態環境下的標準做法。
 
 ---
 
-## 六、Phase 2 待辦（切換後執行）
+## 七、Phase 2 待辦（切換後執行）
 
 1. **Google AdSense 版位位置**：待業主指定（首頁 / 專案詳細頁 / 列表頁）
 2. **舊篩選參數相容**：`automation-projects.html` 舊契約為 `?game=&task=&tech=&q=`，
@@ -171,13 +210,13 @@ GitHub Pages 無伺服器端 301，這是純靜態環境下的標準做法。
 
 ---
 
-## 七、待業主確認
+## 八、業主決策與待辦
 
-| # | 事項 | 狀態 |
-|---|------|------|
-| 1 | 是否 commit + push `site/` 與 `.github/workflows/pages.yml` | 待確認 |
-| 2 | 是否切換 Pages source 為 GitHub Actions | 待確認 |
-| 3 | 舊篩選參數 `?game=&task=` 是否需相容映射 | 待確認 |
-| 4 | 舊 `scripts/` 的 `xmlEscape` / `decodeEntities` bug 是否順手修正 | 待確認 |
+| # | 事項 | 決策 / 狀態 |
+|---|------|-------------|
+| 1 | commit + push `site/` 與 `.github/workflows/pages.yml` | ✅ 已執行（`43bd460`）|
+| 2 | 切換 Pages source 為 GitHub Actions | ✅ 已執行（`build_type: workflow`）|
+| 3 | 舊篩選參數 `?game=&task=` 相容映射 | ✅ 業主決定**不做**，舊參數讓其失效 |
+| 4 | 舊 `scripts/` 的 `xmlEscape` / `decodeEntities` bug 是否順手修正 | 待確認（不阻塞；根目錄舊 `.html` 已不對外提供服務）|
 | 5 | AdSense 版位位置 | 待指定 |
-| 6 | 根目錄舊 `.html` 的刪除時機 | 建議觀察期後 |
+| 6 | 根目錄舊 `.html` 的刪除時機 | 建議觀察期（7 天）後，搜尋引擎重新收錄完成再刪 |
